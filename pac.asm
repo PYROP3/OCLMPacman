@@ -22,14 +22,28 @@ TITLE PACOMANO
 	g4y		dw	0
 	g4m		db	0
 
-	map		db	"111111111100000001101101101101000101101111101100000001111111111$" ;9x7=63
+	;map		db	"111111111100000001101101101101000101101111101100000001111111111$" ;9x7=63
+	
+	map 	db 	1,1,1,1,1,1,1,1,1
+			db 	1,0,0,0,0,0,0,0,1
+			db 	1,0,1,1,0,1,1,0,1
+			db 	1,0,1,0,0,0,1,0,1
+			db 	1,0,1,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,0,1
+			db 	1,1,1,1,1,1,1,1,1
 
-	mapaddr	dw	?
+	mapaddr	dw	0h
 	sqrsz	dw	15
 	mapWid	dw	9
 
+	mapx	dw 	0
+	mapy	dw 	0
+
 	scrx	dw 	0
 	scry	dw 	0
+
+	curx	dw 	0
+	cury	dw 	0
 
 	ghostSpeeed	dw	6
 .code
@@ -44,21 +58,33 @@ xor ax,ax
 mov al,13h	;modo de vídeo
 int 10h
 
+;mov cx,sqrsz
+;mov dx,sqrsz
+
+call drawsqr
+
+mov scrx,16
+mov scry,0
+
+call drawsqr
+
 aga:
-call drawmap
-;call finalizar
 jmp aga
+
+call finalizar
 
 main endp
 
 drawmap proc
 mov cx,63	;mapWid x mapHei
-lea bx,map
+;lea bx,map
+xor bx,bx
+mov bl,map
 mov mapaddr,bx
 remap:
 push cx
 
-mov bx,[mapaddr]
+mov bx,[mapaddr] ;LER VALOR DO MAPA (CHAO OU PAREDE)
 cmp bx,30h
 jz drmapblk	;se for zero, printar preto
 mov dl,4	;AZUL?
@@ -73,6 +99,9 @@ call drawsqr
 
 findrawmap:
 inc mapaddr	;analisar próxima posição do mapa
+;inc mapaddr
+;inc mapaddr
+;inc mapaddr
 
 pop cx
 loop remap
@@ -80,47 +109,34 @@ loop remap
 ret
 drawmap endp
 
-drawsqr proc;bx = scrx, ax = scry
-mov bx,mapaddr
-call convnumtocoord
-mov scrx,bx
-mov scry,ax
+drawsqr proc;setar scrx e scry
+mov ah,0ch
+mov bh,1
+mov al,1 ;azul
 
 mov cx,sqrsz
-;push cx;counter y
-;push cx;counter x
+mov dx,sqrsz
 
-drawrow:
-push cx
-mov bx,scrx	;reseta a coluna (x = scrx)
-drawcol:
-push cx
-call drawpxl
-inc bx
-pop cx
-loop drawcol
+nextrow:
+mov cury,dx
+add dx,scry
 
-inc ax
-pop cx
-loop drawrow
+mov cx,sqrsz
+drawwrow:
+mov curx,cx
+add cx,scrx
+
+int 10h
+
+mov cx,curx
+loop drawwrow
+
+mov dx,cury
+sub dx,1
+jnz nextrow
 
 ret
 drawsqr endp
-
-drawpxl proc;setar ax = y, bx = x, dl = cor 
-mov cx,320 	;y x largura
-mul cx
-add ax,bx	; + x
-
-mov di,ax
-mov [es:di],dl
-
-ret
-drawpxl endp
-
-drawghost proc
-
-drawghost endp
 
 finalizar proc
 xor ax,ax
@@ -132,13 +148,4 @@ int 21h
 ret
 finalizar endp
 
-convnumtocoord proc	;bx = num => ax = coord y, bx = coord x 
-xor ax,ax
-subagain:
-sub bx,mapWid
-inc ax
-ja subagain
-add bx,mapWid
-ret
-convnumtocoord endp
 end main
