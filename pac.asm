@@ -34,7 +34,8 @@ TITLE PACOMANO
 
 	mapaddr	dw	0h
 	sqrsz	dw	15
-	mapWid	dw	9
+	ssqrsz	db 	16
+	mapWid	db	9
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -45,6 +46,9 @@ TITLE PACOMANO
 	curx	dw 	0
 	cury	dw 	0
 
+	temp 	db 	0
+	tempc	dw 	0
+	tempb 	dw  0
 	ghostSpeeed	dw	6
 .code
 main proc
@@ -61,12 +65,7 @@ int 10h
 ;mov cx,sqrsz
 ;mov dx,sqrsz
 
-call drawsqr
-
-mov scrx,16
-mov scry,0
-
-call drawsqr
+call drawmap
 
 aga:
 jmp aga
@@ -76,40 +75,58 @@ call finalizar
 main endp
 
 drawmap proc
-mov cx,63	;mapWid x mapHei
-;lea bx,map
-xor bx,bx
-mov bl,map
-mov mapaddr,bx
-remap:
-push cx
+mov bx,0
+mov cx,63 ;63 cells = 9 * 7
 
-mov bx,[mapaddr] ;LER VALOR DO MAPA (CHAO OU PAREDE)
-cmp bx,30h
-jz drmapblk	;se for zero, printar preto
-mov dl,4	;AZUL?
+drawnextcell:
+call convindextocoord
+
+cmp [map + bx],0
+je incr
+;mov tempc,cx
 call drawsqr
-
-
-jmp findrawmap
-
-drmapblk:
-mov dl,0	;PRETO?
-call drawsqr
-
-findrawmap:
-inc mapaddr	;analisar próxima posição do mapa
-;inc mapaddr
-;inc mapaddr
-;inc mapaddr
-
-pop cx
-loop remap
-
+incr:
+inc bx
+;mov cx,tempc
+loop drawnextcell
 ret
 drawmap endp
 
+convindextocoord proc; bx = index => scrx e scry
+mov ax,bx
+mov dl,mapWid
+div dl
+cbw
+mov dl,ssqrsz
+mul dl
+mov scry,ax
+
+mov ax,bx
+mov dl,mapWid
+div dl
+mov al,ah
+cbw
+mov dl,ssqrsz
+mul dl
+mov scrx,ax
+;mov temp,ah
+;xor ah,ah
+;mov dl,ssqrsz
+;mul dl
+;cbw
+;mov scry,ax
+;mov al,temp
+;mov dl,ssqrsz
+;mul dl
+;cbw
+;mov scrx,ax
+ret
+convindextocoord endp
+
 drawsqr proc;setar scrx e scry
+mov tempc,cx
+mov tempb,bx
+
 mov ah,0ch
 mov bh,1
 mov al,1 ;azul
@@ -134,6 +151,9 @@ loop drawwrow
 mov dx,cury
 sub dx,1
 jnz nextrow
+
+mov cx,tempc
+mov bx,tempb
 
 ret
 drawsqr endp
