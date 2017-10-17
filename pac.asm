@@ -4,38 +4,108 @@ TITLE PACOMANO
 .data
 	lives 	db	3
 	points	db	0
-	px		dw	0
-	py		dw 	0
+	px		dw	1
+	pxs		dw 	0
+	py		dw 	1
+	pys		dw 	0
 	pm 		db	0
-	pdir	db 	1 ;1 = esquerda, 2 = cima; 3 = direita; 4 = baixo
+	;pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
+	pboca	db 	0 ;0 = fechada; 1 = aberta
+	
+	;pac33	db 	00H,04H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
+	;		db 	00H,00H,00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H
+	;		db 	00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H
+	;		db 	00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H
+	;		db 	00H,00H,00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	00H,00H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
+	
+	pac33	db 	00H,00H,00H,0eH,0eH,00H,00H,00H
+			db 	00H,00H,0eH,04H,04H,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,00H,0eH,0eH,00H,00H,00H
 
 	g1x		dw	0
 	g1y		dw	0
+	;g1xs	dw	0
+	;g1ys	dw	0
 	g1m		db	0
 	g2x		dw	0
 	g2y		dw	0
+	;g2xs	dw	0
+	;g2ys	dw	0
 	g2m		db	0
 	g3x		dw	0
 	g3y		dw	0
+	;g3xs	dw	0
+	;g3ys	dw	0
 	g3m		db	0
 	g4x		dw	0
 	g4y		dw	0
+	;g4xs	dw	0
+	;g4ys	dw	0
 	g4m		db	0
 
 	;map		db	"111111111100000001101101101101000101101111101100000001111111111$" ;9x7=63
 	
-	map 	db 	1,1,1,1,1,1,1,1,1
-			db 	1,0,0,0,0,0,0,0,1
-			db 	1,0,1,1,0,1,1,0,1
-			db 	1,0,1,0,0,0,1,0,1
-			db 	1,0,1,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,0,1
-			db 	1,1,1,1,1,1,1,1,1
+	;map 	db 	1,1,1,1,1,1,1,1,1
+	;		db 	1,0,0,0,0,0,0,0,1
+	;		db 	1,0,1,1,0,1,1,0,1
+	;		db 	1,0,1,0,0,0,1,0,1
+	;		db 	1,0,1,1,1,1,1,0,1
+	;		db 	1,0,0,0,0,0,0,0,1
+	;		db 	1,1,1,1,1,1,1,1,1
+	
+	map		db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			db 	1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
+			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
+			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
+			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,1
+			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
+			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+			db 	1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,1,1
+			db 	1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1
+			db 	1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1
+			db 	1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1
+			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,1
+			db 	1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,0,0,1,1,0,1,1,0,1,1,1
+			db 	1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1
+			db 	1,0,0,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1
+			db 	1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1
+			db 	1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1
+			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+			db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+	
+	pmaps 	db 	0,0,0,0,0,0,0,0,0
+			db 	0,1,1,1,1,1,1,1,0
+			db 	0,1,0,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,1,0
+			db 	0,0,0,0,0,0,0,0,0
 
 	mapaddr	dw	0h
-	sqrsz	dw	15
-	ssqrsz	db 	16
-	mapWid	db	9
+	sqrsz	dw	7
+	ssqrsz	db 	8
+	mapWid	db	26
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -52,47 +122,281 @@ TITLE PACOMANO
 	ghostSpeeed	dw	6
 .code
 main proc
-mov ax,@data
-mov ds,ax
+	mov ax,@data
+	mov ds,ax
 
-mov ax,0a000h
-mov es,ax
+	mov ax,0a000h
+	mov es,ax
 
-xor ax,ax
-mov al,13h	;modo de vídeo
-int 10h
+	xor ax,ax
+	mov al,13h	;modo de vídeo
+	int 10h
 
 ;mov cx,sqrsz
 ;mov dx,sqrsz
 
-call drawmap
+	call drawmap
 
-aga:
-jmp aga
+	call setpacs
+	call drawpac
+	
+	mov ah,01h
+	int 21h
 
 call finalizar
-
 main endp
 
 drawmap proc
-mov bx,0
-mov cx,63 ;63 cells = 9 * 7
+	mov bx,0
+	mov cx,624 ;63 cells = 9 * 7
 
 drawnextcell:
-call convindextocoord
+	call convindextocoord
 
-cmp [map + bx],0
-je incr
+;cmp [map + bx],0
+;je incr
 ;mov tempc,cx
-call drawsqr
-incr:
-inc bx
+	call drawsqr
+;incr:
+	inc bx
 ;mov cx,tempc
-loop drawnextcell
-ret
+	loop drawnextcell
+	ret
 drawmap endp
 
 convindextocoord proc; bx = index => scrx e scry
+	mov ax,bx
+	mov dl,mapWid
+	div dl
+	cbw
+	mov dl,ssqrsz
+	mul dl
+	mov scry,ax
+	
+	mov ax,bx
+	mov dl,mapWid
+	div dl
+	mov al,ah
+	cbw
+	mov dl,ssqrsz
+	mul dl
+	mov scrx,ax
+	;OTIMIZAR?
+	;mov temp,ah
+	;xor ah,ah
+	;mov dl,ssqrsz
+	;mul dl
+	;cbw
+	;mov scry,ax
+	;mov al,temp
+	;mov dl,ssqrsz
+	;mul dl
+	;cbw
+	;mov scrx,ax
+	ret
+convindextocoord endp
+
+drawsqr proc;setar scrx e scry
+	mov al,[map + bx]
+	
+	mov tempc,cx
+	mov tempb,bx
+	
+	mov ah,0ch
+	mov bh,1
+	;mov al,1 ;azul
+	;mov al,[map + bx]
+	
+	mov cx,sqrsz
+	mov dx,sqrsz
+	
+nextrow:
+	mov cury,dx
+	add dx,scry
+	
+	mov cx,sqrsz
+	drawwrow:
+		mov curx,cx
+		add cx,scrx
+
+		int 10h
+
+		mov cx,curx
+		loop drawwrow
+
+	mov dx,cury
+	sub dx,1
+	jnz nextrow
+
+	mov cx,tempc
+	mov bx,tempb
+
+	ret
+drawsqr endp
+
+setpacs proc;setar px e py => pxs e pys
+mov ax,px
+mov dl,ssqrsz
+mul dl
+mov pxs,ax
+
+mov ax,py
+mov dl,ssqrsz
+mul dl
+mov pys,ax
+
+ret
+setpacs endp
+
+drawpac proc;setar pxs e pys
+	;mov al,[pac33 + bx]
+	
+	;mov tempc,cx
+	;mov tempb,bx
+	
+	;mov ah,0ch
+	;mov bh,1
+	;mov al,1 ;azul
+	;mov al,[map + bx]
+	
+	mov cx,sqrsz
+	mov dx,sqrsz
+	
+nextrowp:
+	mov cury,dx
+	add dx,pys
+	
+	mov cx,sqrsz
+	drawwrowp:
+		mov bl,8
+		mov ax,cx
+		sub ax,1
+		mul bl
+		
+		add al,dl
+		
+		cbw
+		mov bx,ax
+		;mov ax,dx
+		;mov dl*16
+		;add bx,cx
+		;mov tempc,cx
+		
+		mov al,[pac33+bx]
+		mov curx,cx
+		add cx,pxs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowp
+
+	mov dx,cury
+	sub dx,1
+	jnz nextrowp
+
+	;mov cx,tempc
+	;mov bx,tempb
+
+	ret
+drawpac endp
+
+
+;drawpacman proc
+;	mov ax,px
+;	mov bl,ssqrsz
+;	mul bl
+;	mov pxs,ax
+;	mov ax,py
+;	mov bl,ssqrsz
+;	mul bl
+;	mov pys,ax
+;	
+;	mov bx,0
+;	mov cx,256
+;	
+;	cmp pboca,0
+;	je fech
+;aber:
+;	mov al,[pac33 + bx]
+;	mov tempc,cx
+;	mov tempb,bx
+;	aline:
+;	mov ah,0ch
+;	mov bh,1
+;
+;	mov bx,tempb
+;	inc bx
+;	cmp bx,256
+;	;loop aber
+;	ret
+;fech:
+;	
+;	
+;
+;	inc bx
+;	loop fech
+;	ret
+;drawpacman endp
+
+;dp proc
+;mov al,[map + bx]
+;mov tempc,cx
+;mov tempb,bx
+
+;mov ah,0ch
+;mov bh,1
+;;mov al,1 ;azul
+;;mov al,[map + bx]
+
+;mov cx,sqrsz
+;mov dx,sqrsz
+
+;nextrow:
+;mov cury,dx
+;add dx,scry
+
+;mov cx,sqrsz
+;drawwrow:
+;mov curx,cx
+;add cx,scrx
+
+;int 10h
+
+;mov cx,curx
+;loop drawwrow
+
+;mov dx,cury
+;sub dx,1
+;jnz nextrow
+
+;mov cx,tempc
+;mov bx,tempb
+
+;ret
+
+;dp endp
+
+;movepacman proc
+;	cmp pdir,4
+;	je md4
+;	cmp pdir,3
+;	je md3
+;	cmp pdir,2
+;	je md2
+;	;else 1
+	
+;md2:
+
+;md3:
+
+;md4:
+
+;movepacman endp
+
+convpactocoord proc; bx = index => scrx e scry
 mov ax,bx
 mov dl,mapWid
 div dl
@@ -109,6 +413,7 @@ cbw
 mov dl,ssqrsz
 mul dl
 mov scrx,ax
+;OTIMIZAR?
 ;mov temp,ah
 ;xor ah,ah
 ;mov dl,ssqrsz
@@ -121,42 +426,7 @@ mov scrx,ax
 ;cbw
 ;mov scrx,ax
 ret
-convindextocoord endp
-
-drawsqr proc;setar scrx e scry
-mov tempc,cx
-mov tempb,bx
-
-mov ah,0ch
-mov bh,1
-mov al,1 ;azul
-
-mov cx,sqrsz
-mov dx,sqrsz
-
-nextrow:
-mov cury,dx
-add dx,scry
-
-mov cx,sqrsz
-drawwrow:
-mov curx,cx
-add cx,scrx
-
-int 10h
-
-mov cx,curx
-loop drawwrow
-
-mov dx,cury
-sub dx,1
-jnz nextrow
-
-mov cx,tempc
-mov bx,tempb
-
-ret
-drawsqr endp
+convpactocoord endp
 
 finalizar proc
 xor ax,ax
