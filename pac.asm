@@ -9,7 +9,7 @@ TITLE PACOMANO
 	py		dw 	1
 	pys		dw 	0
 	pm 		db	0
-	;pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
+	pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pboca	db 	0 ;0 = fechada; 1 = aberta
 	
 	;pac33	db 	00H,04H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
@@ -30,12 +30,12 @@ TITLE PACOMANO
 	;		db 	00H,00H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
 	
 	pac33	db 	00H,00H,00H,0eH,0eH,00H,00H,00H
-			db 	00H,00H,0eH,04H,04H,0eH,00H,00H
-			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
-			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
-			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
-			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
-			db 	00H,00H,0eH,0eH,0eH,0eH,00H,00H
+			db 	00H,00H,0eH,0eH,04H,04H,04H,04H
+			db 	00H,00H,0eH,0eH,0eH,04H,04H,06H
+			db 	00H,00H,0eH,0eH,0eH,0eH,04H,04H
+			db 	00H,00H,0eH,0eH,0eH,0eH,05H,00H
+			db 	00H,00H,0eH,0eH,0eH,05H,05H,00H
+			db 	00H,00H,0eH,0eH,05H,05H,05H,00H
 			db 	00H,00H,00H,0eH,0eH,00H,00H,00H
 
 	g1x		dw	0
@@ -118,6 +118,8 @@ TITLE PACOMANO
 
 	temp 	db 	0
 	tempc	dw 	0
+	ttt		dw	0
+	tttt	dw	0
 	tempb 	dw  0
 	ghostSpeeed	dw	6
 .code
@@ -135,10 +137,37 @@ main proc
 ;mov cx,sqrsz
 ;mov dx,sqrsz
 
+	mov cx,15
+	m:
+	mov ttt,cx
 	call drawmap
 
 	call setpacs
 	call drawpac
+
+	
+	;MOV     CX, 01H
+	;MOV     DX, 4240H
+	;MOV     AH, 86H
+	;INT     15H
+	
+	call movepacman
+	
+	;LOOP DE ESPERA
+	mov cx,5000
+	
+	t:
+	mov tttt,cx
+	mov cx,100
+	t2:
+	nop
+	loop t2
+	mov cx,tttt
+	loop t
+	;LOOP DE ESPERA
+	
+	mov cx,ttt
+	loop m
 	
 	mov ah,01h
 	int 21h
@@ -379,22 +408,39 @@ drawpac endp
 
 ;dp endp
 
-;movepacman proc
-;	cmp pdir,4
-;	je md4
-;	cmp pdir,3
-;	je md3
-;	cmp pdir,2
-;	je md2
-;	;else 1
+convpostoindex proc
+	mov ax,py
+	mov dl,mapWid
+	mul dl
+	cbw
+	add ax,px
+	mov bx,ax
+	ret
+convpostoindex endp
+
+movepacman proc
+	call convpostoindex
+	cmp pdir,4
+	je md4
+	cmp pdir,3
+	je md3
+	cmp pdir,2
+	je md2
+		;else 1
 	
-;md2:
+md2:
 
-;md3:
+md3:	;direita
+	add bx,1
+	cmp [map + bx],1
+	je endmove
+	add px,1
+	ret
+md4:
 
-;md4:
-
-;movepacman endp
+endmove:
+	ret
+movepacman endp
 
 convpactocoord proc; bx = index => scrx e scry
 mov ax,bx
