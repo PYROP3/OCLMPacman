@@ -4,12 +4,12 @@ TITLE PACOMANO
 .data
 	lives 	db	3
 	points	db	0
-	px		dw	1
+	px		dw	6
 	pxs		dw 	0
 	py		dw 	1
 	pys		dw 	0
 	pm 		db	0
-	pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
+	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pboca	db 	0 ;0 = fechada; 1 = aberta
 	
 	;pac33	db 	00H,04H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
@@ -106,6 +106,7 @@ TITLE PACOMANO
 	sqrsz	dw	7
 	ssqrsz	db 	8
 	mapWid	db	26
+	mapWidw	dw 	26
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -141,7 +142,8 @@ main proc
 	m:
 	mov ttt,cx
 	call drawmap
-
+	call turnpacman
+	call movepacman
 	call setpacs
 	call drawpac
 
@@ -151,7 +153,7 @@ main proc
 	;MOV     AH, 86H
 	;INT     15H
 	
-	call movepacman
+	;call movepacman
 	
 	;LOOP DE ESPERA
 	mov cx,5000
@@ -159,9 +161,9 @@ main proc
 	t:
 	mov tttt,cx
 	mov cx,100
-	t2:
+	t2t:
 	nop
-	loop t2
+	loop t2t
 	mov cx,tttt
 	loop t
 	;LOOP DE ESPERA
@@ -427,9 +429,17 @@ movepacman proc
 	cmp pdir,2
 	je md2
 		;else 1
-	
+	sub bx,1
+	cmp [map + bx],1
+	je endmove
+	sub px,1
+	ret
 md2:
-
+	sub bx,mapWidw
+	cmp [map + bx],1
+	je endmove
+	sub py,1
+	ret
 md3:	;direita
 	add bx,1
 	cmp [map + bx],1
@@ -437,10 +447,55 @@ md3:	;direita
 	add px,1
 	ret
 md4:
-
+	add bx,mapWidw
+	cmp [map + bx],1
+	je endmove
+	add py,1
+	ret
 endmove:
 	ret
 movepacman endp
+
+turnpacman proc
+	call convpostoindex
+
+	mov ah,01h 
+	int 16h		;check buffer
+	jz endturn	;no keypress
+
+	mov ah,00H
+	int 16h		;save to al
+
+	xor al,20h
+
+	cmp al,83	;S = down
+	je t4
+	cmp al,68 	;D = right
+	je t3
+	cmp al,87 	;W = up
+	je t2
+	cmp al,65 	;A = left
+	je t1
+	jmp endturn ;Unrecognized
+t1:			;esquerda
+	sub bx,1
+	cmp [map + bx],1
+	je endturn
+	mov pdir,1
+	ret
+t2:
+
+t3:			;direita
+	add bx,1
+	cmp [map + bx],1
+	je endturn
+	mov pdir,3
+	ret
+t4:
+
+endturn:
+	ret
+turnpacman endp
 
 convpactocoord proc; bx = index => scrx e scry
 mov ax,bx
