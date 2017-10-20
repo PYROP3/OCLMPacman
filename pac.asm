@@ -92,14 +92,47 @@ TITLE PACOMANO
 			db 	1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
 			db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-	pmap 	db 	0
-	pmaps 	db 	0,0,0,0,0,0,0,0,0
-			db 	0,1,1,1,1,1,1,1,0
-			db 	0,1,0,0,0,0,0,1,0
-			db 	0,1,0,0,0,0,0,1,0
-			db 	0,1,0,0,0,0,0,1,0
-			db 	0,1,1,1,1,1,1,1,0
-			db 	0,0,0,0,0,0,0,0,0
+
+	pmap 	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db 	0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,0,0,1,1,1,0,0,1,1,1,0,0,1,1,1,1,1,1,0
+			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0
+			db 	0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0
+			db 	0,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0
+			db 	0,1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0
+			db 	0,1,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0
+			db 	0,0,0,1,0,0,1,0,0,1,1,1,0,0,1,1,1,0,0,1,0,0,1,0,0,0
+			db 	0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0
+			db 	0,1,1,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,1,1,0
+			db 	0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0
+			db 	0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0
+			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+	spastil	db 	00h,00h,00h,00h,00h,00h,00h
+			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,00h,00h,00h,00h,00h,00h
+
+	pastil 	db 	00h,00h,00h,00h,00h,00h,00h
+			db 	00h,00h,00h,00h,00h,00h,00h
+			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,00h,00h,00h,00h,00h,00h
+			db 	00h,00h,00h,00h,00h,00h,00h	
 
 	mapaddr	dw	0h
 	sqrsz	dw	7
@@ -143,7 +176,18 @@ main proc
 	m:
 	mov ttt,cx
 	call drawmap
+	;call drawpastils
 	call turnpacman
+
+	;limpa o quadrado anterior
+	call setpacs
+	mov ax,pxs
+	mov scrx,ax
+	mov ax,pys
+	mov scry,ax
+	mov al,0
+	call drawsqr
+
 	call movepacman
 	call setpacs
 	call drawpac
@@ -187,11 +231,29 @@ drawnextcell:
 
 ;cmp [map + bx],0
 ;je incr
-;mov tempc,cx
+	mov tempc,cx
+	mov tempb,bx
+
+	;mov al,[map + bx]
+	cmp [map+bx],0
+	je mpast
+	mov al,1
 	call drawsqr
-;incr:
+	jmp incr
+mpast:
+	mov bx,tempb
+	cmp [pmap+bx],0
+	je incr 
+	;call drawpast
+	;;call pushall
+	call drawpast
+	;;call popall
+incr:
+	mov bx,tempb
 	inc bx
-;mov cx,tempc
+	
+	mov cx,tempc
+	
 	loop drawnextcell
 	ret
 drawmap endp
@@ -229,8 +291,6 @@ convindextocoord proc; bx = index => scrx e scry
 convindextocoord endp
 
 drawsqr proc;setar scrx e scry
-	mov al,[map + bx]
-	
 	mov tempc,cx
 	mov tempb,bx
 	
@@ -280,37 +340,9 @@ mov pys,ax
 ret
 setpacs endp
 
-;drawpac proc
-;	;mov cx,sqrsz
-;	mov dx,sqrsz
-;	nextrowp:
-;		mov cx,sqrsz
-;		nextcolp:
-;			mov tempc,cx
-;			mov tempd,dx
-;			call findcindex
-;			mov al,[pac33 + bx]
-;			mov cx,tempc
-;			mov dx,tempd
-;			add cx,pxs
-;			add dx,pys
-;
-;			mov ah,0ch
-;			mov bh,1
-;			int 10h
-;			mov cx,tempc
-;			loop nextcolp
-;		mov dx,tempd
-;		dec dx
-;		jnz nextrowp
-;ret
-;drawpac endp
-
 drawpac proc;setar pxs e pys	
 	mov cx,sqrsz
-	;add cx,py
 	mov dx,sqrsz
-	;add cx,1
 nextrowp:
 	mov cury,dx
 	add dx,pys
@@ -321,7 +353,6 @@ nextrowp:
 		mov bl,ssqrsz
 		sub bl,1
 		mov ax,dx
-		;sub ax,1
 		mul bl
 		
 		add al,cl
@@ -330,10 +361,6 @@ nextrowp:
 		mov bx,ax
 		sub bx,sqrsz
 		sub bx,1
-		;mov ax,dx
-		;mov dl*16
-		;add bx,cx
-		;mov tempc,cx
 		
 		mov al,[pac33+bx]
 
@@ -353,87 +380,51 @@ nextrowp:
 	sub dx,1
 	ja nextrowp
 
-	;mov cx,tempc
-	;mov bx,tempb
-
 	ret
 drawpac endp
 
+drawpast proc;setar scrx e scry
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowpas:
+	mov cury,dx
+	add dx,scry
+	
+	mov cx,sqrsz
+	drawwrowpas:
+		sub dx,scry
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[pastil+bx]
 
-;drawpacman proc
-;	mov ax,px
-;	mov bl,ssqrsz
-;	mul bl
-;	mov pxs,ax
-;	mov ax,py
-;	mov bl,ssqrsz
-;	mul bl
-;	mov pys,ax
-;	
-;	mov bx,0
-;	mov cx,256
-;	
-;	cmp pboca,0
-;	je fech
-;aber:
-;	mov al,[pac33 + bx]
-;	mov tempc,cx
-;	mov tempb,bx
-;	aline:
-;	mov ah,0ch
-;	mov bh,1
-;
-;	mov bx,tempb
-;	inc bx
-;	cmp bx,256
-;	;loop aber
-;	ret
-;fech:
-;	
-;	
-;
-;	inc bx
-;	loop fech
-;	ret
-;drawpacman endp
+		add dx,scry
 
-;dp proc
-;mov al,[map + bx]
-;mov tempc,cx
-;mov tempb,bx
+		mov curx,cx
+		add cx,scrx
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
 
-;mov ah,0ch
-;mov bh,1
-;;mov al,1 ;azul
-;;mov al,[map + bx]
+		mov cx,curx
+		loop drawwrowpas
 
-;mov cx,sqrsz
-;mov dx,sqrsz
+	mov dx,cury
+	sub dx,1
+	ja nextrowpas
 
-;nextrow:
-;mov cury,dx
-;add dx,scry
-
-;mov cx,sqrsz
-;drawwrow:
-;mov curx,cx
-;add cx,scrx
-
-;int 10h
-
-;mov cx,curx
-;loop drawwrow
-
-;mov dx,cury
-;sub dx,1
-;jnz nextrow
-
-;mov cx,tempc
-;mov bx,tempb
-
-;ret
-
-;dp endp
+	ret
+drawpast endp
 
 convpostoindex proc
 	mov ax,py
@@ -458,28 +449,42 @@ movepacman proc
 	cmp [map + bx],1
 	je endmove
 	sub px,1
+	call eatpast
 	ret
 md2:
 	sub bx,mapWidw
 	cmp [map + bx],1
 	je endmove
 	sub py,1
+	call eatpast
 	ret
 md3:	;direita
 	add bx,1
 	cmp [map + bx],1
 	je endmove
 	add px,1
+	call eatpast
 	ret
 md4:
 	add bx,mapWidw
 	cmp [map + bx],1
 	je endmove
 	add py,1
+	call eatpast
 	ret
 endmove:
 	ret
 movepacman endp
+
+eatpast proc
+	call convpostoindex
+	cmp [pmap + bx],0
+	je nopast
+	add points,10
+	mov [pmap + bx],0
+nopast:
+ret
+eatpast endp
 
 turnpacman proc
 	call convpostoindex
@@ -501,8 +506,6 @@ turnpacman proc
 	je t2
 	cmp al,65 	;A = left
 	je t1
-	cmp al,8
-	je fn
 	jmp endturn ;Unrecognized
 t1:			;esquerda
 	sub bx,1
@@ -510,7 +513,7 @@ t1:			;esquerda
 	je endturn
 	mov pdir,1
 	ret
-t2:
+t2:			;cima
 	sub bx,mapWidw
 	cmp [map + bx],1
 	je endmove
@@ -522,15 +525,12 @@ t3:			;direita
 	je endturn
 	mov pdir,3
 	ret
-t4:
+t4:			;baixo
 	add bx,mapWidw
 	cmp [map + bx],1
 	je endturn
 	mov pdir,4
 	ret
-fn:
-	call finalizar
-
 endturn:
 	ret
 turnpacman endp
