@@ -29,14 +29,13 @@ TITLE PACOMANO
 	;		db 	00H,00H,00H,00H,0eH,0eH,0eH,0eH,0eH,0eH,0eH,0eH,00H,00H,00H,00H
 	;		db 	00H,00H,00H,00H,00H,00H,0eH,0eH,0eH,0eH,00H,00H,00H,00H,00H,00H
 	
-	pac33	db 	00H,00H,00H,0eH,0eH,00H,00H,00H
-			db 	00H,00H,0eH,0eH,04H,04H,04H,04H
-			db 	00H,00H,0eH,0eH,0eH,04H,04H,06H
-			db 	00H,00H,0eH,0eH,0eH,0eH,04H,04H
-			db 	00H,00H,0eH,0eH,0eH,0eH,05H,00H
-			db 	00H,00H,0eH,0eH,0eH,05H,05H,00H
-			db 	00H,00H,0eH,0eH,05H,05H,05H,00H
-			db 	00H,00H,00H,0eH,0eH,00H,00H,00H
+	pac33	db 	00H,00H,0eH,0eH,0eH,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	0eH,0eH,0eH,0eH,00H,00H,00H
+			db 	0eH,0eH,0eH,00H,00H,00H,00H
+			db 	0eH,0eH,0eH,0eH,00H,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,0eH,0eH,0eH,00H,00H
 
 	g1x		dw	0
 	g1y		dw	0
@@ -93,7 +92,7 @@ TITLE PACOMANO
 			db 	1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
 			db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-	
+	pmap 	db 	0
 	pmaps 	db 	0,0,0,0,0,0,0,0,0
 			db 	0,1,1,1,1,1,1,1,0
 			db 	0,1,0,0,0,0,0,1,0
@@ -122,6 +121,8 @@ TITLE PACOMANO
 	ttt		dw	0
 	tttt	dw	0
 	tempb 	dw  0
+	tempa 	dw  0
+	tempd 	dw 	0
 	ghostSpeeed	dw	6
 .code
 main proc
@@ -138,7 +139,7 @@ main proc
 ;mov cx,sqrsz
 ;mov dx,sqrsz
 
-	mov cx,15
+	mov cx,35
 	m:
 	mov ttt,cx
 	call drawmap
@@ -279,41 +280,65 @@ mov pys,ax
 ret
 setpacs endp
 
-drawpac proc;setar pxs e pys
-	;mov al,[pac33 + bx]
-	
-	;mov tempc,cx
-	;mov tempb,bx
-	
-	;mov ah,0ch
-	;mov bh,1
-	;mov al,1 ;azul
-	;mov al,[map + bx]
-	
+;drawpac proc
+;	;mov cx,sqrsz
+;	mov dx,sqrsz
+;	nextrowp:
+;		mov cx,sqrsz
+;		nextcolp:
+;			mov tempc,cx
+;			mov tempd,dx
+;			call findcindex
+;			mov al,[pac33 + bx]
+;			mov cx,tempc
+;			mov dx,tempd
+;			add cx,pxs
+;			add dx,pys
+;
+;			mov ah,0ch
+;			mov bh,1
+;			int 10h
+;			mov cx,tempc
+;			loop nextcolp
+;		mov dx,tempd
+;		dec dx
+;		jnz nextrowp
+;ret
+;drawpac endp
+
+drawpac proc;setar pxs e pys	
 	mov cx,sqrsz
+	;add cx,py
 	mov dx,sqrsz
-	
+	;add cx,1
 nextrowp:
 	mov cury,dx
 	add dx,pys
 	
 	mov cx,sqrsz
 	drawwrowp:
-		mov bl,8
-		mov ax,cx
-		sub ax,1
+		sub dx,pys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		;sub ax,1
 		mul bl
 		
-		add al,dl
+		add al,cl
 		
 		cbw
 		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
 		;mov ax,dx
 		;mov dl*16
 		;add bx,cx
 		;mov tempc,cx
 		
 		mov al,[pac33+bx]
+
+		add dx,pys
+
 		mov curx,cx
 		add cx,pxs
 		
@@ -326,7 +351,7 @@ nextrowp:
 
 	mov dx,cury
 	sub dx,1
-	jnz nextrowp
+	ja nextrowp
 
 	;mov cx,tempc
 	;mov bx,tempb
@@ -414,7 +439,7 @@ convpostoindex proc
 	mov ax,py
 	mov dl,mapWid
 	mul dl
-	cbw
+	;cbw
 	add ax,px
 	mov bx,ax
 	ret
@@ -476,6 +501,8 @@ turnpacman proc
 	je t2
 	cmp al,65 	;A = left
 	je t1
+	cmp al,8
+	je fn
 	jmp endturn ;Unrecognized
 t1:			;esquerda
 	sub bx,1
@@ -484,7 +511,11 @@ t1:			;esquerda
 	mov pdir,1
 	ret
 t2:
-
+	sub bx,mapWidw
+	cmp [map + bx],1
+	je endmove
+	mov pdir,2
+	ret
 t3:			;direita
 	add bx,1
 	cmp [map + bx],1
@@ -492,6 +523,13 @@ t3:			;direita
 	mov pdir,3
 	ret
 t4:
+	add bx,mapWidw
+	cmp [map + bx],1
+	je endturn
+	mov pdir,4
+	ret
+fn:
+	call finalizar
 
 endturn:
 	ret
@@ -529,6 +567,29 @@ mov scrx,ax
 ret
 convpactocoord endp
 
+drawpoints proc
+	mov bx,0
+	mov cx,624 ;63 cells = 9 * 7
+
+drawnextcellpoints:
+	call convindextocoord
+
+	cmp [pmap + bx],0
+	je incrpoints
+;mov tempc,cx
+	call drawpoint
+	incrpoints:
+	inc bx
+;mov cx,tempc
+	loop drawnextcellpoints
+ret
+drawpoints endp
+
+drawpoint proc
+	
+ret
+drawpoint endp
+
 finalizar proc
 xor ax,ax
 mov al,3h	;modo de texto normal
@@ -538,5 +599,21 @@ mov ah,4ch	;encerra prog
 int 21h
 ret
 finalizar endp
+
+pushall proc
+mov tempa,ax
+mov tempb,bx
+mov tempc,cx
+mov tempd,dx
+ret
+pushall endp
+
+popall proc
+mov ax,tempa
+mov bx,tempb
+mov cx,tempc
+mov dx,tempd
+ret
+popall endp
 
 end main
