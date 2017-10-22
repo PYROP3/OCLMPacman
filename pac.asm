@@ -138,6 +138,30 @@ TITLE PACOMANO
 			db 	00h,00h,0fh,0fh,0fh,00h,00h
 			db 	00h,00h,00h,00h,00h,00h,00h
 
+	spastil1x 	dw 	3
+	spastil1y 	dw 	10
+	spastil1xs 	dw 	0
+	spastil1ys 	dw 	0
+	spastil1ex 	dw 	1
+
+	spastil2x 	dw 	22
+	spastil2y 	dw 	10
+	spastil2xs 	dw 	0
+	spastil2ys 	dw 	0
+	spastil2ex 	dw 	1
+
+	spastil3x 	dw 	24
+	spastil3y 	dw 	19
+	spastil3xs 	dw 	0
+	spastil3ys 	dw 	0
+	spastil3ex 	dw 	1
+
+	spastil4x 	dw 	1
+	spastil4y 	dw 	19
+	spastil4xs 	dw 	0
+	spastil4ys 	dw 	0
+	spastil4ex 	dw 	1
+
 	pastil 	db 	00h,00h,00h,00h,00h,00h,00h
 			db 	00h,00h,00h,00h,00h,00h,00h
 			db 	00h,00h,00h,0fh,00h,00h,00h
@@ -213,9 +237,8 @@ main proc
 	mov al,13h	;modo de vídeo
 	int 10h
 
-;mov cx,sqrsz
-;mov dx,sqrsz
 	call setcherrys
+	call setspastilss
 
 	mov cx,35
 	m:
@@ -223,6 +246,7 @@ main proc
 	call drawmap
 	call eatcherry1
 	call drawcherries
+	call drawspastils
 	;call drawpastils
 	call turnpacman
 
@@ -241,15 +265,6 @@ main proc
 	
 	call moveghosts
 	call drawghosts
-	;call moveghost1
-	;call drawghost1
-	
-	;MOV     CX, 01H
-	;MOV     DX, 4240H
-	;MOV     AH, 86H
-	;INT     15H
-	
-	;call movepacman
 	
 	;LOOP DE ESPERA
 	mov cx,5000
@@ -599,65 +614,6 @@ endturn:
 	ret
 turnpacman endp
 
-;convpactocoord proc; bx = index => scrx e scry
-;mov ax,bx
-;mov dl,mapWid
-;div dl
-;cbw
-;mov dl,ssqrsz
-;mul dl
-;mov scry,ax
-
-;mov ax,bx
-;mov dl,mapWid
-;div dl
-;mov al,ah
-;cbw
-;mov dl,ssqrsz
-;mul dl
-;mov scrx,ax
-;;OTIMIZAR?
-;;mov temp,ah
-;;xor ah,ah
-;;mov dl,ssqrsz
-;;mul dl
-;;cbw
-;;mov scry,ax
-;;mov al,temp
-;;mov dl,ssqrsz
-;;mul dl
-;;cbw
-;;mov scrx,ax
-;ret
-;convpactocoord endp
-
-;drawpoints proc
-;	mov bx,0
-;	mov cx,624 ;63 cells = 9 * 7
-;
-;drawnextcellpoints:
-;	call convindextocoord
-;
-;	cmp [pmap + bx],0
-;	je noth
-;;mov tempc,cx
-;	call drawpoint
-;	jmp incrpoints
-;noth:
-;	;call setpacs
-;	mov ax,pxs
-;	mov scrx,ax
-;	mov ax,pys
-;	mov scry,ax
-;	mov al,0
-;	call drawsqr
-;incrpoints:
-;	inc bx
-;;mov cx,tempc
-;	loop drawnextcellpoints
-;ret
-;drawpoints endp
-
 setghost1s proc
 mov ax,g1x
 mov dl,ssqrsz
@@ -671,6 +627,7 @@ mov g1ys,ax
 
 ret
 setghost1s endp
+
 setghost2s proc
 mov ax,g2x
 mov dl,ssqrsz
@@ -684,6 +641,7 @@ mov g2ys,ax
 
 ret
 setghost2s endp
+
 setghost3s proc
 mov ax,g3x
 mov dl,ssqrsz
@@ -697,6 +655,7 @@ mov g3ys,ax
 
 ret
 setghost3s endp
+
 setghost4s proc
 mov ax,g4x
 mov dl,ssqrsz
@@ -755,6 +714,7 @@ nextrowg1:
 
 ret
 drawghost1 endp
+
 drawghost2 proc
 	call setghost2s
 
@@ -799,6 +759,7 @@ nextrowg2:
 
 ret
 drawghost2 endp
+
 drawghost3 proc
 	call setghost3s
 
@@ -843,6 +804,7 @@ nextrowg3:
 
 ret
 drawghost3 endp
+
 drawghost4 proc
 	call setghost4s
 
@@ -914,6 +876,7 @@ convg1toindex proc
 	ret
 ret
 convg1toindex endp
+
 convg2toindex proc
 	mov ax,g2y
 	mov dl,mapWid
@@ -924,6 +887,7 @@ convg2toindex proc
 	ret
 ret
 convg2toindex endp
+
 convg3toindex proc
 	mov ax,g3y
 	mov dl,mapWid
@@ -934,6 +898,7 @@ convg3toindex proc
 	ret
 ret
 convg3toindex endp
+
 convg4toindex proc
 	mov ax,g4y
 	mov dl,mapWid
@@ -1137,37 +1102,30 @@ setcherrys proc
 	mov cherry1xs,ax
 
 	mov ax,cherry1y
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry1ys,ax
 
 	mov ax,cherry2x
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry2xs,ax
 
 	mov ax,cherry2y
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry2ys,ax
 
 	mov ax,cherry3x
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry3xs,ax
 
 	mov ax,cherry3y
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry3ys,ax
 
 	mov ax,cherry4x
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry4xs,ax
 
 	mov ax,cherry4y
-	;mov dl,ssqrsz
 	mul dl
 	mov cherry4ys,ax
 
@@ -1413,6 +1371,212 @@ eatcherry4 proc
 cherry4safe:
 ret
 eatcherry4 endp
+
+setspastilss proc
+	mov dl,ssqrsz
+	mov ax,spastil1x
+	mul dl
+	mov spastil1xs,ax
+	mov ax,spastil1y
+	mul dl
+	mov spastil1ys,ax
+
+	mov dl,ssqrsz
+	mov ax,spastil2x
+	mul dl
+	mov spastil2xs,ax
+	mov ax,spastil2y
+	mul dl
+	mov spastil2ys,ax
+
+	mov dl,ssqrsz
+	mov ax,spastil3x
+	mul dl
+	mov spastil3xs,ax
+	mov ax,spastil3y
+	mul dl
+	mov spastil3ys,ax
+
+	mov dl,ssqrsz
+	mov ax,spastil4x
+	mul dl
+	mov spastil4xs,ax
+	mov ax,spastil4y
+	mul dl
+	mov spastil4ys,ax
+ret
+setspastilss endp
+
+drawspastils proc
+	cmp spastil1ex,0
+	je skipspastil1
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowsp1:
+	mov cury,dx
+	add dx,spastil1ys
+	
+	mov cx,sqrsz
+	drawwrowsp1:
+		sub dx,spastil1ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[spastil+bx]
+
+		add dx,spastil1ys
+
+		mov curx,cx
+		add cx,spastil1xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowsp1
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowsp1
+skipspastil1:
+	cmp spastil2ex,0
+	je skipspastil2
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowsp2:
+	mov cury,dx
+	add dx,spastil2ys
+	
+	mov cx,sqrsz
+	drawwrowsp2:
+		sub dx,spastil2ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[spastil+bx]
+
+		add dx,spastil2ys
+
+		mov curx,cx
+		add cx,spastil2xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowsp2
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowsp2
+skipspastil2:
+	cmp spastil3ex,0
+	je skipspastil3
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowsp3:
+	mov cury,dx
+	add dx,spastil3ys
+	
+	mov cx,sqrsz
+	drawwrowsp3:
+		sub dx,spastil3ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[spastil+bx]
+
+		add dx,spastil3ys
+
+		mov curx,cx
+		add cx,spastil3xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowsp3
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowsp3
+skipspastil3:
+	cmp spastil4ex,0
+	je skipspastil4
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowsp4:
+	mov cury,dx
+	add dx,spastil4ys
+	
+	mov cx,sqrsz
+	drawwrowsp4:
+		sub dx,spastil4ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[spastil+bx]
+
+		add dx,spastil4ys
+
+		mov curx,cx
+		add cx,spastil4xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowsp4
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowsp4
+skipspastil4:
+ret
+drawspastils endp
 
 drawscore proc
 
