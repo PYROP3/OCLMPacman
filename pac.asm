@@ -27,13 +27,13 @@ TITLE PACOMANO
 	g1m		db	0
 	g1d 	dw 	3
 
-	ghost1 	db 	0h,0h,0h,0ch,0h,0h,0h
-			db 	0h,0h,0ch,0ch,0ch,0h,0h
-			db 	0h,0ch,0ch,0ch,0ch,0ch,0h
+	ghost1 	db 	00h,00h,0ch,0ch,0ch,00h,00h
+			db 	00h,0fh,0fh,0ch,0fh,0fh,00h
+			db 	09h,09h,0fh,0ch,0fh,09h,09h
+			db 	09h,09h,0ch,0ch,0ch,09h,09h
+			db 	0fh,0fh,0ch,0ch,0ch,0fh,0fh
 			db 	0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db 	0h,0ch,0ch,0ch,0ch,0ch,0h
-			db 	0h,0h,0ch,0ch,0ch,0h,0h
-			db 	0h,0h,0h,0ch,0h,0h,0h
+			db 	0ch,00h,00h,0ch,00h,00h,0ch
 	
 	g2x		dw	19
 	g2y		dw	4
@@ -42,13 +42,13 @@ TITLE PACOMANO
 	g2m		db	0
 	g2d 	dw 	3
 
-	ghost2 	db 	0h,0h,0h,0ah,0h,0h,0h
-			db 	0h,0h,0ah,0ah,0ah,0h,0h
-			db 	0h,0ah,0ah,0ah,0ah,0ah,0h
-			db 	0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db 	0h,0ah,0ah,0ah,0ah,0ah,0h
-			db 	0h,0h,0ah,0ah,0ah,0h,0h
-			db 	0h,0h,0h,0ah,0h,0h,0h
+	ghost2 	db 	00h,00h,0dh,0dh,0dh,00h,00h
+			db 	00h,0fh,0fh,0dh,0fh,0fh,00h
+			db 	09h,09h,0fh,0dh,0fh,09h,09h
+			db 	09h,09h,0dh,0dh,0dh,09h,09h
+			db 	0fh,0fh,0dh,0dh,0dh,0fh,0fh
+			db 	0dh,0dh,0dh,0dh,0dh,0dh,0dh
+			db 	0dh,00h,00h,0dh,00h,00h,0dh
 	
 	g3x		dw	6
 	g3y		dw	18
@@ -57,13 +57,13 @@ TITLE PACOMANO
 	g3m		db	0
 	g3d 	dw 	3
 
-	ghost3 	db 	0h,0h,0h,0dh,0h,0h,0h
-			db 	0h,0h,0dh,0dh,0dh,0h,0h
-			db 	0h,0dh,0dh,0dh,0dh,0dh,0h
-			db 	0dh,0dh,0dh,0dh,0dh,0dh,0dh
-			db 	0h,0dh,0dh,0dh,0dh,0dh,0h
-			db 	0h,0h,0dh,0dh,0dh,0h,0h
-			db 	0h,0h,0h,0dh,0h,0h,0h
+	ghost3 	db 	00h,00h,0ah,0ah,0ah,00h,00h
+			db 	00h,0fh,0fh,0ah,0fh,0fh,00h
+			db 	09h,09h,0fh,0ah,0fh,09h,09h
+			db 	09h,09h,0ah,0ah,0ah,09h,09h
+			db 	0fh,0fh,0ah,0ah,0ah,0fh,0fh
+			db 	0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db 	0ah,00h,00h,0ah,00h,00h,0ah
 
 	g4x		dw	19
 	g4y		dw	18
@@ -72,13 +72,13 @@ TITLE PACOMANO
 	g4m		db	0
 	g4d 	dw 	3
 
-	ghost4 	db 	0h,0h,0h,0bh,0h,0h,0h
-			db 	0h,0h,0bh,0bh,0bh,0h,0h
-			db 	0h,0bh,0bh,0bh,0bh,0bh,0h
+	ghost4 	db 	00h,00h,0bh,0bh,0bh,00h,00h
+			db 	00h,0fh,0fh,0bh,0fh,0fh,00h
+			db 	09h,09h,0fh,0bh,0fh,09h,09h
+			db 	09h,09h,0bh,0bh,0bh,09h,09h
+			db 	0fh,0fh,0bh,0bh,0bh,0fh,0fh
 			db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
-			db 	0h,0bh,0bh,0bh,0bh,0bh,0h
-			db 	0h,0h,0bh,0bh,0bh,0h,0h
-			db 	0h,0h,0h,0bh,0h,0h,0h
+			db 	0bh,00h,00h,0bh,00h,00h,0bh
 	
 	map		db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db 	1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
@@ -140,11 +140,43 @@ TITLE PACOMANO
 
 	pastil 	db 	00h,00h,00h,00h,00h,00h,00h
 			db 	00h,00h,00h,00h,00h,00h,00h
+			db 	00h,00h,00h,0fh,00h,00h,00h
 			db 	00h,00h,0fh,0fh,0fh,00h,00h
-			db 	00h,00h,0fh,0fh,0fh,00h,00h
-			db 	00h,00h,0fh,0fh,0fh,00h,00h
+			db 	00h,00h,00h,0fh,00h,00h,00h
 			db 	00h,00h,00h,00h,00h,00h,00h
-			db 	00h,00h,00h,00h,00h,00h,00h	
+			db 	00h,00h,00h,00h,00h,00h,00h
+
+	cherry 	db 	00h,00h,00h,0ah,0ah,0ah,00h
+			db 	00h,00h,0ah,0ah,00h,00h,00h
+			db 	00h,00h,0ah,00h,04h,04h,00h
+			db 	00h,0ch,0ch,04h,04h,04h,04h
+			db 	0ch,0ch,0ch,0ch,04h,04h,04h
+			db 	0ch,0ch,0ch,0ch,04h,04h,00h
+			db 	00h,0ch,0ch,00h,00h,00h,00h
+
+	cherry1x 	dw 	1
+	cherry1y 	dw 	4
+	cherry1xs 	dw 	0
+	cherry1ys 	dw 	0
+	cherry1ex 	dw 	1
+
+	cherry2x 	dw 	24
+	cherry2y 	dw 	4
+	cherry2xs 	dw 	0
+	cherry2ys 	dw 	0
+	cherry2ex 	dw 	1
+
+	cherry3x 	dw 	3
+	cherry3y 	dw 	19
+	cherry3xs 	dw 	0
+	cherry3ys 	dw 	0
+	cherry3ex 	dw 	1
+
+	cherry4x 	dw 	22
+	cherry4y 	dw 	19
+	cherry4xs 	dw 	0
+	cherry4ys 	dw 	0
+	cherry4ex 	dw 	1
 
 	mapaddr	dw	0h
 	sqrsz	dw	7
@@ -183,11 +215,14 @@ main proc
 
 ;mov cx,sqrsz
 ;mov dx,sqrsz
+	call setcherrys
 
 	mov cx,35
 	m:
 	mov ttt,cx
 	call drawmap
+	call eatcherry1
+	call drawcherries
 	;call drawpastils
 	call turnpacman
 
@@ -1094,6 +1129,290 @@ turnghost4 proc
 	noOverflowG4:
 ret
 turnghost4 endp
+
+setcherrys proc
+	mov ax,cherry1x
+	mov dl,ssqrsz
+	mul dl
+	mov cherry1xs,ax
+
+	mov ax,cherry1y
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry1ys,ax
+
+	mov ax,cherry2x
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry2xs,ax
+
+	mov ax,cherry2y
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry2ys,ax
+
+	mov ax,cherry3x
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry3xs,ax
+
+	mov ax,cherry3y
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry3ys,ax
+
+	mov ax,cherry4x
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry4xs,ax
+
+	mov ax,cherry4y
+	;mov dl,ssqrsz
+	mul dl
+	mov cherry4ys,ax
+
+ret
+setcherrys endp
+
+drawcherries proc
+	cmp cherry1ex,0
+	je skipcherry1
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowc1:
+	mov cury,dx
+	add dx,cherry1ys
+	
+	mov cx,sqrsz
+	drawwrowc1:
+		sub dx,cherry1ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[cherry+bx]
+
+		add dx,cherry1ys
+
+		mov curx,cx
+		add cx,cherry1xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowc1
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowc1
+skipcherry1:
+	cmp cherry2ex,0
+	je skipcherry2
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowc2:
+	mov cury,dx
+	add dx,cherry2ys
+	
+	mov cx,sqrsz
+	drawwrowc2:
+		sub dx,cherry2ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[cherry+bx]
+
+		add dx,cherry2ys
+
+		mov curx,cx
+		add cx,cherry2xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowc2
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowc2
+skipcherry2:
+	cmp cherry3ex,0
+	je skipcherry3
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowc3:
+	mov cury,dx
+	add dx,cherry3ys
+	
+	mov cx,sqrsz
+	drawwrowc3:
+		sub dx,cherry3ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[cherry+bx]
+
+		add dx,cherry3ys
+
+		mov curx,cx
+		add cx,cherry3xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowc3
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowc3
+skipcherry3:
+	cmp cherry4ex,0
+	je skipcherry4
+
+	mov cx,sqrsz
+	mov dx,sqrsz
+nextrowc4:
+	mov cury,dx
+	add dx,cherry4ys
+	
+	mov cx,sqrsz
+	drawwrowc4:
+		sub dx,cherry4ys
+		mov bl,ssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		cbw
+		mov bx,ax
+		sub bx,sqrsz
+		sub bx,1
+		
+		mov al,[cherry+bx]
+
+		add dx,cherry4ys
+
+		mov curx,cx
+		add cx,cherry4xs
+		
+		mov ah,0ch
+		mov bh,1
+		int 10h
+
+		mov cx,curx
+		loop drawwrowc4
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowc4
+skipcherry4:
+ret
+drawcherries endp
+
+eatcherry1 proc
+	cmp cherry1ex,1
+	jne cherry1safe
+
+	mov ax,px
+	cmp cherry1x,ax
+	jne cherry1safe
+	
+	mov ax,py
+	cmp cherry1y,ax
+	jne cherry1safe
+
+	add points,50
+	mov cherry1ex,0
+cherry1safe:
+ret
+eatcherry1 endp
+eatcherry2 proc
+	cmp cherry2ex,1
+	jne cherry2safe
+
+	mov ax,px
+	cmp cherry2x,ax
+	jne cherry2safe
+	
+	mov ax,py
+	cmp cherry2y,ax
+	jne cherry2safe
+
+	add points,50
+	mov cherry2ex,0
+cherry2safe:
+ret
+eatcherry2 endp
+eatcherry3 proc
+	cmp cherry3ex,1
+	jne cherry3safe
+
+	mov ax,px
+	cmp cherry3x,ax
+	jne cherry3safe
+	
+	mov ax,py
+	cmp cherry3y,ax
+	jne cherry3safe
+
+	add points,50
+	mov cherry3ex,0
+cherry3safe:
+ret
+eatcherry3 endp
+eatcherry4 proc
+	cmp cherry4ex,1
+	jne cherry4safe
+
+	mov ax,px
+	cmp cherry4x,ax
+	jne cherry4safe
+	
+	mov ax,py
+	cmp cherry4y,ax
+	jne cherry4safe
+
+	add points,50
+	mov cherry4ex,0
+cherry4safe:
+ret
+eatcherry4 endp
 
 drawscore proc
 
