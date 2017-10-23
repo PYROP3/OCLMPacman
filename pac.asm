@@ -219,8 +219,12 @@ TITLE PACOMANO
 
 	temp 	db 	0
 	tempc	dw 	0
+	
 	ttt		dw	0
 	tttt	dw	0
+
+	waitloops	dw	0
+	
 	tempb 	dw  0
 	tempa 	dw  0
 	tempd 	dw 	0
@@ -240,11 +244,12 @@ main proc
 	call setcherrys
 	call setspastilss
 
-	mov cx,35
+	mov cx,50	;loops to execute (debug only)
 	m:
 	mov ttt,cx
 	call drawmap
-	call eatcherry1
+	call eatcherries
+
 	call drawcherries
 	call drawspastils
 	;call drawpastils
@@ -260,11 +265,13 @@ main proc
 	;call drawsqr
 
 	call movepacman
-	call setpacs
+	;call setpacs
 	call drawpac
-	
+	call collidewithghosts
+
 	call moveghosts
 	call drawghosts
+	call collidewithghosts
 	
 	;LOOP DE ESPERA
 	mov cx,5000
@@ -287,6 +294,15 @@ main proc
 
 call finalizar
 main endp
+
+draweverything proc
+	call drawmap
+	call drawcherries
+	call drawspastils
+	call drawpac
+	call drawghosts
+ret
+draweverything endp
 
 drawmap proc
 	mov bx,0
@@ -420,6 +436,8 @@ ret
 setpacs endp
 
 drawpac proc;setar pxs e pys	
+	call setpacs
+
 	mov cx,sqrsz
 	mov dx,sqrsz
 nextrowp:
@@ -1095,6 +1113,103 @@ turnghost4 proc
 ret
 turnghost4 endp
 
+collidewithghosts proc
+	mov ax,g1x
+	cmp ax,px
+	jne nocollisiong1
+	mov ax,g1y
+	cmp ax,py
+	jne nocollisiong1
+	
+	cmp pm,0
+	je takedamagejump
+	;else eat and add points
+	mov g1x,13
+	mov g1y,13
+	mov g1d,2
+	add points,200
+nocollisiong1:
+	mov ax,g2x
+	cmp ax,px
+	jne nocollisiong2
+	mov ax,g2y
+	cmp ax,py
+	jne nocollisiong2
+	
+	cmp pm,0
+	je takedamage
+	;else eat and add points
+	mov g2x,13
+	mov g2y,13
+	mov g2d,2
+	add points,200
+	jmp nocollisiong2
+takedamagejump:
+	jmp takedamage
+nocollisiong2:
+	mov ax,g3x
+	cmp ax,px
+	jne nocollisiong3
+	mov ax,g3y
+	cmp ax,py
+	jne nocollisiong3
+	
+	cmp pm,0
+	je takedamage
+	;else eat and add points
+	mov g3x,13
+	mov g3y,13
+	mov g3d,2
+	add points,200
+nocollisiong3:
+	mov ax,g4x
+	cmp ax,px
+	jne nocollisiong4
+	mov ax,g4y
+	cmp ax,py
+	jne nocollisiong4
+	
+	cmp pm,0
+	je takedamage
+	;else eat and add points
+	mov g4x,13
+	mov g4y,13
+	mov g4d,2
+	add points,200
+nocollisiong4:
+
+ret
+takedamage:
+	sub lives,1
+	jz pacmandied
+	call resetpositions
+	mov waitloops,3000
+	call draweverything
+ret
+pacmandied:
+	;handle gameover
+	call finalizar
+ret
+collidewithghosts endp
+
+resetpositions proc
+	mov px,6
+	mov py,1
+
+	mov g1x,6
+	mov g1y,12
+
+	mov g2x,19
+	mov g2y,4
+	
+	mov g3x,6
+	mov g3y,18
+	
+	mov g4x,19
+	mov g4y,18
+ret
+resetpositions endp
+
 setcherrys proc
 	mov ax,cherry1x
 	mov dl,ssqrsz
@@ -1371,6 +1486,14 @@ eatcherry4 proc
 cherry4safe:
 ret
 eatcherry4 endp
+
+eatcherries proc
+	call eatcherry1
+	call eatcherry2
+	call eatcherry3
+	call eatcherry4
+ret
+eatcherries endp
 
 setspastilss proc
 	mov dl,ssqrsz
