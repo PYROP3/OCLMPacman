@@ -247,6 +247,22 @@ main proc
 	mov cx,50	;loops to execute (debug only)
 	m:
 	mov ttt,cx
+	
+	cmp waitloops,0
+	je skipwait
+	mov cx,waitloops
+	
+	tw:
+	mov tttt,cx
+	mov cx,waitloops
+	t2tw:
+	nop
+	loop t2tw
+	mov cx,tttt
+	loop tw
+	mov waitloops,0
+skipwait:
+
 	call drawmap
 	call eatcherries
 
