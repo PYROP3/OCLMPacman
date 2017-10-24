@@ -3,11 +3,20 @@ TITLE PACOMANO
 .stack 0100h
 .data
 	lives 	db	3
-	points	db	0
+	points	dw	0
+
 	px		dw	6
+	prevpx 	dw 	6
 	pxs		dw 	0
+	prevpxs dw 	0
 	py		dw 	1
+	prevpy	dw 	1
 	pys		dw 	0
+	prevpys	dw 	0
+
+	pindex 	dw 	0
+	prevpin	dw 	0
+
 	pm 		db	0
 	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pmouth	db 	0 ;0 = fechada; 1 = aberta
@@ -62,14 +71,13 @@ TITLE PACOMANO
 			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 			db 	00H,00H,0eH,0eH,0eH,00H,00H
 
-
-
 	g1x		dw	6
 	g1y		dw	12
 	g1xs	dw	0
 	g1ys	dw	0
-	g1m		db	0
 	g1d 	dw 	3
+	g1ind 	dw	0
+	prg1ind	dw	0
 
 	ghost1 	db 	00h,00h,0ch,0ch,0ch,00h,00h
 			db 	00h,0fh,0fh,0ch,0fh,0fh,00h
@@ -83,8 +91,9 @@ TITLE PACOMANO
 	g2y		dw	4
 	g2xs	dw	0
 	g2ys	dw	0
-	g2m		db	0
 	g2d 	dw 	3
+	g2ind	dw	0
+	prg2ind	dw	0
 
 	ghost2 	db 	00h,00h,0dh,0dh,0dh,00h,00h
 			db 	00h,0fh,0fh,0dh,0fh,0fh,00h
@@ -98,8 +107,9 @@ TITLE PACOMANO
 	g3y		dw	18
 	g3xs	dw	0
 	g3ys	dw	0
-	g3m		db	0
 	g3d 	dw 	3
+	g3ind	dw	0
+	prg3ind	dw	0
 
 	ghost3 	db 	00h,00h,0ah,0ah,0ah,00h,00h
 			db 	00h,0fh,0fh,0ah,0fh,0fh,00h
@@ -113,8 +123,9 @@ TITLE PACOMANO
 	g4y		dw	18
 	g4xs	dw	0
 	g4ys	dw	0
-	g4m		db	0
 	g4d 	dw 	3
+	g4ind	dw	0
+	prg4ind	dw	0
 
 	ghost4 	db 	00h,00h,0bh,0bh,0bh,00h,00h
 			db 	00h,0fh,0fh,0bh,0fh,0fh,00h
@@ -187,24 +198,28 @@ TITLE PACOMANO
 	spastil1xs 	dw 	0
 	spastil1ys 	dw 	0
 	spastil1ex 	dw 	1
+	spastil1ind	dw	0
 
 	spastil2x 	dw 	22
 	spastil2y 	dw 	10
 	spastil2xs 	dw 	0
 	spastil2ys 	dw 	0
 	spastil2ex 	dw 	1
+	spastil2ind	dw	0
 
 	spastil3x 	dw 	24
 	spastil3y 	dw 	19
 	spastil3xs 	dw 	0
 	spastil3ys 	dw 	0
 	spastil3ex 	dw 	1
+	spastil3ind	dw	0
 
 	spastil4x 	dw 	1
 	spastil4y 	dw 	19
 	spastil4xs 	dw 	0
 	spastil4ys 	dw 	0
 	spastil4ex 	dw 	1
+	spastil4ind	dw	0
 
 	pastil 	db 	00h,00h,00h,00h,00h,00h,00h
 			db 	00h,00h,00h,00h,00h,00h,00h
@@ -227,30 +242,41 @@ TITLE PACOMANO
 	cherry1xs 	dw 	0
 	cherry1ys 	dw 	0
 	cherry1ex 	dw 	1
+	cherry1ind	dw	0
 
 	cherry2x 	dw 	24
 	cherry2y 	dw 	4
 	cherry2xs 	dw 	0
 	cherry2ys 	dw 	0
 	cherry2ex 	dw 	1
+	cherry2ind	dw	0
 
 	cherry3x 	dw 	3
 	cherry3y 	dw 	19
 	cherry3xs 	dw 	0
 	cherry3ys 	dw 	0
 	cherry3ex 	dw 	1
+	cherry3ind	dw	0
 
 	cherry4x 	dw 	22
 	cherry4y 	dw 	19
 	cherry4xs 	dw 	0
 	cherry4ys 	dw 	0
 	cherry4ex 	dw 	1
+	cherry4ind	dw	0
 
 	mapaddr	dw	0h
-	sqrsz	dw	7
-	ssqrsz	db 	8
+	;sqrsz	dw	7
+	;ssqrsz	db 	8
+	nsqrsz 	equ	7
+	nssqrsz	equ	8
+
 	mapWid	db	26
 	mapWidw	dw 	26
+
+	nmapWid		equ	26
+	nmapWidW 	equ	26
+
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -289,12 +315,21 @@ main proc
 	mov al,10h
 	int 13
 
+	
+	call setpacindex
+	call setpacs
+	call setghostindexes
+	call setghosts
+	call setcherryindexes
 	call setcherrys
+	call setspastilindexes
 	call setspastilss
-	;call drawmap
+	
+	call drawmap
+
 
 	mov cx,50	;loops to execute (debug only)
-	m:
+m:
 	mov ttt,cx
 	
 	cmp waitloops,0
@@ -310,27 +345,17 @@ main proc
 	mov cx,tttt
 	loop tw
 	mov waitloops,0
-skipwait:
+	skipwait:
 
-	call drawmap
+	;call drawmap
 	call eatcherries
 
 	call drawcherries
 	call drawspastils
-	;call drawpastils
 	call turnpacman
 
-	;;limpa o quadrado anterior
-	;call setpacs
-	;mov ax,pxs
-	;mov scrx,ax
-	;mov ax,pys
-	;mov scry,ax
-	;mov al,0
-	;call drawsqr
 	call updatepacmansprite
 	call movepacman
-	;call setpacs
 	call drawpac
 	call collidewithghosts
 
@@ -338,10 +363,17 @@ skipwait:
 	call drawghosts
 	call collidewithghosts
 
-	;mov ah,05
-	;mov al,cscr	;trocar a tela
-	;int 10h
-
+	mov ax,prevpin
+	cmp pindex,ax
+	je dontclearpacman
+	
+	mov ax,prevpxs
+	mov scrx,ax
+	mov ax,prevpys
+	mov scry,ax
+	mov al,0
+	call drawsqr
+dontclearpacman:
 	;cmp cscr,2
 	;je chng1
 	;mov cscr,2
@@ -371,6 +403,160 @@ skipwait:
 
 call finalizar
 main endp
+
+setpacindex proc
+	mov ax,py
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,px
+	mov pindex,ax
+ret
+setpacindex endp
+
+setg1index proc
+	mov ax,g1y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,g1x
+	mov g1ind,ax
+ret
+setg1index endp
+
+setg2index proc
+	mov ax,g2y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,g2x
+	mov g2ind,ax
+ret
+setg2index endp
+
+setg3index proc
+	mov ax,g3y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,g3x
+	mov g3ind,ax
+ret
+setg3index endp
+
+setg4index proc
+	mov ax,g4y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,g4x
+	mov g4ind,ax
+ret
+setg4index endp
+
+setghostindexes proc
+	call setg1index
+	call setg2index
+	call setg3index
+	call setg4index
+ret
+setghostindexes endp
+
+setcherry1index proc
+	mov ax,cherry1y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,cherry1x
+	mov cherry1ind,ax
+ret
+setcherry1index endp
+
+setcherry2index proc
+	mov ax,cherry2y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,cherry2x
+	mov cherry2ind,ax
+ret
+setcherry2index endp
+
+setcherry3index proc
+	mov ax,cherry3y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,cherry3x
+	mov cherry3ind,ax
+ret
+setcherry3index endp
+
+setcherry4index proc
+	mov ax,cherry4y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,cherry4x
+	mov cherry4ind,ax
+ret
+setcherry4index endp
+
+setcherryindexes proc
+	call setcherry1index
+	call setcherry2index
+	call setcherry3index
+	call setcherry4index
+ret
+setcherryindexes endp
+
+setspastil1index proc
+	mov ax,spastil1y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,spastil1x
+	mov spastil1ind,ax
+ret
+setspastil1index endp
+
+setspastil2index proc
+	mov ax,spastil2y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,spastil2x
+	mov spastil2ind,ax
+ret
+setspastil2index endp
+
+setspastil3index proc
+	mov ax,spastil3y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,spastil3x
+	mov spastil3ind,ax
+ret
+setspastil3index endp
+
+setspastil4index proc
+	mov ax,spastil4y
+	mov dl,nmapWid
+	mul dl
+	;cbw
+	add ax,spastil4x
+	mov spastil4ind,ax
+ret
+setspastil4index endp
+
+setspastilindexes proc
+	call setspastil1index
+	call setspastil2index
+	call setspastil3index
+	call setspastil4index
+ret
+setspastilindexes endp
 
 updatepacmansprite proc
 	mov cx,49
@@ -481,30 +667,30 @@ drawmap endp
 
 convindextocoord proc; bx = index => scrx e scry
 	mov ax,bx
-	mov dl,mapWid
+	mov dl,nmapWid
 	div dl
 	cbw
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mul dl
 	mov scry,ax
 	
 	mov ax,bx
-	mov dl,mapWid
+	mov dl,nmapWid
 	div dl
 	mov al,ah
 	cbw
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mul dl
 	mov scrx,ax
 	;OTIMIZAR?
 	;mov temp,ah
 	;xor ah,ah
-	;mov dl,ssqrsz
+	;mov dl,nssqrsz
 	;mul dl
 	;cbw
 	;mov scry,ax
 	;mov al,temp
-	;mov dl,ssqrsz
+	;mov dl,nssqrsz
 	;mul dl
 	;cbw
 	;mov scrx,ax
@@ -520,14 +706,14 @@ drawsqr proc;setar scrx e scry
 	;mov al,1 ;azul
 	;mov al,[map + bx]
 	
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 	
 nextrow:
 	mov cury,dx
 	add dx,scry
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrow:
 		mov curx,cx
 		add cx,scrx
@@ -549,12 +735,12 @@ drawsqr endp
 
 setpacs proc;setar px e py => pxs e pys
 mov ax,px
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov pxs,ax
 
 mov ax,py
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov pys,ax
 
@@ -562,18 +748,17 @@ ret
 setpacs endp
 
 drawpac proc;setar pxs e pys
-	call setpacs
-
-	mov cx,sqrsz
-	mov dx,sqrsz
+	;call setpacs
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowp:
 	mov cury,dx
 	add dx,pys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowp:
 		sub dx,pys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -582,7 +767,7 @@ nextrowp:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[cpac+bx]
@@ -607,16 +792,16 @@ nextrowp:
 drawpac endp
 
 drawpast proc;setar scrx e scry
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowpas:
 	mov cury,dx
 	add dx,scry
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowpas:
 		sub dx,scry
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -625,7 +810,7 @@ nextrowpas:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[pastil+bx]
@@ -651,7 +836,7 @@ drawpast endp
 
 convpostoindex proc
 	mov ax,py
-	mov dl,mapWid
+	mov dl,nmapWid
 	mul dl
 	;cbw
 	add ax,px
@@ -660,7 +845,15 @@ convpostoindex proc
 convpostoindex endp
 
 movepacman proc
-	call convpostoindex
+	;call convpostoindex
+	mov ax,pxs
+	mov prevpxs,ax
+	mov ax,pys
+	mov prevpys,ax
+
+	mov bx,pindex
+	mov prevpin,bx
+	;mov ax,nsqrsz
 	cmp pdir,4
 	je md4
 	cmp pdir,3
@@ -672,13 +865,17 @@ movepacman proc
 	cmp [map + bx],1
 	je endmove
 	sub px,1
+	sub pxs,nssqrsz
+	sub pindex,1
 	call eatpast
 	ret
 md2:
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je endmove
 	sub py,1
+	sub pys,nssqrsz
+	sub pindex,nmapWid
 	call eatpast
 	ret
 md3:	;direita
@@ -686,13 +883,17 @@ md3:	;direita
 	cmp [map + bx],1
 	je endmove
 	add px,1
+	add pxs,nssqrsz
+	add pindex,1
 	call eatpast
 	ret
 md4:
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je endmove
 	add py,1
+	add pys,nssqrsz
+	add pindex,nmapWid
 	call eatpast
 	ret
 endmove:
@@ -700,7 +901,8 @@ endmove:
 movepacman endp
 
 eatpast proc
-	call convpostoindex
+	;call convpostoindex
+	mov bx,pindex
 	cmp [pmap + bx],0
 	je nopast
 	add points,10
@@ -737,7 +939,7 @@ t1:			;esquerda
 	mov pdir,1
 	ret
 t2:			;cima
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je endmove
 	mov pdir,2
@@ -749,7 +951,7 @@ t3:			;direita
 	mov pdir,3
 	ret
 t4:			;baixo
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je endturn
 	mov pdir,4
@@ -758,14 +960,22 @@ endturn:
 	ret
 turnpacman endp
 
+setghosts proc
+	call setghost1s
+	call setghost2s
+	call setghost3s
+	call setghost4s
+ret
+setghosts endp
+
 setghost1s proc
 mov ax,g1x
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g1xs,ax
 
 mov ax,g1y
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g1ys,ax
 
@@ -774,12 +984,12 @@ setghost1s endp
 
 setghost2s proc
 mov ax,g2x
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g2xs,ax
 
 mov ax,g2y
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g2ys,ax
 
@@ -788,12 +998,12 @@ setghost2s endp
 
 setghost3s proc
 mov ax,g3x
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g3xs,ax
 
 mov ax,g3y
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g3ys,ax
 
@@ -802,12 +1012,12 @@ setghost3s endp
 
 setghost4s proc
 mov ax,g4x
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g4xs,ax
 
 mov ax,g4y
-mov dl,ssqrsz
+mov dl,nssqrsz
 mul dl
 mov g4ys,ax
 
@@ -815,18 +1025,18 @@ ret
 setghost4s endp
 
 drawghost1 proc
-	call setghost1s
+	;call setghost1s
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowg1:
 	mov cury,dx
 	add dx,g1ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowg1:
 		sub dx,g1ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -835,7 +1045,7 @@ nextrowg1:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[ghost1+bx]
@@ -860,18 +1070,18 @@ ret
 drawghost1 endp
 
 drawghost2 proc
-	call setghost2s
+	;call setghost2s
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowg2:
 	mov cury,dx
 	add dx,g2ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowg2:
 		sub dx,g2ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -880,7 +1090,7 @@ nextrowg2:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[ghost2+bx]
@@ -905,18 +1115,18 @@ ret
 drawghost2 endp
 
 drawghost3 proc
-	call setghost3s
+	;call setghost3s
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowg3:
 	mov cury,dx
 	add dx,g3ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowg3:
 		sub dx,g3ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -925,7 +1135,7 @@ nextrowg3:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[ghost3+bx]
@@ -950,18 +1160,18 @@ ret
 drawghost3 endp
 
 drawghost4 proc
-	call setghost4s
+	;call setghost4s
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowg4:
 	mov cury,dx
 	add dx,g4ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowg4:
 		sub dx,g4ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -970,7 +1180,7 @@ nextrowg4:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[ghost4+bx]
@@ -1012,7 +1222,7 @@ drawghosts endp
 
 convg1toindex proc
 	mov ax,g1y
-	mov dl,mapWid
+	mov dl,nmapWid
 	mul dl
 	;cbw
 	add ax,g1x
@@ -1023,7 +1233,7 @@ convg1toindex endp
 
 convg2toindex proc
 	mov ax,g2y
-	mov dl,mapWid
+	mov dl,nmapWid
 	mul dl
 	;cbw
 	add ax,g2x
@@ -1034,7 +1244,7 @@ convg2toindex endp
 
 convg3toindex proc
 	mov ax,g3y
-	mov dl,mapWid
+	mov dl,nmapWid
 	mul dl
 	;cbw
 	add ax,g3x
@@ -1045,7 +1255,7 @@ convg3toindex endp
 
 convg4toindex proc
 	mov ax,g4y
-	mov dl,mapWid
+	mov dl,nmapWid
 	mul dl
 	;cbw
 	add ax,g4x
@@ -1055,7 +1265,10 @@ ret
 convg4toindex endp
 
 moveghost1 proc
-	call convg1toindex
+	;call convg1toindex
+	mov bx,g1ind
+	mov prg1ind,bx
+
 	cmp g1d,4
 	je g1md4
 	cmp g1d,3
@@ -1067,24 +1280,36 @@ moveghost1 proc
 	cmp [map + bx],1
 	je g1endmove
 	sub g1x,1
+	sub g1xs,nssqrsz
+	sub g1ind,1
+	call replaceg1
 	ret
 g1md2:
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je g1endmove
 	sub g1y,1
+	sub g1ys,nssqrsz
+	sub g1ind,nmapWid
+	call replaceg1
 	ret
 g1md3:	;direita
 	add bx,1
 	cmp [map + bx],1
 	je g1endmove
 	add g1x,1
+	add g1xs,nssqrsz
+	add g1ind,1
+	call replaceg1
 	ret
 g1md4:
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je g1endmove
 	add g1y,1
+	add g1ys,nssqrsz
+	add g1ind,nmapWid
+	call replaceg1
 	ret
 g1endmove:
 	call turnghost1
@@ -1092,7 +1317,10 @@ ret
 moveghost1 endp
 
 moveghost2 proc
-	call convg2toindex
+	;call convg2toindex
+	mov bx,g2ind
+	mov prg2ind,bx
+
 	cmp g2d,4
 	je g2md4
 	cmp g2d,3
@@ -1104,24 +1332,36 @@ moveghost2 proc
 	cmp [map + bx],1
 	je g2endmove
 	sub g2x,1
+	sub g2xs,nssqrsz
+	sub g2ind,1
+	call replaceg2
 	ret
 g2md2:
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je g2endmove
 	sub g2y,1
+	sub g2ys,nssqrsz
+	sub g2ind,nmapWid
+	call replaceg2
 	ret
 g2md3:	;direita
 	add bx,1
 	cmp [map + bx],1
 	je g2endmove
 	add g2x,1
+	add g2xs,nssqrsz
+	add g2ind,1
+	call replaceg2
 	ret
 g2md4:
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je g2endmove
 	add g2y,1
+	add g2ys,nssqrsz
+	add g2ind,nmapWid
+	call replaceg2
 	ret
 g2endmove:
 	call turnghost2
@@ -1129,7 +1369,10 @@ ret
 moveghost2 endp
 
 moveghost3 proc
-	call convg3toindex
+	;call convg3toindex
+	mov bx,g3ind
+	mov prg3ind,bx
+
 	cmp g3d,4
 	je g3md4
 	cmp g3d,3
@@ -1141,24 +1384,36 @@ moveghost3 proc
 	cmp [map + bx],1
 	je g3endmove
 	sub g3x,1
+	sub g3xs,nssqrsz
+	sub g3ind,1
+	call replaceg3
 	ret
 g3md2:
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je g3endmove
 	sub g3y,1
+	sub g3ys,nssqrsz
+	sub g3ind,nmapWid
+	call replaceg3
 	ret
 g3md3:	;direita
 	add bx,1
 	cmp [map + bx],1
 	je g3endmove
 	add g3x,1
+	add g3xs,nssqrsz
+	add g3ind,1
+	call replaceg3
 	ret
 g3md4:
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je g3endmove
 	add g3y,1
+	add g3ys,nssqrsz
+	add g3ind,nmapWid
+	call replaceg3
 	ret
 g3endmove:
 	call turnghost3
@@ -1166,7 +1421,10 @@ ret
 moveghost3 endp
 
 moveghost4 proc
-	call convg4toindex
+	;call convg4toindex
+	mov bx,g4ind
+	mov prg4ind,bx
+
 	cmp g4d,4
 	je g4md4
 	cmp g4d,3
@@ -1178,30 +1436,177 @@ moveghost4 proc
 	cmp [map + bx],1
 	je g4endmove
 	sub g4x,1
+	sub g4xs,nssqrsz
+	sub g4ind,1
+	call replaceg4
 	ret
 g4md2:
-	sub bx,mapWidw
+	sub bx,nmapWidw
 	cmp [map + bx],1
 	je g4endmove
 	sub g4y,1
+	sub g4ys,nssqrsz
+	sub g4ind,nmapWid
+	call replaceg4
 	ret
 g4md3:	;direita
 	add bx,1
 	cmp [map + bx],1
 	je g4endmove
 	add g4x,1
+	add g4xs,nssqrsz
+	add g4ind,1
+	call replaceg4
 	ret
 g4md4:
-	add bx,mapWidw
+	add bx,nmapWidw
 	cmp [map + bx],1
 	je g4endmove
 	add g4y,1
+	add g4ys,nssqrsz
+	add g4ind,nmapWid
+	call replaceg4
 	ret
 g4endmove:
 	call turnghost4
 ret
 moveghost4 endp
 
+replaceg1 proc
+	mov bx,prg1ind
+	call convindextocoord
+	mov bx,prg1ind
+	cmp [pmap + bx],0
+	je nopointg1
+
+	cmp cherry1ind,bx
+	je drawnothingg1
+	cmp cherry2ind,bx
+	je drawnothingg1
+	cmp cherry3ind,bx
+	je drawnothingg1
+	cmp cherry4ind,bx
+	je drawnothingg1
+
+	cmp spastil1ind,bx
+	je drawnothingg1
+	cmp spastil2ind,bx
+	je drawnothingg1
+	cmp spastil3ind,bx
+	je drawnothingg1
+	cmp spastil4ind,bx
+	je drawnothingg1
+
+	call drawpast
+ret
+nopointg1:
+	mov al,0
+	call drawsqr
+drawnothingg1:
+ret
+replaceg1 endp
+
+replaceg2 proc
+	mov bx,prg2ind
+	call convindextocoord
+	mov bx,prg2ind
+	cmp [pmap + bx],0
+	je nopointg2
+
+	cmp cherry1ind,bx
+	je drawnothingg2
+	cmp cherry2ind,bx
+	je drawnothingg2
+	cmp cherry3ind,bx
+	je drawnothingg2
+	cmp cherry4ind,bx
+	je drawnothingg2
+
+	cmp spastil1ind,bx
+	je drawnothingg2
+	cmp spastil2ind,bx
+	je drawnothingg2
+	cmp spastil3ind,bx
+	je drawnothingg2
+	cmp spastil4ind,bx
+	je drawnothingg2
+
+	call drawpast
+ret
+nopointg2:
+	mov al,0
+	call drawsqr
+drawnothingg2:
+ret
+replaceg2 endp
+
+replaceg3 proc
+	mov bx,prg3ind
+	call convindextocoord
+	mov bx,prg3ind
+	cmp [pmap + bx],0
+	je nopointg3
+
+	cmp cherry1ind,bx
+	je drawnothingg3
+	cmp cherry2ind,bx
+	je drawnothingg3
+	cmp cherry3ind,bx
+	je drawnothingg3
+	cmp cherry4ind,bx
+	je drawnothingg3
+
+	cmp spastil1ind,bx
+	je drawnothingg3
+	cmp spastil2ind,bx
+	je drawnothingg3
+	cmp spastil3ind,bx
+	je drawnothingg3
+	cmp spastil4ind,bx
+	je drawnothingg3
+
+	call drawpast
+ret
+nopointg3:
+	mov al,0
+	call drawsqr
+drawnothingg3:
+ret
+replaceg3 endp
+
+replaceg4 proc
+	mov bx,prg4ind
+	call convindextocoord
+	mov bx,prg4ind
+	cmp [pmap + bx],0
+	je nopointg4
+
+	cmp cherry1ind,bx
+	je drawnothingg4
+	cmp cherry2ind,bx
+	je drawnothingg4
+	cmp cherry3ind,bx
+	je drawnothingg4
+	cmp cherry4ind,bx
+	je drawnothingg4
+
+	cmp spastil1ind,bx
+	je drawnothingg4
+	cmp spastil2ind,bx
+	je drawnothingg4
+	cmp spastil3ind,bx
+	je drawnothingg4
+	cmp spastil4ind,bx
+	je drawnothingg4
+
+	call drawpast
+ret
+nopointg4:
+	mov al,0
+	call drawsqr
+drawnothingg4:
+ret
+replaceg4 endp
 
 turnghost1 proc
 	add g1d,1
@@ -1263,7 +1668,7 @@ nocollisiong1:
 	jne nocollisiong2
 	
 	cmp pm,0
-	je takedamage
+	je takedamagejump
 	;else eat and add points
 	mov g2x,13
 	mov g2y,13
@@ -1303,8 +1708,8 @@ nocollisiong3:
 	mov g4d,2
 	add points,200
 nocollisiong4:
-
 ret
+
 takedamage:
 	sub lives,1
 	jz pacmandied
@@ -1333,12 +1738,18 @@ resetpositions proc
 	
 	mov g4x,19
 	mov g4y,18
+
+	call setpacs
+	call setpacindex
+
+	call setghosts
+	call setghostindexes
 ret
 resetpositions endp
 
 setcherrys proc
 	mov ax,cherry1x
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mul dl
 	mov cherry1xs,ax
 
@@ -1376,16 +1787,16 @@ setcherrys endp
 drawcherries proc
 	cmp cherry1ex,0
 	je skipcherry1
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowc1:
 	mov cury,dx
 	add dx,cherry1ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowc1:
 		sub dx,cherry1ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1394,7 +1805,7 @@ nextrowc1:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[cherry+bx]
@@ -1418,16 +1829,16 @@ skipcherry1:
 	cmp cherry2ex,0
 	je skipcherry2
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowc2:
 	mov cury,dx
 	add dx,cherry2ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowc2:
 		sub dx,cherry2ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1436,7 +1847,7 @@ nextrowc2:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[cherry+bx]
@@ -1460,16 +1871,16 @@ skipcherry2:
 	cmp cherry3ex,0
 	je skipcherry3
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowc3:
 	mov cury,dx
 	add dx,cherry3ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowc3:
 		sub dx,cherry3ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1478,7 +1889,7 @@ nextrowc3:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[cherry+bx]
@@ -1502,16 +1913,16 @@ skipcherry3:
 	cmp cherry4ex,0
 	je skipcherry4
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowc4:
 	mov cury,dx
 	add dx,cherry4ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowc4:
 		sub dx,cherry4ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1520,7 +1931,7 @@ nextrowc4:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[cherry+bx]
@@ -1548,12 +1959,8 @@ eatcherry1 proc
 	cmp cherry1ex,1
 	jne cherry1safe
 
-	mov ax,px
-	cmp cherry1x,ax
-	jne cherry1safe
-	
-	mov ax,py
-	cmp cherry1y,ax
+	mov ax,pindex
+	cmp cherry1ind,ax
 	jne cherry1safe
 
 	add points,50
@@ -1565,12 +1972,8 @@ eatcherry2 proc
 	cmp cherry2ex,1
 	jne cherry2safe
 
-	mov ax,px
-	cmp cherry2x,ax
-	jne cherry2safe
-	
-	mov ax,py
-	cmp cherry2y,ax
+	mov ax,pindex
+	cmp cherry2ind,ax
 	jne cherry2safe
 
 	add points,50
@@ -1582,12 +1985,8 @@ eatcherry3 proc
 	cmp cherry3ex,1
 	jne cherry3safe
 
-	mov ax,px
-	cmp cherry3x,ax
-	jne cherry3safe
-	
-	mov ax,py
-	cmp cherry3y,ax
+	mov ax,pindex
+	cmp cherry3ind,ax
 	jne cherry3safe
 
 	add points,50
@@ -1599,12 +1998,8 @@ eatcherry4 proc
 	cmp cherry4ex,1
 	jne cherry4safe
 
-	mov ax,px
-	cmp cherry4x,ax
-	jne cherry4safe
-	
-	mov ax,py
-	cmp cherry4y,ax
+	mov ax,pindex
+	cmp cherry4ind,ax
 	jne cherry4safe
 
 	add points,50
@@ -1622,7 +2017,7 @@ ret
 eatcherries endp
 
 setspastilss proc
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mov ax,spastil1x
 	mul dl
 	mov spastil1xs,ax
@@ -1630,7 +2025,7 @@ setspastilss proc
 	mul dl
 	mov spastil1ys,ax
 
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mov ax,spastil2x
 	mul dl
 	mov spastil2xs,ax
@@ -1638,7 +2033,7 @@ setspastilss proc
 	mul dl
 	mov spastil2ys,ax
 
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mov ax,spastil3x
 	mul dl
 	mov spastil3xs,ax
@@ -1646,7 +2041,7 @@ setspastilss proc
 	mul dl
 	mov spastil3ys,ax
 
-	mov dl,ssqrsz
+	mov dl,nssqrsz
 	mov ax,spastil4x
 	mul dl
 	mov spastil4xs,ax
@@ -1659,16 +2054,16 @@ setspastilss endp
 drawspastils proc
 	cmp spastil1ex,0
 	je skipspastil1
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowsp1:
 	mov cury,dx
 	add dx,spastil1ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowsp1:
 		sub dx,spastil1ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1677,7 +2072,7 @@ nextrowsp1:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[spastil+bx]
@@ -1701,16 +2096,16 @@ skipspastil1:
 	cmp spastil2ex,0
 	je skipspastil2
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowsp2:
 	mov cury,dx
 	add dx,spastil2ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowsp2:
 		sub dx,spastil2ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1719,7 +2114,7 @@ nextrowsp2:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[spastil+bx]
@@ -1743,16 +2138,16 @@ skipspastil2:
 	cmp spastil3ex,0
 	je skipspastil3
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowsp3:
 	mov cury,dx
 	add dx,spastil3ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowsp3:
 		sub dx,spastil3ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1761,7 +2156,7 @@ nextrowsp3:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[spastil+bx]
@@ -1785,16 +2180,16 @@ skipspastil3:
 	cmp spastil4ex,0
 	je skipspastil4
 
-	mov cx,sqrsz
-	mov dx,sqrsz
+	mov cx,nsqrsz
+	mov dx,nsqrsz
 nextrowsp4:
 	mov cury,dx
 	add dx,spastil4ys
 	
-	mov cx,sqrsz
+	mov cx,nsqrsz
 	drawwrowsp4:
 		sub dx,spastil4ys
-		mov bl,ssqrsz
+		mov bl,nssqrsz
 		sub bl,1
 		mov ax,dx
 		mul bl
@@ -1803,7 +2198,7 @@ nextrowsp4:
 		
 		cbw
 		mov bx,ax
-		sub bx,sqrsz
+		sub bx,nsqrsz
 		sub bx,1
 		
 		mov al,[spastil+bx]
