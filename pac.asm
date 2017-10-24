@@ -10,15 +10,59 @@ TITLE PACOMANO
 	pys		dw 	0
 	pm 		db	0
 	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
-	pboca	db 	0 ;0 = fechada; 1 = aberta
-	
-	pac33	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	pmouth	db 	0 ;0 = fechada; 1 = aberta
+
+	cscr	db 	0
+
+	cpac	db 	00H,00H,0eH,0eH,0eH,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	0eH,0eH,0eH,0eH,00H,00H,00H
+			db 	0eH,0eH,0eH,00H,00H,00H,00H
+			db 	0eH,0eH,0eH,0eH,00H,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,0eH,0eH,0eH,00H,00H 
+
+	pac1 	db 	00H,00H,0eH,0eH,0eH,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,00H,0eH,0eH,0eH,0eH
+			db 	00H,00H,00H,00H,0eH,0eH,0eH
+			db 	00H,00H,00H,0eH,0eH,0eH,0eH
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	pac2 	db 	00H,00H,00H,00H,00H,00H,00H
+			db 	00H,0eH,00H,00H,00H,0eH,00H
+			db 	0eH,0eH,00H,00H,00H,0eH,0eH
+			db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
+			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	pac3	db 	00H,00H,0eH,0eH,0eH,00H,00H
 			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 			db 	0eH,0eH,0eH,0eH,00H,00H,00H
 			db 	0eH,0eH,0eH,00H,00H,00H,00H
 			db 	0eH,0eH,0eH,0eH,00H,00H,00H
 			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 			db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	pac4 	db 	00H,00H,0eH,0eH,0eH,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+			db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
+			db 	0eH,0eH,00H,00H,00H,0eH,0eH
+			db 	00H,0eH,00H,00H,00H,0eH,00H
+			db 	00H,00H,00H,00H,00H,00H,00H
+
+	pacfech	db 	00H,00H,0eH,0eH,0eH,00H,00H
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+			db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+
 
 	g1x		dw	6
 	g1y		dw	12
@@ -238,11 +282,16 @@ main proc
 	mov es,ax
 
 	xor ax,ax
-	mov al,13h	;modo de vídeo
+	mov al,13h	;modo de vídeo (12h = resolucao maior)
 	int 10h
+
+	xor ah,ah
+	mov al,10h
+	int 13
 
 	call setcherrys
 	call setspastilss
+	;call drawmap
 
 	mov cx,50	;loops to execute (debug only)
 	m:
@@ -279,7 +328,7 @@ skipwait:
 	;mov scry,ax
 	;mov al,0
 	;call drawsqr
-
+	call updatepacmansprite
 	call movepacman
 	;call setpacs
 	call drawpac
@@ -288,7 +337,19 @@ skipwait:
 	call moveghosts
 	call drawghosts
 	call collidewithghosts
-	
+
+	;mov ah,05
+	;mov al,cscr	;trocar a tela
+	;int 10h
+
+	;cmp cscr,2
+	;je chng1
+	;mov cscr,2
+	;jmp donechng
+;chng1:
+	;mov cscr,1
+;donechng:
+
 	;LOOP DE ESPERA
 	mov cx,5000
 	
@@ -310,6 +371,55 @@ skipwait:
 
 call finalizar
 main endp
+
+updatepacmansprite proc
+	mov cx,49
+	mov bx,0
+	cmp pmouth,0
+	je closedmouth
+	cmp pdir,1
+	je changedir1
+	cmp pdir,2
+	je changedir2
+	cmp pdir,3
+	je changedir3
+	jmp changedir4
+closedmouth:
+		mov al,[pacfech+bx]
+		mov [cpac+bx],al
+		inc bx
+		loop closedmouth
+		mov pmouth,1
+		ret
+changedir4:;else dir 4
+		mov al,[pac4+bx]
+		mov [cpac+bx],al
+		inc bx
+		loop changedir4
+		mov pmouth,0
+		ret
+changedir3:;else dir 4
+		mov al,[pac3+bx]
+		mov [cpac+bx],al
+		inc bx
+		loop changedir3
+		mov pmouth,0
+		ret
+changedir2:;else dir 4
+		mov al,[pac2+bx]
+		mov [cpac+bx],al
+		inc bx
+		loop changedir2
+		mov pmouth,0
+		ret
+changedir1:;else dir 4
+		mov al,[pac1+bx]
+		mov [cpac+bx],al
+		inc bx
+		loop changedir1
+		mov pmouth,0
+		ret
+updatepacmansprite endp
 
 draweverything proc
 	call drawmap
@@ -406,7 +516,7 @@ drawsqr proc;setar scrx e scry
 	mov tempb,bx
 	
 	mov ah,0ch
-	mov bh,1
+	mov bh,cscr
 	;mov al,1 ;azul
 	;mov al,[map + bx]
 	
@@ -451,7 +561,7 @@ mov pys,ax
 ret
 setpacs endp
 
-drawpac proc;setar pxs e pys	
+drawpac proc;setar pxs e pys
 	call setpacs
 
 	mov cx,sqrsz
@@ -475,7 +585,7 @@ nextrowp:
 		sub bx,sqrsz
 		sub bx,1
 		
-		mov al,[pac33+bx]
+		mov al,[cpac+bx]
 
 		add dx,pys
 
@@ -483,7 +593,7 @@ nextrowp:
 		add cx,pxs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -526,7 +636,7 @@ nextrowpas:
 		add cx,scrx
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -736,7 +846,7 @@ nextrowg1:
 		add cx,g1xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -781,7 +891,7 @@ nextrowg2:
 		add cx,g2xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -826,7 +936,7 @@ nextrowg3:
 		add cx,g3xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -871,7 +981,7 @@ nextrowg4:
 		add cx,g4xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1295,7 +1405,7 @@ nextrowc1:
 		add cx,cherry1xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1337,7 +1447,7 @@ nextrowc2:
 		add cx,cherry2xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1379,7 +1489,7 @@ nextrowc3:
 		add cx,cherry3xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1421,7 +1531,7 @@ nextrowc4:
 		add cx,cherry4xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1578,7 +1688,7 @@ nextrowsp1:
 		add cx,spastil1xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1620,7 +1730,7 @@ nextrowsp2:
 		add cx,spastil2xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1662,7 +1772,7 @@ nextrowsp3:
 		add cx,spastil3xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
@@ -1704,7 +1814,7 @@ nextrowsp4:
 		add cx,spastil4xs
 		
 		mov ah,0ch
-		mov bh,1
+		mov bh,cscr
 		int 10h
 
 		mov cx,curx
