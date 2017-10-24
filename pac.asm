@@ -23,53 +23,150 @@ TITLE PACOMANO
 
 	cscr	db 	0
 
-	cpac	db 	00H,00H,0eH,0eH,0eH,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	0eH,0eH,0eH,0eH,00H,00H,00H
-			db 	0eH,0eH,0eH,00H,00H,00H,00H
-			db 	0eH,0eH,0eH,0eH,00H,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,0eH,0eH,0eH,00H,00H 
+	;cpac	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
+	;		db 	0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
 
-	pac1 	db 	00H,00H,0eH,0eH,0eH,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,00H,0eH,0eH,0eH,0eH
-			db 	00H,00H,00H,00H,0eH,0eH,0eH
-			db 	00H,00H,00H,0eH,0eH,0eH,0eH
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,0eH,0eH,0eH,00H,00H
+	cpac	db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
 
-	pac2 	db 	00H,00H,00H,00H,00H,00H,00H
-			db 	00H,0eH,00H,00H,00H,0eH,00H
-			db 	0eH,0eH,00H,00H,00H,0eH,0eH
-			db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
-			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;pac1 	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,00H,0eH,0eH,0eH,0eH
+	;		db 	00H,00H,00H,00H,0eH,0eH,0eH
+	;		db 	00H,00H,00H,0eH,0eH,0eH,0eH
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
 
-	pac3	db 	00H,00H,0eH,0eH,0eH,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	0eH,0eH,0eH,0eH,00H,00H,00H
-			db 	0eH,0eH,0eH,00H,00H,00H,00H
-			db 	0eH,0eH,0eH,0eH,00H,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,0eH,0eH,0eH,00H,00H
+	pac1	db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
 
-	pac4 	db 	00H,00H,0eH,0eH,0eH,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
-			db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
-			db 	0eH,0eH,00H,00H,00H,0eH,0eH
-			db 	00H,0eH,00H,00H,00H,0eH,00H
-			db 	00H,00H,00H,00H,00H,00H,00H
+	;pac2 	db 	00H,00H,00H,00H,00H,00H,00H
+	;		db 	00H,0eH,00H,00H,00H,0eH,00H
+	;		db 	0eH,0eH,00H,00H,00H,0eH,0eH
+	;		db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
 
-	pacfech	db 	00H,00H,0eH,0eH,0eH,00H,00H
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
-			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
-			db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
-			db 	00H,0eH,0eH,0eH,0eH,0eH,00H
-			db 	00H,00H,0eH,0eH,0eH,00H,00H
+	pac2	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,00h,00h
+			db	00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+
+	;pac3	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
+	;		db 	0eH,0eH,0eH,00H,00H,00H,00H
+	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	pac3	db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+
+	;pac4 	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+	;		db 	0eH,0eH,0eH,00H,0eH,0eH,0eH
+	;		db 	0eH,0eH,00H,00H,00H,0eH,0eH
+	;		db 	00H,0eH,00H,00H,00H,0eH,00H
+	;		db 	00H,00H,00H,00H,00H,00H,00H
+
+	pac4	db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h
+			db	00h,00h,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
+	;pacfech	db 	00H,00H,0eH,0eH,0eH,00H,00H
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
+	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
+	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	pacfech	db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
+			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
+
 
 	g1x		dw	6
 	g1y		dw	12
@@ -79,13 +176,29 @@ TITLE PACOMANO
 	g1ind 	dw	0
 	prg1ind	dw	0
 
-	ghost1 	db 	00h,00h,0ch,0ch,0ch,00h,00h
-			db 	00h,0fh,0fh,0ch,0fh,0fh,00h
-			db 	09h,09h,0fh,0ch,0fh,09h,09h
-			db 	09h,09h,0ch,0ch,0ch,09h,09h
-			db 	0fh,0fh,0ch,0ch,0ch,0fh,0fh
-			db 	0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db 	0ch,00h,00h,0ch,00h,00h,0ch
+	;ghost1	db 	00h,00h,0ch,0ch,0ch,00h,00h
+	;		db 	00h,0fh,0fh,0ch,0fh,0fh,00h
+	;		db 	09h,09h,0fh,0ch,0fh,09h,09h
+	;		db 	09h,09h,0ch,0ch,0ch,09h,09h
+	;		db 	0fh,0fh,0ch,0ch,0ch,0fh,0fh
+	;		db 	0ch,0ch,0ch,0ch,0ch,0ch,0ch
+	;		db 	0ch,00h,00h,0ch,00h,00h,0ch
+
+	ghost1	db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ch,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,00h
+			db	0ch,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,0ch
+			db	0ch,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,0ch
+			db	0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch
+			db	0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch
 	
 	g2x		dw	19
 	g2y		dw	4
@@ -95,14 +208,30 @@ TITLE PACOMANO
 	g2ind	dw	0
 	prg2ind	dw	0
 
-	ghost2 	db 	00h,00h,0dh,0dh,0dh,00h,00h
-			db 	00h,0fh,0fh,0dh,0fh,0fh,00h
-			db 	09h,09h,0fh,0dh,0fh,09h,09h
-			db 	09h,09h,0dh,0dh,0dh,09h,09h
-			db 	0fh,0fh,0dh,0dh,0dh,0fh,0fh
-			db 	0dh,0dh,0dh,0dh,0dh,0dh,0dh
-			db 	0dh,00h,00h,0dh,00h,00h,0dh
+	;ghost2	db 	00h,00h,0dh,0dh,0dh,00h,00h
+	;		db 	00h,0fh,0fh,0dh,0fh,0fh,00h
+	;		db 	09h,09h,0fh,0dh,0fh,09h,09h
+	;		db 	09h,09h,0dh,0dh,0dh,09h,09h
+	;		db 	0fh,0fh,0dh,0dh,0dh,0fh,0fh
+	;		db 	0dh,0dh,0dh,0dh,0dh,0dh,0dh
+	;		db 	0dh,00h,00h,0dh,00h,00h,0dh
 	
+	ghost2	db	00h,00h,00h,00h,0dh,0dh,0dh,0dh,0dh,0dh,0dh,00h,00h,00h,00h
+			db	00h,00h,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,00h,00h
+			db	00h,0dh,0fh,0fh,0fh,0fh,0dh,0dh,0dh,0fh,0fh,0fh,0fh,0dh,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0dh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0dh,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0dh,0fh,09h,09h,09h,09h,0fh,00h
+			db	0dh,0fh,09h,09h,09h,09h,0fh,0dh,0fh,09h,09h,09h,09h,0fh,0dh
+			db	0dh,0fh,0fh,09h,09h,0fh,0fh,0dh,0fh,0fh,09h,09h,0fh,0fh,0dh
+			db	0dh,0dh,0fh,0fh,0fh,0fh,0dh,0dh,0dh,0fh,0fh,0fh,0fh,0dh,0dh
+			db	0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh
+			db	0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh
+			db	0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh
+			db	0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh,0dh
+			db	0dh,0dh,00h,00h,00h,0dh,0dh,0dh,0dh,0dh,00h,00h,00h,0dh,0dh
+			db	0dh,00h,00h,00h,00h,00h,0dh,0dh,0dh,00h,00h,00h,00h,00h,0dh
+
 	g3x		dw	6
 	g3y		dw	18
 	g3xs	dw	0
@@ -111,13 +240,29 @@ TITLE PACOMANO
 	g3ind	dw	0
 	prg3ind	dw	0
 
-	ghost3 	db 	00h,00h,0ah,0ah,0ah,00h,00h
-			db 	00h,0fh,0fh,0ah,0fh,0fh,00h
-			db 	09h,09h,0fh,0ah,0fh,09h,09h
-			db 	09h,09h,0ah,0ah,0ah,09h,09h
-			db 	0fh,0fh,0ah,0ah,0ah,0fh,0fh
-			db 	0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db 	0ah,00h,00h,0ah,00h,00h,0ah
+	;ghost3	db 	00h,00h,0ah,0ah,0ah,00h,00h
+	;		db 	00h,0fh,0fh,0ah,0fh,0fh,00h
+	;		db 	09h,09h,0fh,0ah,0fh,09h,09h
+	;		db 	09h,09h,0ah,0ah,0ah,09h,09h
+	;		db 	0fh,0fh,0ah,0ah,0ah,0fh,0fh
+	;		db 	0ah,0ah,0ah,0ah,0ah,0ah,0ah
+	;		db 	0ah,00h,00h,0ah,00h,00h,0ah
+
+	ghost3	db	00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,00h
+			db	00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h
+			db	00h,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ah,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,00h
+			db	0ah,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,0ah
+			db	0ah,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,0ah
+			db	0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,0ah,0ah
+			db	0ah,00h,00h,00h,00h,00h,0ah,0ah,0ah,00h,00h,00h,00h,00h,0ah
 
 	g4x		dw	19
 	g4y		dw	18
@@ -127,13 +272,29 @@ TITLE PACOMANO
 	g4ind	dw	0
 	prg4ind	dw	0
 
-	ghost4 	db 	00h,00h,0bh,0bh,0bh,00h,00h
-			db 	00h,0fh,0fh,0bh,0fh,0fh,00h
-			db 	09h,09h,0fh,0bh,0fh,09h,09h
-			db 	09h,09h,0bh,0bh,0bh,09h,09h
-			db 	0fh,0fh,0bh,0bh,0bh,0fh,0fh
-			db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
-			db 	0bh,00h,00h,0bh,00h,00h,0bh
+	;ghost4	db 	00h,00h,0bh,0bh,0bh,00h,00h
+	;		db 	00h,0fh,0fh,0bh,0fh,0fh,00h
+	;		db 	09h,09h,0fh,0bh,0fh,09h,09h
+	;		db 	09h,09h,0bh,0bh,0bh,09h,09h
+	;		db 	0fh,0fh,0bh,0bh,0bh,0fh,0fh
+	;		db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
+	;		db 	0bh,00h,00h,0bh,00h,00h,0bh
+
+	ghost4	db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ch,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,00h
+			db	0ch,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,0ch
+			db	0ch,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,0ch
+			db	0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch
+			db	0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch
 	
 	map		db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db 	1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
@@ -185,13 +346,29 @@ TITLE PACOMANO
 			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-	spastil	db 	00h,00h,00h,00h,00h,00h,00h
-			db 	00h,00h,0fh,0fh,0fh,00h,00h
-			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-			db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-			db 	00h,00h,0fh,0fh,0fh,00h,00h
-			db 	00h,00h,00h,00h,00h,00h,00h
+	;spastil	db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
+
+	spastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	spastil1x 	dw 	3
 	spastil1y 	dw 	10
@@ -221,21 +398,54 @@ TITLE PACOMANO
 	spastil4ex 	dw 	1
 	spastil4ind	dw	0
 
-	pastil 	db 	00h,00h,00h,00h,00h,00h,00h
-			db 	00h,00h,00h,00h,00h,00h,00h
-			db 	00h,00h,00h,0fh,00h,00h,00h
-			db 	00h,00h,0fh,0fh,0fh,00h,00h
-			db 	00h,00h,00h,0fh,00h,00h,00h
-			db 	00h,00h,00h,00h,00h,00h,00h
-			db 	00h,00h,00h,00h,00h,00h,00h
+	;pastil	db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,0fh,00h,00h,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,00h,00h,0fh,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
 
-	cherry 	db 	00h,00h,00h,0ah,0ah,0ah,00h
-			db 	00h,00h,0ah,0ah,00h,00h,00h
-			db 	00h,00h,0ah,00h,04h,04h,00h
-			db 	00h,0ch,0ch,04h,04h,04h,04h
-			db 	0ch,0ch,0ch,0ch,04h,04h,04h
-			db 	0ch,0ch,0ch,0ch,04h,04h,00h
-			db 	00h,0ch,0ch,00h,00h,00h,00h
+	pastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,0fh,0fh,0fh,0fh,0fh,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
+
+	;cherry	db 	00h,00h,00h,0ah,0ah,0ah,00h
+	;		db 	00h,00h,0ah,0ah,00h,00h,00h
+	;		db 	00h,00h,0ah,00h,04h,04h,00h
+	;		db 	00h,0ch,0ch,04h,04h,04h,04h
+	;		db 	0ch,0ch,0ch,0ch,04h,04h,04h
+	;		db 	0ch,0ch,0ch,0ch,04h,04h,00h
+	;		db 	00h,0ch,0ch,00h,00h,00h,00h
+
+	cherry	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah
+			db	00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,02h,02h,02h,02h
+			db	00h,00h,00h,00h,00h,00h,00h,0ah,0ah,02h,02h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0ah,0ah,02h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0ah,02h,02h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,0ah,0ah,02h,00h,04h,04h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0ch,0ch,0ah,02h,04h,04h,04h,04h,04h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,04h,04h,04h,04h,04h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,04h,04h,04h,04h,04h,04h,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,04h,04h,04h,04h,04h,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,04h,04h,04h,04h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,04h,04h,04h,04h,04h,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,00h,04h,04h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,0ch,0ch,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	cherry1x 	dw 	1
 	cherry1y 	dw 	4
@@ -265,11 +475,11 @@ TITLE PACOMANO
 	cherry4ex 	dw 	1
 	cherry4ind	dw	0
 
-	mapaddr	dw	0h
+	mapaddr	dw	00h
 	;sqrsz	dw	7
 	;ssqrsz	db 	8
-	nsqrsz 	equ	7
-	nssqrsz	equ	8
+	nsqrsz 	equ	15	;7
+	nssqrsz	equ	16	;8
 
 	mapWid	db	26
 	mapWidw	dw 	26
@@ -308,7 +518,7 @@ main proc
 	mov es,ax
 
 	xor ax,ax
-	mov al,13h	;modo de vídeo (12h = resolucao maior)
+	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
 	int 10h
 
 	xor ah,ah
@@ -366,7 +576,7 @@ m:
 	mov ax,prevpin
 	cmp pindex,ax
 	je dontclearpacman
-	
+
 	mov ax,prevpxs
 	mov scrx,ax
 	mov ax,prevpys
@@ -408,7 +618,7 @@ setpacindex proc
 	mov ax,py
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,px
 	mov pindex,ax
 ret
@@ -418,7 +628,7 @@ setg1index proc
 	mov ax,g1y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g1x
 	mov g1ind,ax
 ret
@@ -428,7 +638,7 @@ setg2index proc
 	mov ax,g2y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g2x
 	mov g2ind,ax
 ret
@@ -438,7 +648,7 @@ setg3index proc
 	mov ax,g3y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g3x
 	mov g3ind,ax
 ret
@@ -448,7 +658,7 @@ setg4index proc
 	mov ax,g4y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g4x
 	mov g4ind,ax
 ret
@@ -466,7 +676,7 @@ setcherry1index proc
 	mov ax,cherry1y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,cherry1x
 	mov cherry1ind,ax
 ret
@@ -476,7 +686,7 @@ setcherry2index proc
 	mov ax,cherry2y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,cherry2x
 	mov cherry2ind,ax
 ret
@@ -486,7 +696,7 @@ setcherry3index proc
 	mov ax,cherry3y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,cherry3x
 	mov cherry3ind,ax
 ret
@@ -496,7 +706,7 @@ setcherry4index proc
 	mov ax,cherry4y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,cherry4x
 	mov cherry4ind,ax
 ret
@@ -514,7 +724,7 @@ setspastil1index proc
 	mov ax,spastil1y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,spastil1x
 	mov spastil1ind,ax
 ret
@@ -524,7 +734,7 @@ setspastil2index proc
 	mov ax,spastil2y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,spastil2x
 	mov spastil2ind,ax
 ret
@@ -534,7 +744,7 @@ setspastil3index proc
 	mov ax,spastil3y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,spastil3x
 	mov spastil3ind,ax
 ret
@@ -544,7 +754,7 @@ setspastil4index proc
 	mov ax,spastil4y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,spastil4x
 	mov spastil4ind,ax
 ret
@@ -559,7 +769,7 @@ ret
 setspastilindexes endp
 
 updatepacmansprite proc
-	mov cx,49
+	mov cx,225
 	mov bx,0
 	cmp pmouth,0
 	je closedmouth
@@ -669,7 +879,7 @@ convindextocoord proc; bx = index => scrx e scry
 	mov ax,bx
 	mov dl,nmapWid
 	div dl
-	cbw
+	;cbw
 	mov dl,nssqrsz
 	mul dl
 	mov scry,ax
@@ -678,7 +888,7 @@ convindextocoord proc; bx = index => scrx e scry
 	mov dl,nmapWid
 	div dl
 	mov al,ah
-	cbw
+	;cbw
 	mov dl,nssqrsz
 	mul dl
 	mov scrx,ax
@@ -687,12 +897,12 @@ convindextocoord proc; bx = index => scrx e scry
 	;xor ah,ah
 	;mov dl,nssqrsz
 	;mul dl
-	;cbw
+	;;cbw
 	;mov scry,ax
 	;mov al,temp
 	;mov dl,nssqrsz
 	;mul dl
-	;cbw
+	;;cbw
 	;mov scrx,ax
 	ret
 convindextocoord endp
@@ -765,7 +975,7 @@ nextrowp:
 		
 		add al,cl
 		
-		cbw
+		;;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -808,7 +1018,7 @@ nextrowpas:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -834,15 +1044,15 @@ nextrowpas:
 	ret
 drawpast endp
 
-convpostoindex proc
-	mov ax,py
-	mov dl,nmapWid
-	mul dl
-	;cbw
-	add ax,px
-	mov bx,ax
-	ret
-convpostoindex endp
+;convpostoindex proc
+;	mov ax,py
+;	mov dl,nmapWid
+;	mul dl
+;	;;cbw
+;	add ax,px
+;	mov bx,ax
+;	ret
+;convpostoindex endp
 
 movepacman proc
 	;call convpostoindex
@@ -912,7 +1122,8 @@ ret
 eatpast endp
 
 turnpacman proc
-	call convpostoindex
+	;call convpostoindex
+	mov bx,pindex
 
 	mov ah,01h 
 	int 16h		;check buffer
@@ -1043,7 +1254,7 @@ nextrowg1:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1088,7 +1299,7 @@ nextrowg2:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1133,7 +1344,7 @@ nextrowg3:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1178,7 +1389,7 @@ nextrowg4:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1224,7 +1435,7 @@ convg1toindex proc
 	mov ax,g1y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g1x
 	mov bx,ax
 	ret
@@ -1235,7 +1446,7 @@ convg2toindex proc
 	mov ax,g2y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g2x
 	mov bx,ax
 	ret
@@ -1246,7 +1457,7 @@ convg3toindex proc
 	mov ax,g3y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g3x
 	mov bx,ax
 	ret
@@ -1257,7 +1468,7 @@ convg4toindex proc
 	mov ax,g4y
 	mov dl,nmapWid
 	mul dl
-	;cbw
+	;;cbw
 	add ax,g4x
 	mov bx,ax
 	ret
@@ -1803,7 +2014,7 @@ nextrowc1:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1845,7 +2056,7 @@ nextrowc2:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1887,7 +2098,7 @@ nextrowc3:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -1929,7 +2140,7 @@ nextrowc4:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -2070,7 +2281,7 @@ nextrowsp1:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -2112,7 +2323,7 @@ nextrowsp2:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -2154,7 +2365,7 @@ nextrowsp3:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
@@ -2196,7 +2407,7 @@ nextrowsp4:
 		
 		add al,cl
 		
-		cbw
+		;cbw
 		mov bx,ax
 		sub bx,nsqrsz
 		sub bx,1
