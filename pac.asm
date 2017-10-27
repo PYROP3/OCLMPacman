@@ -4,6 +4,7 @@ TITLE PACOMANO
 .data
 	lives 	db	3
 	points	dw	0
+	dotseaten	dw	0
 
 	px		dw	6
 	prevpx 	dw 	6
@@ -20,7 +21,7 @@ TITLE PACOMANO
 	pindex 	dw 	0
 	prevpin	dw 	0
 
-	pm 		db	1
+	pm 		db	0
 	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pmouth	db 	0 ;0 = fechada; 1 = aberta
 
@@ -373,6 +374,8 @@ TITLE PACOMANO
 			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
+	maxdots	dw	0
+	mapSize	equ	624
 	;spastil	db 	00h,00h,00h,00h,00h,00h,00h
 	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
 	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
@@ -424,6 +427,8 @@ TITLE PACOMANO
 	spastil4ys 	dw 	0
 	spastil4ex 	dw 	1
 	spastil4ind	dw	0
+
+	supertimer	dw	0
 
 	;pastil	db 	00h,00h,00h,00h,00h,00h,00h
 	;		db 	00h,00h,00h,00h,00h,00h,00h
@@ -555,7 +560,8 @@ main proc
 	mov al,10h
 	int 13
 
-	
+	call countmaxdots
+
 	call setpacindex
 	call setpacs
 	call setghostindexes
@@ -568,9 +574,9 @@ main proc
 	call drawmap
 
 
-	mov cx,70	;loops to execute (debug only)
+	;mov cx,70	;loops to execute (debug only)
 m:
-	mov ttt,cx
+	;mov ttt,cx
 	
 	cmp waitloops,0
 	je skipwait
@@ -587,24 +593,27 @@ m:
 	mov waitloops,0
 	skipwait:
 
-	;call drawmap
-	call eatcherries
+	cmp pm,0
+	je notsuper
+		sub supertimer,1
+		jnz notsuper
+			mov pm,0
+			jmp notsuper
+			
+mjump:	jmp m
 
-	call drawcherries
-	call drawspastils
+notsuper:
+	;call drawmap
+	call processitems
 	call turnpacman
 
 	call updatepacmansprite
 	
 	call movepacman
 	;call slidepacman
-	
+	call processghosts
 	call drawpac
-	call collidewithghosts
-
-	call moveghosts
-	call drawghosts
-	call collidewithghosts
+	
 
 	mov ax,prevpin
 	cmp pindex,ax
@@ -626,7 +635,7 @@ dontclearpacman:
 ;donechng:
 
 	;LOOP DE ESPERA
-	mov cx,3000
+	mov cx,4000
 	
 	t:
 	mov tttt,cx
@@ -638,14 +647,50 @@ dontclearpacman:
 	loop t
 	;LOOP DE ESPERA
 	
-	mov cx,ttt
-	loop m
-	
+	;mov cx,ttt
+	;loop m
+	cmp lives,0
+	jnz mjump
+	mov ax,maxdots
+	cmp ax,dotseaten
+	ja mjump
+
 	mov ah,01h
 	int 21h
 
 call finalizar
 main endp
+
+countmaxdots proc
+mov bx, 0
+mov cx,	mapSize
+countnext:
+	cmp [pmap + bx],0
+		je nodot
+		add maxdots,1
+	nodot:
+		add bx,1
+		loop countnext
+ret
+countmaxdots endp
+
+processitems proc
+	call eatcherries
+	call drawcherries
+
+	call eatspastils
+	call drawspastils
+ret
+processitems endp
+
+processghosts proc
+	call collidewithghosts
+	call moveghosts
+	call drawghosts
+	call collidewithghosts
+	call drawghosts
+ret
+processghosts endp
 
 setpacindex proc
 	mov ax,py
@@ -861,7 +906,8 @@ draweverything endp
 
 drawmap proc
 	mov bx,0
-	mov cx,624 ;63 cells = 9 * 7
+	;mov cx,624 ;63 cells = 9 * 7
+	mov cx,mapSize
 
 drawnextcell:
 	call convindextocoord
@@ -1221,6 +1267,7 @@ eatpast proc
 	cmp [pmap + bx],0
 	je nopast
 	add points,10
+	add dotseaten,1
 	mov [pmap + bx],0
 nopast:
 ret
@@ -2092,12 +2139,15 @@ ret
 turnghost4 endp
 
 collidewithghosts proc
-	mov ax,g1x
-	cmp ax,px
+	mov ax,pindex
+	cmp ax,g1ind
 	jne nocollisiong1
-	mov ax,g1y
-	cmp ax,py
-	jne nocollisiong1
+	;mov ax,g1x
+	;cmp ax,px
+	;jne nocollisiong1
+	;mov ax,g1y
+	;cmp ax,py
+	;jne nocollisiong1
 	
 	cmp pm,0
 	je takedamagejump
@@ -2110,12 +2160,15 @@ collidewithghosts proc
 	mov g1ind,greti
 	add points,200
 nocollisiong1:
-	mov ax,g2x
-	cmp ax,px
+	mov ax,pindex
+	cmp ax,g2ind
 	jne nocollisiong2
-	mov ax,g2y
-	cmp ax,py
-	jne nocollisiong2
+	;mov ax,g2x
+	;cmp ax,px
+	;jne nocollisiong2
+	;mov ax,g2y
+	;cmp ax,py
+	;jne nocollisiong2
 	
 	cmp pm,0
 	je takedamagejump
@@ -2131,12 +2184,15 @@ nocollisiong1:
 takedamagejump:
 	jmp takedamage
 nocollisiong2:
-	mov ax,g3x
-	cmp ax,px
+	mov ax,pindex
+	cmp ax,g3ind
 	jne nocollisiong3
-	mov ax,g3y
-	cmp ax,py
-	jne nocollisiong3
+	;mov ax,g3x
+	;cmp ax,px
+	;jne nocollisiong3
+	;mov ax,g3y
+	;cmp ax,py
+	;jne nocollisiong3
 	
 	cmp pm,0
 	je takedamage
@@ -2149,12 +2205,15 @@ nocollisiong2:
 	mov g3ind,greti
 	add points,200
 nocollisiong3:
-	mov ax,g4x
-	cmp ax,px
+	mov ax,pindex
+	cmp ax,g4ind
 	jne nocollisiong4
-	mov ax,g4y
-	cmp ax,py
-	jne nocollisiong4
+	;mov ax,g4x
+	;cmp ax,px
+	;jne nocollisiong4
+	;mov ax,g4y
+	;cmp ax,py
+	;jne nocollisiong4
 	
 	cmp pm,0
 	je takedamage
@@ -2173,7 +2232,7 @@ takedamage:
 	sub lives,1
 	jz pacmandied
 	call resetpositions
-	mov waitloops,3000
+	mov waitloops,1500
 	call draweverything
 ret
 pacmandied:
@@ -2672,6 +2731,75 @@ nextrowsp4:
 skipspastil4:
 ret
 drawspastils endp
+
+eatspastil1 proc
+	cmp spastil1ex,1
+	jne spastil1safe
+
+	mov ax,pindex
+	cmp spastil1ind,ax
+	jne spastil1safe
+
+	add points,100
+	mov pm,1
+	mov supertimer,15
+	mov spastil1ex,0
+spastil1safe:
+ret
+eatspastil1 endp
+eatspastil2 proc
+	cmp spastil2ex,1
+	jne spastil2safe
+
+	mov ax,pindex
+	cmp spastil2ind,ax
+	jne spastil2safe
+
+	add points,100
+	mov pm,1
+	mov supertimer,30
+	mov spastil2ex,0
+spastil2safe:
+ret
+eatspastil2 endp
+eatspastil3 proc
+	cmp spastil3ex,1
+	jne spastil3safe
+
+	mov ax,pindex
+	cmp spastil3ind,ax
+	jne spastil3safe
+
+	add points,100
+	mov pm,1
+	mov supertimer,15
+	mov spastil3ex,0
+spastil3safe:
+ret
+eatspastil3 endp
+eatspastil4 proc
+	cmp spastil4ex,1
+	jne spastil4safe
+
+	mov ax,pindex
+	cmp spastil4ind,ax
+	jne spastil4safe
+
+	add points,100
+	mov pm,1
+	mov supertimer,15
+	mov spastil4ex,0
+spastil4safe:
+ret
+eatspastil4 endp
+
+eatspastils proc
+	call eatspastil1
+	call eatspastil2
+	call eatspastil3
+	call eatspastil4
+ret
+eatspastils endp
 
 drawscore proc
 
