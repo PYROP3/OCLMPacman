@@ -2,10 +2,6 @@ TITLE PACOMANO
 .model small
 .stack 0100h
 .data
-	inicioi	db  "                                   JOGAR:$"
-	fac		db  "                                   Facil$"
-	med		db  "                                   Medio$"
-	dif		db  "                                   Dificil$"
 	lives 	db	3
 	points	dw	0
 	dotseaten	dw	0
@@ -553,57 +549,6 @@ TITLE PACOMANO
 main proc
 	mov ax,@data
 	mov ds,ax
-	MOV AX,3H
-	INT 10H
-	mov cx, 5
-pee:	
-	call pe
-	loop pee
-	
-	
-
-lea dx, inicioi
-mov ah,09h
-int 21h
-call pe
-call pe
-call pe
-lea dx, fac
-mov ah,09h
-int 21h
-call pe
-call pe 
-lea dx, med
-mov ah,09h
-int 21h
-call pe
-call pe
-lea dx,dif
-mov ah,09h
-int 21h
-
-;mov bh, 1
-;mov ah,08h
-;int 10h
-rl:
-	mov al,13h	;modo de vídeo
-	int 10h
-	mov ah,00H
-	int 16h		;save to al
-
-	xor al,20h
-
-	call drawpac
-	
-	cmp al,83	;S = down
-	;je t44
-	cmp al,87 	;W = up
-	;je t22
-	cmp al,65
-	je rs
-		
-	
-	rs:
 
 	mov ax,0a000h
 	mov es,ax
