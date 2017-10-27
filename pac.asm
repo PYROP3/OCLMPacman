@@ -350,7 +350,7 @@ TITLE PACOMANO
 			db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 
 	pmap 	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			db 	0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,1,1,1,1,1,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0
 			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
 			db 	0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0
 			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
@@ -429,6 +429,7 @@ TITLE PACOMANO
 	spastil4ind	dw	0
 
 	supertimer	dw	0
+	invultime	equ	30
 
 	;pastil	db 	00h,00h,00h,00h,00h,00h,00h
 	;		db 	00h,00h,00h,00h,00h,00h,00h
@@ -599,7 +600,7 @@ m:
 		jnz notsuper
 			mov pm,0
 			jmp notsuper
-			
+
 mjump:	jmp m
 
 notsuper:
@@ -635,7 +636,7 @@ dontclearpacman:
 ;donechng:
 
 	;LOOP DE ESPERA
-	mov cx,4000
+	mov cx,3000
 	
 	t:
 	mov tttt,cx
@@ -650,11 +651,12 @@ dontclearpacman:
 	;mov cx,ttt
 	;loop m
 	cmp lives,0
-	jnz mjump
+	jz gamefinished
 	mov ax,maxdots
 	cmp ax,dotseaten
-	ja mjump
-
+	jz gamefinished
+	jmp mjump
+gamefinished:
 	mov ah,01h
 	int 21h
 
@@ -2742,7 +2744,7 @@ eatspastil1 proc
 
 	add points,100
 	mov pm,1
-	mov supertimer,15
+	mov supertimer,invultime
 	mov spastil1ex,0
 spastil1safe:
 ret
@@ -2757,7 +2759,7 @@ eatspastil2 proc
 
 	add points,100
 	mov pm,1
-	mov supertimer,30
+	mov supertimer,invultime
 	mov spastil2ex,0
 spastil2safe:
 ret
@@ -2772,7 +2774,7 @@ eatspastil3 proc
 
 	add points,100
 	mov pm,1
-	mov supertimer,15
+	mov supertimer,invultime
 	mov spastil3ex,0
 spastil3safe:
 ret
@@ -2787,7 +2789,7 @@ eatspastil4 proc
 
 	add points,100
 	mov pm,1
-	mov supertimer,15
+	mov supertimer,invultime
 	mov spastil4ex,0
 spastil4safe:
 ret
@@ -2815,6 +2817,22 @@ finalizar proc
 xor ax,ax
 mov al,3h	;modo de texto normal
 int 10h
+
+cmp lives,1
+jb gameover
+mov ah,2
+mov dl,42 ;*
+int 21h
+jmp finish
+gameover:
+mov ah,2
+mov dl,68 ;D
+int 21h
+finish:
+mov ah,01h
+	int 21h
+mov ah,01h
+	int 21h
 
 mov ah,4ch	;encerra prog
 int 21h
