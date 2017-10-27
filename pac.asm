@@ -14,10 +14,13 @@ TITLE PACOMANO
 	pys		dw 	0
 	prevpys	dw 	0
 
+	pshx	dw	0
+	pshy	dw	0
+
 	pindex 	dw 	0
 	prevpin	dw 	0
 
-	pm 		db	0
+	pm 		db	1
 	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pmouth	db 	0 ;0 = fechada; 1 = aberta
 
@@ -280,22 +283,46 @@ TITLE PACOMANO
 	;		db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
 	;		db 	0bh,00h,00h,0bh,00h,00h,0bh
 
-	ghost4	db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
-			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
-			db	00h,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,00h
-			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ch,0fh,0fh,0fh,0fh,0fh,0fh,00h
-			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,00h
-			db	00h,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,00h
-			db	0ch,0fh,09h,09h,09h,09h,0fh,0ch,0fh,09h,09h,09h,09h,0fh,0ch
-			db	0ch,0fh,0fh,09h,09h,0fh,0fh,0ch,0fh,0fh,09h,09h,0fh,0fh,0ch
-			db	0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch,0ch,0fh,0fh,0fh,0fh,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch
-			db	0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch
-	
+	ghost4	db	00h,00h,00h,00h,0bh,0bh,0bh,0bh,0bh,0bh,0bh,00h,00h,00h,00h
+			db	00h,00h,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,00h,00h
+			db	00h,0bh,0fh,0fh,0fh,0fh,0bh,0bh,0bh,0fh,0fh,0fh,0fh,0bh,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0bh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0bh,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0bh,0fh,09h,09h,09h,09h,0fh,00h
+			db	0bh,0fh,09h,09h,09h,09h,0fh,0bh,0fh,09h,09h,09h,09h,0fh,0bh
+			db	0bh,0fh,0fh,09h,09h,0fh,0fh,0bh,0fh,0fh,09h,09h,0fh,0fh,0bh
+			db	0bh,0bh,0fh,0fh,0fh,0fh,0bh,0bh,0bh,0fh,0fh,0fh,0fh,0bh,0bh
+			db	0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh
+			db	0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh
+			db	0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh
+			db	0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh
+			db	0bh,0bh,00h,00h,00h,0bh,0bh,0bh,0bh,0bh,00h,00h,00h,0bh,0bh
+			db	0bh,00h,00h,00h,00h,00h,0bh,0bh,0bh,00h,00h,00h,00h,00h,0bh
+
+	vulgho	db	00h,00h,00h,00h,09h,09h,09h,09h,09h,09h,09h,00h,00h,00h,00h
+			db	00h,00h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,00h,00h
+			db	00h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,00h
+			db	00h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,00h
+			db	00h,09h,09h,0fh,0fh,0fh,09h,09h,09h,0fh,0fh,0fh,09h,09h,00h
+			db	00h,09h,09h,0fh,0fh,0fh,09h,09h,09h,0fh,0fh,0fh,09h,09h,00h
+			db	09h,09h,09h,0fh,0fh,0fh,09h,09h,09h,0fh,0fh,0fh,09h,09h,09h
+			db	09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h
+			db	09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h
+			db	09h,09h,0fh,0fh,09h,09h,0fh,0fh,0fh,09h,09h,0fh,0fh,09h,09h
+			db	09h,0fh,09h,09h,0fh,0fh,09h,09h,09h,0fh,0fh,09h,09h,0fh,09h
+			db	09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h
+			db	09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h
+			db	09h,09h,00h,00h,00h,09h,09h,09h,09h,09h,00h,00h,00h,09h,09h
+			db	09h,00h,00h,00h,00h,00h,09h,09h,09h,00h,00h,00h,00h,00h,09h
+
+	;return data
+	gretx	equ	13
+	gretxs	equ	208
+	grety	equ	12
+	gretys	equ	192
+	greti	equ	325
+	gretd	equ	2
+
 	map		db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db 	1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
 			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
@@ -480,6 +507,7 @@ TITLE PACOMANO
 	;ssqrsz	db 	8
 	nsqrsz 	equ	15	;7
 	nssqrsz	equ	16	;8
+	negsqsz	equ	-16
 
 	mapWid	db	26
 	mapWidw	dw 	26
@@ -508,7 +536,9 @@ TITLE PACOMANO
 	tempb 	dw  0
 	tempa 	dw  0
 	tempd 	dw 	0
-	ghostSpeeed	dw	6
+
+	pacspeed	equ	4
+	ghostspeed	equ	4
 .code
 main proc
 	mov ax,@data
@@ -538,7 +568,7 @@ main proc
 	call drawmap
 
 
-	mov cx,50	;loops to execute (debug only)
+	mov cx,70	;loops to execute (debug only)
 m:
 	mov ttt,cx
 	
@@ -565,7 +595,10 @@ m:
 	call turnpacman
 
 	call updatepacmansprite
+	
 	call movepacman
+	;call slidepacman
+	
 	call drawpac
 	call collidewithghosts
 
@@ -593,7 +626,7 @@ dontclearpacman:
 ;donechng:
 
 	;LOOP DE ESPERA
-	mov cx,5000
+	mov cx,3000
 	
 	t:
 	mov tttt,cx
@@ -1039,6 +1072,95 @@ nextrowpas:
 	ret
 drawpast endp
 
+slidepacman proc
+	mov ax,pxs
+	mov prevpxs,ax
+	mov ax,pys
+	mov prevpys,ax
+
+	mov bx,pindex
+	mov prevpin,bx
+
+	cmp pdir,4
+	je sd4j
+	cmp pdir,3
+	je sd3
+	cmp pdir,2
+	je sd2
+		;else 1 esquerda
+		cmp pshx,negsqsz
+		je ssd1
+			;else slide + 1
+			sub pshx,pacspeed
+			sub pxs,pacspeed
+		ret
+		ssd1:
+			sub bx,1
+			cmp [map + bx],1
+			je endslidej
+			sub px,1
+			mov pshx,0
+			;sub pxs,nssqrsz
+			sub pindex,1
+			call eatpast
+		ret
+		sd2:
+		cmp pshy,nssqrsz
+		je ssd2
+			;else slide + 1
+			add pshy,pacspeed
+			add pys,pacspeed
+		ret
+		sd4j:jmp sd4
+		ssd2:	;cima
+			sub bx,nmapWidw
+			cmp [map + bx],1
+			je endslide
+			sub py,1
+			mov pshy,0
+			;sub pys,nssqrsz
+			sub pindex,nmapWid
+			call eatpast
+		ret
+		sd3:
+		cmp pshx,nssqrsz
+		je ssd3
+			;else slide + 1
+			add pshx,pacspeed
+			add pxs,pacspeed
+		ret
+		endslidej:jmp endslide
+		ssd3:	;direita
+			add bx,1
+			cmp [map + bx],1
+			je endslide
+			add px,1
+			mov pshx,0
+			;add pxs,nssqrsz
+			add pindex,1
+			call eatpast
+		ret
+		cmp pshy,negsqsz
+		sd4:
+		je ssd4
+			;else slide + 1
+			sub pshy,pacspeed
+			sub pys,pacspeed
+		ret
+		ssd4:	;baixo
+			add bx,nmapWidw
+			cmp [map + bx],1
+			je endslide
+			add py,1
+			mov pshy,0
+			;add pys,nssqrsz
+			add pindex,nmapWid
+			call eatpast
+		ret
+endslide:
+ret
+slidepacman endp
+
 movepacman proc
 	mov ax,pxs
 	mov prevpxs,ax
@@ -1220,6 +1342,8 @@ setghost4s endp
 drawghost1 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
+	cmp pm,1
+	je drawvulnerable1
 nextrowg1:
 	mov cury,dx
 	add dx,g1ys
@@ -1255,13 +1379,50 @@ nextrowg1:
 	mov dx,cury
 	sub dx,1
 	ja nextrowg1
+ret
+drawvulnerable1:
+	mov cury,dx
+	add dx,g1ys
+	
+	mov cx,nsqrsz
+	drawwrowg1v:
+		sub dx,g1ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[vulgho+bx]
 
+		add dx,g1ys
+
+		mov curx,cx
+		add cx,g1xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg1v
+
+	mov dx,cury
+	sub dx,1
+	ja drawvulnerable1
 ret
 drawghost1 endp
 
 drawghost2 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
+	cmp pm,1
+	je drawvulnerable2
 nextrowg2:
 	mov cury,dx
 	add dx,g2ys
@@ -1297,13 +1458,50 @@ nextrowg2:
 	mov dx,cury
 	sub dx,1
 	ja nextrowg2
+ret
+drawvulnerable2:
+	mov cury,dx
+	add dx,g2ys
+	
+	mov cx,nsqrsz
+	drawwrowg2v:
+		sub dx,g2ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[vulgho+bx]
 
+		add dx,g2ys
+
+		mov curx,cx
+		add cx,g2xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg2v
+
+	mov dx,cury
+	sub dx,1
+	ja drawvulnerable2
 ret
 drawghost2 endp
 
 drawghost3 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
+	cmp pm,1
+	je drawvulnerable3
 nextrowg3:
 	mov cury,dx
 	add dx,g3ys
@@ -1339,13 +1537,50 @@ nextrowg3:
 	mov dx,cury
 	sub dx,1
 	ja nextrowg3
+ret
+drawvulnerable3:
+	mov cury,dx
+	add dx,g3ys
+	
+	mov cx,nsqrsz
+	drawwrowg3v:
+		sub dx,g3ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[vulgho+bx]
 
+		add dx,g3ys
+
+		mov curx,cx
+		add cx,g3xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg3v
+
+	mov dx,cury
+	sub dx,1
+	ja drawvulnerable3
 ret
 drawghost3 endp
 
 drawghost4 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
+	cmp pm,1
+	je drawvulnerable4
 nextrowg4:
 	mov cury,dx
 	add dx,g4ys
@@ -1381,7 +1616,42 @@ nextrowg4:
 	mov dx,cury
 	sub dx,1
 	ja nextrowg4
+ret
+drawvulnerable4:
+	mov cury,dx
+	add dx,g4ys
+	
+	mov cx,nsqrsz
+	drawwrowg4v:
+		sub dx,g4ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[vulgho+bx]
 
+		add dx,g4ys
+
+		mov curx,cx
+		add cx,g4xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg4v
+
+	mov dx,cury
+	sub dx,1
+	ja drawvulnerable4
 ret
 drawghost4 endp
 
@@ -1832,9 +2102,12 @@ collidewithghosts proc
 	cmp pm,0
 	je takedamagejump
 	;else eat and add points
-	mov g1x,13
-	mov g1y,13
-	mov g1d,2
+	mov g1x,gretx
+	mov g1xs,gretxs
+	mov g1y,grety
+	mov g1ys,gretys
+	mov g1d,gretd
+	mov g1ind,greti
 	add points,200
 nocollisiong1:
 	mov ax,g2x
@@ -1847,9 +2120,12 @@ nocollisiong1:
 	cmp pm,0
 	je takedamagejump
 	;else eat and add points
-	mov g2x,13
-	mov g2y,13
-	mov g2d,2
+	mov g2x,gretx
+	mov g2xs,gretxs
+	mov g2y,grety
+	mov g2ys,gretys
+	mov g2d,gretd
+	mov g2ind,greti
 	add points,200
 	jmp nocollisiong2
 takedamagejump:
@@ -1865,9 +2141,12 @@ nocollisiong2:
 	cmp pm,0
 	je takedamage
 	;else eat and add points
-	mov g3x,13
-	mov g3y,13
-	mov g3d,2
+	mov g3x,gretx
+	mov g3xs,gretxs
+	mov g3y,grety
+	mov g3ys,gretys
+	mov g3d,gretd
+	mov g3ind,greti
 	add points,200
 nocollisiong3:
 	mov ax,g4x
@@ -1880,9 +2159,12 @@ nocollisiong3:
 	cmp pm,0
 	je takedamage
 	;else eat and add points
-	mov g4x,13
-	mov g4y,13
-	mov g4d,2
+	mov g4x,gretx
+	mov g4xs,gretxs
+	mov g4y,grety
+	mov g4ys,gretys
+	mov g4d,gretd
+	mov g4ind,greti
 	add points,200
 nocollisiong4:
 ret
