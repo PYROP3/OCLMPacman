@@ -5,32 +5,32 @@
 y dw 0h
 x dw 0h		
 	;nmapWid equ 40
-	lp		db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
-			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+	lp		db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
+			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
 			
 
 	non 	equ 64000
 	nsqrsz	equ 4
 	nssqrsz	equ 4
-	nmapWid	equ	40
+	nmapWid	equ	140
 
 	cury	dw 0h
 	curx	dw 0h
@@ -73,7 +73,7 @@ BEGIN ENDP
 
 drawmap proc
 	mov bx,0
-	mov cx,800
+	mov cx,2800
 
 drawnextcell:
 	call convindextocoord
@@ -122,12 +122,12 @@ drawsqr proc;setar scrx e scry
 nextrow:
 	mov cury,dx
 	add dx,scry
-	
+	add dx, 20
 	mov cx,nsqrsz
 	drawwrow:
 		mov curx,cx
 		add cx,scrx
-
+		add cx, 20
 		int 10h
 
 		mov cx,curx
