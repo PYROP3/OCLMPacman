@@ -26,7 +26,7 @@ TITLE PACOMANO
 			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
 			
 
-	gnsqrsz	 equ 4
+	gnsqrsz	 equ 10
 	gnssqrsz equ 4
 	gnmapWid equ 140
 
@@ -2968,7 +2968,7 @@ gnextrow:
 	gdrawwrow:
 		mov gcurx,cx
 		add cx,gscrx
-		add cx, 20
+		add cx, 40
 		int 10h
 
 		mov cx,gcurx
