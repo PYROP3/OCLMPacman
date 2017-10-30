@@ -828,6 +828,16 @@ notsuper:
 	cmp pindex,ax
 	je dontclearpacman
 
+	cmp g1ind,ax
+	je dontclearpacman
+	cmp g2ind,ax
+	je dontclearpacman
+	cmp g3ind,ax
+	je dontclearpacman
+	cmp g4ind,ax
+	je dontclearpacman
+
+
 	mov ax,prevpxs
 	mov scrx,ax
 	mov ax,prevpys
