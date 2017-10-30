@@ -709,6 +709,7 @@ TITLE PACOMANO
 	nmapWid		equ	26
 	nmapWidW 	equ	26
 
+	maptoload	dw	1
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -769,6 +770,7 @@ main proc
 	mov al,10h
 	int 13
 
+	call loadmap
 	call countmaxdots
 
 	call setpacindex
@@ -865,6 +867,8 @@ dontclearpacman:
 	mov cx,tttt
 	loop t
 	;LOOP DE ESPERA
+
+	;call printdata
 	
 	;mov cx,ttt
 	;loop m
@@ -880,6 +884,63 @@ gamefinished:
 
 call finalizar
 main endp
+
+loadmap proc
+	mov cx, mapSize
+	mov bx,0
+	cmp maptoload,1
+	je lmap1
+	cmp maptoload,2
+	je lmap2
+	;else map 3
+lmap3:
+		mov al,[map3+bx]
+		mov [map+bx],al
+		mov al,[pmap3+bx]
+		mov [pmap+bx],al
+		inc bx
+		loop lmap3
+ret
+lmap2:
+		mov al,[map2+bx]
+		mov [map+bx],al
+		mov al,[pmap2+bx]
+		mov [pmap+bx],al
+		inc bx
+		loop lmap2
+ret
+lmap1:
+		mov al,[map1+bx]
+		mov [map+bx],al
+		mov al,[pmap1+bx]
+		mov [pmap+bx],al
+		inc bx
+		loop lmap1
+ret
+loadmap endp
+
+printdata proc 
+	mov ah,2
+	mov bh,1
+	mov dh,40  ;linha
+	mov dl,40 ;coluna
+	int 10h
+
+	mov ah,0ah
+	mov al,'P'
+	mov bh,1
+	mov bl,0fh
+	mov cx,1
+	int 10h
+
+	mov ah,0ah
+	mov al,'o'
+	mov bh,1
+	mov bl,0fh
+	mov cx,1
+	int 10h
+ret
+printdata endp
 
 countmaxdots proc
 mov bx, 0
@@ -1513,6 +1574,8 @@ turnpacman proc
 	je t2
 	cmp al,65 	;A = left
 	je t1
+	cmp al,'K'
+	je fin
 	jmp endturn ;Unrecognized
 t1:			;esquerda
 	sub bx,1
@@ -1540,6 +1603,7 @@ t4:			;baixo
 	ret
 endturn:
 	ret
+	fin: call finalizar
 turnpacman endp
 
 setghosts proc
@@ -1983,6 +2047,7 @@ ret
 convg4toindex endp
 
 moveghost1 proc
+agag1:
 	mov bx,g1ind
 	mov prg1ind,bx
 
@@ -2030,10 +2095,12 @@ g1md4:
 	ret
 g1endmove:
 	call turnghost1
+	jmp agag1
 ret
 moveghost1 endp
 
 moveghost2 proc
+agag2:
 	mov bx,g2ind
 	mov prg2ind,bx
 
@@ -2081,10 +2148,12 @@ g2md4:
 	ret
 g2endmove:
 	call turnghost2
+	jmp agag2
 ret
 moveghost2 endp
 
 moveghost3 proc
+agag3:
 	mov bx,g3ind
 	mov prg3ind,bx
 
@@ -2132,10 +2201,12 @@ g3md4:
 	ret
 g3endmove:
 	call turnghost3
+	jmp agag3
 ret
 moveghost3 endp
 
 moveghost4 proc
+agag4:
 	mov bx,g4ind
 	mov prg4ind,bx
 
@@ -2183,6 +2254,7 @@ g4md4:
 	ret
 g4endmove:
 	call turnghost4
+	jmp agag4
 ret
 moveghost4 endp
 
@@ -2322,37 +2394,83 @@ drawnothingg4:
 ret
 replaceg4 endp
 
+findrandom proc 	
+	mul ax
+	add cx,bx
+	add ax,cx
+	mov al,ah
+	mov ah,dl
+	mul ax
+	add cx,bx
+	add ax,cx
+	mov al,ah
+	mov ah,dl
+	mul ax
+	add cx,bx
+	add ax,cx
+	mov al,ah
+	mov ah,dl
+ret
+findrandom endp
+
 turnghost1 proc
-	add g1d,1
+	call findrandom
+	and ax,3
+
+	add g1d,ax
 	cmp g1d,5
 	jb noOverflowG1
-	mov g1d,1
+	sub g1d,4
+	;mov g1d,1
 	noOverflowG1:
 ret
 turnghost1 endp
 
 turnghost2 proc
-	add g2d,1
+	call findrandom
+	and ax,3
+
+	add g2d,ax
 	cmp g2d,5
 	jb noOverflowG2
+	sub g2d,4
+	;add g2d,1
+	;cmp g2d,5
+	;jb noOverflowG2
 	mov g2d,1
 	noOverflowG2:
 ret
 turnghost2 endp
 
 turnghost3 proc
-	add g3d,1
+	call findrandom
+	and ax,3
+
+	add g3d,ax
 	cmp g3d,5
 	jb noOverflowG3
+	sub g3d,4
+
+	;add g3d,1
+	;cmp g3d,5
+	;jb noOverflowG3
 	mov g3d,1
 	noOverflowG3:
 ret
 turnghost3 endp
 
 turnghost4 proc
-	add g4d,1
+	call findrandom
+	and ax,3
+
+	add g4d,ax
 	cmp g4d,5
 	jb noOverflowG4
+	sub g4d,4
+
+	;add g4d,1
+	;cmp g4d,5
+	;jb noOverflowG4
 	mov g4d,1
 	noOverflowG4:
 ret
