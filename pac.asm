@@ -216,6 +216,8 @@ TITLE PACOMANO
 	g1ys	dw	0
 	g1d 	dw 	3
 	g1ind 	dw	0
+	g1m		dw	1
+	g1stim	dw	0
 	prg1ind	dw	0
 
 	;ghost1	db 	00h,00h,0ch,0ch,0ch,00h,00h
@@ -248,6 +250,8 @@ TITLE PACOMANO
 	g2ys	dw	0
 	g2d 	dw 	3
 	g2ind	dw	0
+	g2m		dw	1
+	g2stim	dw	0
 	prg2ind	dw	0
 
 	;ghost2	db 	00h,00h,0dh,0dh,0dh,00h,00h
@@ -280,6 +284,8 @@ TITLE PACOMANO
 	g3ys	dw	0
 	g3d 	dw 	3
 	g3ind	dw	0
+	g3m		dw	1
+	g3stim	dw	0
 	prg3ind	dw	0
 
 	;ghost3	db 	00h,00h,0ah,0ah,0ah,00h,00h
@@ -312,6 +318,8 @@ TITLE PACOMANO
 	g4ys	dw	0
 	g4d 	dw 	3
 	g4ind	dw	0
+	g4m		dw	1
+	g4stim	dw	0
 	prg4ind	dw	0
 
 	;ghost4	db 	00h,00h,0bh,0bh,0bh,00h,00h
@@ -354,6 +362,22 @@ TITLE PACOMANO
 			db	09h,09h,00h,00h,00h,09h,09h,09h,09h,09h,00h,00h,00h,09h,09h
 			db	09h,00h,00h,00h,00h,00h,09h,09h,09h,00h,00h,00h,00h,00h,09h
 
+	eyesgho	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,00h,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,00h,0fh,09h,09h,09h,09h,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,00h,0fh,09h,09h,09h,09h,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,00h,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
 	;return data
 	gretx	equ	13
 	gretxs	equ	208
@@ -373,7 +397,7 @@ TITLE PACOMANO
 			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
-			db 	1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,1,1
+			db 	1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1
 			db 	1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1
 			db 	1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1
 			db 	1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1
@@ -412,6 +436,31 @@ TITLE PACOMANO
 			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
+	retmap	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db 	0,3,3,3,3,3,4,1,1,1,1,4,0,0,4,3,3,3,3,4,1,1,1,1,1,0
+			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,3,3,3,3,3,3,3,3,4,1,1,1,3,3,3,4,1,1,1,1,1,1,1,1,0
+			db 	0,4,0,0,0,0,2,0,0,4,0,0,0,0,0,0,4,0,0,2,0,0,0,0,4,0
+			db 	0,4,0,0,0,0,2,0,0,4,0,0,0,0,0,0,4,0,0,2,0,0,0,0,4,0
+			db 	0,4,3,3,3,3,4,0,0,3,3,4,0,0,4,1,1,0,0,4,1,1,1,1,4,0
+			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,3,3,3,3,3,4,0,0,3,3,3,4,4,1,1,1,0,0,4,1,1,1,1,1,0
+			db 	0,0,0,2,0,0,4,0,0,2,0,0,4,4,0,0,2,0,0,4,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,3,3,3,2,0,0,5,5,0,0,2,1,1,1,0,0,2,0,0,0
+			db 	0,3,3,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,3,3,3,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,3,3,3,3,3,2,0,0,2,0,0,0,0,0,0,2,0,0,2,1,1,1,1,1,0
+			db 	0,0,0,2,0,0,2,0,0,2,1,1,0,0,3,3,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0
+			db 	0,3,3,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,3,3,3,3,2,1,3,2,1,1,1,1,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,3,3,3,3,3,2,1,1,1,1,1,1,3,3,3,3,3,3,2,1,1,1,1,1,0
+			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
 	map1	db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -423,7 +472,7 @@ TITLE PACOMANO
 			db	1,1,1,1,1,1,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,1,1,1,1,1
 			db	1,1,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,1,1
 			db	1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
-			db	1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,1,1
+			db	1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1
 			db	1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1
 			db	1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1
 			db	1,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,1
@@ -473,7 +522,7 @@ TITLE PACOMANO
 			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
 			db 	1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
-			db 	1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,1,1
+			db 	1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1
 			db 	1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1
 			db 	1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1
 			db 	1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1
@@ -523,7 +572,7 @@ TITLE PACOMANO
 			db	1,0,1,1,0,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,0,1,1,0,1
 			db	1,0,1,1,1,1,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1,1,1,1,0,1
 			db	1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1
-			db	1,0,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,0,1
+			db	1,0,1,0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,0,1
 			db	1,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,1
 			db	1,0,1,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,0,0,0,1,0,1
 			db	1,0,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,1,0,1
@@ -709,7 +758,9 @@ TITLE PACOMANO
 	nmapWid		equ	26
 	nmapWidW 	equ	26
 
-	maptoload	dw	1
+	maptoload	dw	2
+
+	;pointstxt	db
 
 	mapx	dw 	0
 	mapy	dw 	0
@@ -734,6 +785,8 @@ TITLE PACOMANO
 
 	pacspeed	equ	4
 	ghostspeed	equ	4
+
+	ghostreconstructtime	equ	7
 .code
 main proc
 
@@ -809,6 +862,22 @@ m:
 		sub supertimer,1
 		jnz notsuper
 			mov pm,0
+			cmp g1m,3
+			je dontresetg1
+			mov g1m,1
+			dontresetg1:
+			cmp g2m,3
+			je dontresetg2
+			mov g2m,1
+			dontresetg2:
+			cmp g3m,3
+			je dontresetg3
+			mov g3m,1
+			dontresetg3:
+			cmp g4m,3
+			je dontresetg4
+			mov g4m,1
+			dontresetg4:
 			jmp notsuper
 
 mjump:	jmp m
@@ -1673,8 +1742,10 @@ setghost4s endp
 drawghost1 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
-	cmp pm,1
+	cmp g1m,2
 	je drawvulnerable1
+	cmp g1m,3
+	je draweyes1jump
 nextrowg1:
 	mov cury,dx
 	add dx,g1ys
@@ -1711,6 +1782,7 @@ nextrowg1:
 	sub dx,1
 	ja nextrowg1
 ret
+draweyes1jump: jmp draweyes1
 drawvulnerable1:
 	mov cury,dx
 	add dx,g1ys
@@ -1747,12 +1819,50 @@ drawvulnerable1:
 	sub dx,1
 	ja drawvulnerable1
 ret
+draweyes1:
+	mov cury,dx
+	add dx,g1ys
+	
+	mov cx,nsqrsz
+	drawwrowg1e:
+		sub dx,g1ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[eyesgho+bx]
+
+		add dx,g1ys
+
+		mov curx,cx
+		add cx,g1xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg1e
+
+	mov dx,cury
+	sub dx,1
+	ja draweyes1
+ret
 drawghost1 endp
 
 drawghost2 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
-	cmp pm,1
+	cmp g2m,3
+	je draweyes2jump
+	cmp g2m,2
 	je drawvulnerable2
 nextrowg2:
 	mov cury,dx
@@ -1790,6 +1900,7 @@ nextrowg2:
 	sub dx,1
 	ja nextrowg2
 ret
+draweyes2jump: jmp draweyes2
 drawvulnerable2:
 	mov cury,dx
 	add dx,g2ys
@@ -1826,12 +1937,50 @@ drawvulnerable2:
 	sub dx,1
 	ja drawvulnerable2
 ret
+draweyes2:
+	mov cury,dx
+	add dx,g2ys
+	
+	mov cx,nsqrsz
+	drawwrowg2e:
+		sub dx,g2ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[eyesgho+bx]
+
+		add dx,g2ys
+
+		mov curx,cx
+		add cx,g2xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg2e
+
+	mov dx,cury
+	sub dx,1
+	ja draweyes2
+ret
 drawghost2 endp
 
 drawghost3 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
-	cmp pm,1
+	cmp g3m,3
+	je draweyes3jump
+	cmp g3m,2
 	je drawvulnerable3
 nextrowg3:
 	mov cury,dx
@@ -1869,6 +2018,7 @@ nextrowg3:
 	sub dx,1
 	ja nextrowg3
 ret
+draweyes3jump: jmp draweyes3
 drawvulnerable3:
 	mov cury,dx
 	add dx,g3ys
@@ -1905,12 +2055,50 @@ drawvulnerable3:
 	sub dx,1
 	ja drawvulnerable3
 ret
+draweyes3:
+	mov cury,dx
+	add dx,g3ys
+	
+	mov cx,nsqrsz
+	drawwrowg3e:
+		sub dx,g3ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[eyesgho+bx]
+
+		add dx,g3ys
+
+		mov curx,cx
+		add cx,g3xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg3e
+
+	mov dx,cury
+	sub dx,1
+	ja draweyes3
+ret
 drawghost3 endp
 
 drawghost4 proc
 	mov cx,nsqrsz
 	mov dx,nsqrsz
-	cmp pm,1
+	cmp g4m,3
+	je draweyes4jump
+	cmp g4m,2
 	je drawvulnerable4
 nextrowg4:
 	mov cury,dx
@@ -1948,6 +2136,7 @@ nextrowg4:
 	sub dx,1
 	ja nextrowg4
 ret
+draweyes4jump: jmp draweyes4
 drawvulnerable4:
 	mov cury,dx
 	add dx,g4ys
@@ -1983,6 +2172,42 @@ drawvulnerable4:
 	mov dx,cury
 	sub dx,1
 	ja drawvulnerable4
+ret
+draweyes4:
+	mov cury,dx
+	add dx,g4ys
+	
+	mov cx,nsqrsz
+	drawwrowg4e:
+		sub dx,g4ys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		
+		mov al,[eyesgho+bx]
+
+		add dx,g4ys
+
+		mov curx,cx
+		add cx,g4xs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowg4e
+
+	mov dx,cury
+	sub dx,1
+	ja draweyes4
 ret
 drawghost4 endp
 
@@ -2047,6 +2272,29 @@ ret
 convg4toindex endp
 
 moveghost1 proc
+cmp g1m,3
+	jne agag1
+
+	mov bx,g1ind
+	cmp [retmap + bx],5
+	je waitghost1
+
+	xor ah,ah
+	mov al,[retmap + bx]
+	mov g1d,ax
+
+	jmp agag1
+waitghost1:
+	cmp g1stim,0
+	jnz processg1wait
+		mov g1stim,ghostreconstructtime
+	processg1wait:
+	sub g1stim,1
+	jnz stillwaitingg1
+		mov g1m,1
+		mov g1d,2
+	stillwaitingg1:
+ret
 agag1:
 	mov bx,g1ind
 	mov prg1ind,bx
@@ -2058,6 +2306,7 @@ agag1:
 	cmp g1d,2
 	je g1md2
 		;else 1
+g1md1:
 	sub bx,1
 	cmp [map + bx],1
 	je g1endmove
@@ -2094,12 +2343,38 @@ g1md4:
 	call replaceg1
 	ret
 g1endmove:
+	cmp g1m,3
+	je dontturng1
 	call turnghost1
 	jmp agag1
+	dontturng1:
 ret
 moveghost1 endp
 
 moveghost2 proc
+cmp g2m,3
+	jne agag2
+
+	mov bx,g2ind
+	cmp [retmap + bx],5
+	je waitghost2
+
+	xor ah,ah
+	mov al,[retmap + bx]
+	mov g2d,ax
+
+	jmp agag2
+waitghost2:
+	cmp g2stim,0
+	jnz processg2wait
+		mov g2stim,ghostreconstructtime
+	processg2wait:
+	sub g2stim,1
+	jnz stillwaitingg2
+		mov g2m,1
+		mov g2d,2
+	stillwaitingg2:
+ret
 agag2:
 	mov bx,g2ind
 	mov prg2ind,bx
@@ -2147,12 +2422,38 @@ g2md4:
 	call replaceg2
 	ret
 g2endmove:
+	cmp g2m,3
+	je dontturng2
 	call turnghost2
 	jmp agag2
+dontturng2:
 ret
 moveghost2 endp
 
 moveghost3 proc
+cmp g3m,3
+	jne agag3
+
+	mov bx,g3ind
+	cmp [retmap + bx],5
+	je waitghost3
+
+	xor ah,ah
+	mov al,[retmap + bx]
+	mov g3d,ax
+
+	jmp agag3
+waitghost3:
+	cmp g3stim,0
+	jnz processg3wait
+		mov g3stim,ghostreconstructtime
+	processg3wait:
+	sub g3stim,1
+	jnz stillwaitingg3
+		mov g3m,1
+		mov g3d,2
+	stillwaitingg3:
+ret
 agag3:
 	mov bx,g3ind
 	mov prg3ind,bx
@@ -2200,12 +2501,38 @@ g3md4:
 	call replaceg3
 	ret
 g3endmove:
+	cmp g3m,3
+	je dontturng3
 	call turnghost3
 	jmp agag3
+dontturng3:
 ret
 moveghost3 endp
 
 moveghost4 proc
+cmp g4m,3
+	jne agag4
+
+	mov bx,g4ind
+	cmp [retmap + bx],5
+	je waitghost4
+
+	xor ah,ah
+	mov al,[retmap + bx]
+	mov g4d,ax
+
+	jmp agag4
+waitghost4:
+	cmp g4stim,0
+	jnz processg4wait
+		mov g4stim,ghostreconstructtime
+	processg4wait:
+	sub g4stim,1
+	jnz stillwaitingg4
+		mov g4m,1
+		mov g4d,2
+	stillwaitingg4:
+ret
 agag4:
 	mov bx,g4ind
 	mov prg4ind,bx
@@ -2253,8 +2580,11 @@ g4md4:
 	call replaceg4
 	ret
 g4endmove:
+	cmp g4m,3
+	je dontturng4
 	call turnghost4
 	jmp agag4
+dontturng4:
 ret
 moveghost4 endp
 
@@ -2487,15 +2817,20 @@ collidewithghosts proc
 	;cmp ax,py
 	;jne nocollisiong1
 	
-	cmp pm,0
+	;cmp pm,0
+	cmp g1m,1
 	je takedamagejump
 	;else eat and add points
-	mov g1x,gretx
-	mov g1xs,gretxs
-	mov g1y,grety
-	mov g1ys,gretys
-	mov g1d,gretd
-	mov g1ind,greti
+	
+	;mov g1x,gretx
+	;mov g1xs,gretxs
+	;mov g1y,grety
+	;mov g1ys,gretys
+	;mov g1d,gretd
+	;mov g1ind,greti
+	
+	mov g1m,3
+
 	add points,200
 nocollisiong1:
 	mov ax,pindex
@@ -2508,15 +2843,20 @@ nocollisiong1:
 	;cmp ax,py
 	;jne nocollisiong2
 	
-	cmp pm,0
+	;cmp pm,0
+	cmp g2m,1
 	je takedamagejump
 	;else eat and add points
-	mov g2x,gretx
-	mov g2xs,gretxs
-	mov g2y,grety
-	mov g2ys,gretys
-	mov g2d,gretd
-	mov g2ind,greti
+	
+	;mov g2x,gretx
+	;mov g2xs,gretxs
+	;mov g2y,grety
+	;mov g2ys,gretys
+	;mov g2d,gretd
+	;mov g2ind,greti
+	
+	mov g2m,3
+
 	add points,200
 	jmp nocollisiong2
 takedamagejump:
@@ -2532,15 +2872,20 @@ nocollisiong2:
 	;cmp ax,py
 	;jne nocollisiong3
 	
-	cmp pm,0
+	;cmp pm,0
+	cmp g3m,1
 	je takedamage
 	;else eat and add points
-	mov g3x,gretx
-	mov g3xs,gretxs
-	mov g3y,grety
-	mov g3ys,gretys
-	mov g3d,gretd
-	mov g3ind,greti
+	
+	;mov g3x,gretx
+	;mov g3xs,gretxs
+	;mov g3y,grety
+	;mov g3ys,gretys
+	;mov g3d,gretd
+	;mov g3ind,greti
+
+	mov g3m,3
+
 	add points,200
 nocollisiong3:
 	mov ax,pindex
@@ -2553,15 +2898,20 @@ nocollisiong3:
 	;cmp ax,py
 	;jne nocollisiong4
 	
-	cmp pm,0
+	;cmp pm,0
+	cmp g4m,1
 	je takedamage
 	;else eat and add points
-	mov g4x,gretx
-	mov g4xs,gretxs
-	mov g4y,grety
-	mov g4ys,gretys
-	mov g4d,gretd
-	mov g4ind,greti
+	
+	;mov g4x,gretx
+	;mov g4xs,gretxs
+	;mov g4y,grety
+	;mov g4ys,gretys
+	;mov g4d,gretd
+	;mov g4ind,greti
+	
+	mov g4m,3
+
 	add points,200
 nocollisiong4:
 ret
@@ -3070,6 +3420,28 @@ skipspastil4:
 ret
 drawspastils endp
 
+setsupermode proc
+	mov pm,1
+	cmp g1m,3
+	je dontsuperg1
+	mov g1m,2
+dontsuperg1:
+	cmp g2m,3
+	je dontsuperg2
+	mov g2m,2
+dontsuperg2:
+	cmp g3m,3
+	je dontsuperg3
+	mov g3m,2
+dontsuperg3:
+	cmp g4m,3
+	je dontsuperg4
+	mov g4m,2
+dontsuperg4:
+	mov supertimer,invultime
+ret
+setsupermode endp
+
 eatspastil1 proc
 	cmp spastil1ex,1
 	jne spastil1safe
@@ -3079,8 +3451,8 @@ eatspastil1 proc
 	jne spastil1safe
 
 	add points,100
-	mov pm,1
-	mov supertimer,invultime
+	call setsupermode
+	;mov supertimer,invultime
 	mov spastil1ex,0
 spastil1safe:
 ret
@@ -3094,8 +3466,9 @@ eatspastil2 proc
 	jne spastil2safe
 
 	add points,100
-	mov pm,1
-	mov supertimer,invultime
+	;mov pm,1
+	call setsupermode
+	;mov supertimer,invultime
 	mov spastil2ex,0
 spastil2safe:
 ret
@@ -3109,8 +3482,9 @@ eatspastil3 proc
 	jne spastil3safe
 
 	add points,100
-	mov pm,1
-	mov supertimer,invultime
+	;mov pm,1
+	call setsupermode
+	;mov supertimer,invultime
 	mov spastil3ex,0
 spastil3safe:
 ret
@@ -3124,8 +3498,9 @@ eatspastil4 proc
 	jne spastil4safe
 
 	add points,100
-	mov pm,1
-	mov supertimer,invultime
+	;mov pm,1
+	call setsupermode
+	;mov supertimer,invultime
 	mov spastil4ex,0
 spastil4safe:
 ret
