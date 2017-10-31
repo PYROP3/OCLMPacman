@@ -908,7 +908,6 @@ notsuper:
 	cmp g4ind,ax
 	je dontclearpacman
 
-
 	mov ax,prevpxs
 	mov scrx,ax
 	mov ax,prevpys
@@ -923,6 +922,55 @@ dontclearpacman:
 ;chng1:
 	;mov cscr,1
 ;donechng:
+	cmp pm,0
+	je nosecondstep
+
+	;LOOP DE ESPERA
+	mov cx,3000
+	
+	tsecstep:
+	mov tttt,cx
+	mov cx,100
+	t2tsecstep:
+	nop
+	loop t2tsecstep
+	mov cx,tttt
+	loop tsecstep
+	;LOOP DE ESPERA
+
+
+	call processitems
+	call turnpacman
+	call updatepacmansprite
+
+	call movepacman
+	call collidewithghosts
+	call drawghosts
+
+	call drawpac
+
+	mov ax,prevpin
+	cmp pindex,ax
+	je dontclearpacman2
+
+	cmp g1ind,ax
+	je dontclearpacman2
+	cmp g2ind,ax
+	je dontclearpacman2
+	cmp g3ind,ax
+	je dontclearpacman2
+	cmp g4ind,ax
+	je dontclearpacman2
+
+	mov ax,prevpxs
+	mov scrx,ax
+	mov ax,prevpys
+	mov scry,ax
+	mov al,0
+	call drawsqr
+dontclearpacman2:
+
+nosecondstep:
 
 	;LOOP DE ESPERA
 	mov cx,3000
