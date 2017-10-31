@@ -55,16 +55,51 @@ function love.load()
 	-- 			{1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1},
 	-- 			{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	-- 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}}
-	scrx = 320
+	scrx = 360
 	scry = 320
 	love.window.setMode(scrx,scry)
 	szx = scrx/26
 	szy = scry/24
 	oktouch = true
 	--love.filesystem.setIdentity("")
+	curcol = 1
 end
 
 function love.update()
+	if love.keyboard.isDown("0") then
+		curcol = 1
+	elseif love.keyboard.isDown("1") then
+		curcol = 2
+	elseif love.keyboard.isDown("2") then
+		curcol = 3
+	elseif love.keyboard.isDown("3") then
+		curcol = 4
+	elseif love.keyboard.isDown("4") then
+		curcol = 5
+	elseif love.keyboard.isDown("5") then
+		curcol = 6
+	elseif love.keyboard.isDown("6") then
+		curcol = 7
+	elseif love.keyboard.isDown("7") then
+		curcol = 8
+	elseif love.keyboard.isDown("8") then
+		curcol = 9
+	elseif love.keyboard.isDown("9") then
+		curcol = 10
+	elseif love.keyboard.isDown("a") then
+		curcol = 11
+	elseif love.keyboard.isDown("b") then
+		curcol = 12
+	elseif love.keyboard.isDown("c") then
+		curcol = 13
+	elseif love.keyboard.isDown("d") then
+		curcol = 14
+	elseif love.keyboard.isDown("e") then
+		curcol = 15
+	elseif love.keyboard.isDown("f") then
+		curcol = 16
+	end
+
 	if (oktouch and love.mouse.isDown(1)) then
 		mx = love.mouse.getX()
 		my = love.mouse.getY()
@@ -73,8 +108,10 @@ function love.update()
 		cy = math.ceil(my/20)
 
 		--if map[cy][cx] == 1 then map[cy][cx] = 0 else map[cy][cx] = 1 end
-		map[cy][cx] = map[cy][cx] + 1
-		if map[cy][cx] == 17 then map[cy][cx] = 1 end
+		
+		--map[cy][cx] = map[cy][cx] + 1
+		--if map[cy][cx] == 17 then map[cy][cx] = 1 end
+		map[cy][cx] = curcol
 
 		oktouch = false
 	elseif (love.mouse.isDown(2)) then
@@ -110,4 +147,6 @@ function love.draw()
 			--end
 		end
 	end
+	love.graphics.setColor(colortable[curcol])
+	love.graphics.rectangle("fill", 320,0,40,320)
 end
