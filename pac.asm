@@ -461,6 +461,56 @@ TITLE PACOMANO
 			db 	0,3,3,3,3,3,2,1,1,1,1,1,1,3,3,3,3,3,3,2,1,1,1,1,1,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
+	fomap 	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db 	0,3,3,3,3,3,0,1,1,1,1,1,0,0,4,1,1,1,1,4,1,1,1,1,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,3,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,2,1,1,0,0,3,3,2,0,0,2,1,1,1,1,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,3,3,2,1,1,2,3,3,0,0,2,1,1,1,1,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,0,2,2,2,2,0,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,3,3,2,0,2,2,2,2,0,2,1,1,2,0,0,2,0,0,0
+			db 	0,1,1,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,1,1,1,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,1,1,1,1,2,0,0,2,0,0,0,0,0,0,2,0,0,2,3,3,3,3,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,1,1,0,0,3,3,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0
+			db 	0,3,3,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1,1,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,0
+			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+	fomapor	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db 	0,3,3,3,3,3,0,1,1,1,1,1,0,0,4,1,1,1,1,4,1,1,1,1,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,3,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,2,1,1,0,0,3,3,2,0,0,2,1,1,1,1,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,3,3,2,1,1,2,3,3,0,0,2,1,1,1,1,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,0,2,2,2,2,0,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,3,3,2,0,2,2,2,2,0,2,1,1,2,0,0,2,0,0,0
+			db 	0,1,1,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,1,1,1,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,1,1,1,1,2,0,0,2,0,0,0,0,0,0,2,0,0,2,3,3,3,3,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,1,1,0,0,3,3,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0
+			db 	0,3,3,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1,1,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,0
+			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
 	map1	db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -561,30 +611,30 @@ TITLE PACOMANO
 			db 	0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-	nmap2	db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-			db 	1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
-			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
-			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
-			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,1
-			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
-			db 	1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
-			db 	1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1
-			db 	1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1
-			db 	1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1
-			db 	1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1
-			db 	1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,1
-			db 	1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,0,0,1,1,0,1,1,0,1,1,1
-			db 	1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1
-			db 	1,0,0,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1
-			db 	1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1
-			db 	1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1
-			db 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-			db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+	fomap2 	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db 	0,3,3,3,3,3,0,1,1,1,1,1,0,0,4,1,1,1,1,4,1,1,1,1,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,4,0,0,0,0,4,0,0,0,0,4,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,3,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,2,1,1,0,0,3,3,2,0,0,2,1,1,1,1,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,0,0,3,3,2,1,1,2,3,3,0,0,2,1,1,1,1,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,0,2,2,2,2,0,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,3,3,2,0,2,2,2,2,0,2,1,1,2,0,0,2,0,0,0
+			db 	0,1,1,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,1,1,1,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
+			db 	0,2,1,1,1,1,2,0,0,2,0,0,0,0,0,0,2,0,0,2,3,3,3,3,2,0
+			db 	0,0,0,2,0,0,2,0,0,2,1,1,0,0,3,3,2,0,0,2,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0
+			db 	0,3,3,2,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,2,0,0,2,1,1,0
+			db 	0,2,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1,1,2,0,0,0,0,2,0
+			db 	0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+			db 	0,2,3,3,3,3,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,0
+			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 	retmap2	db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			db 	0,3,3,3,3,3,4,1,1,1,1,4,0,0,4,3,3,3,3,4,1,1,1,1,1,0
@@ -973,6 +1023,16 @@ TITLE PACOMANO
 	ghostspeed	equ	4
 
 	ghostreconstructtime	equ	7
+
+	ledirecs	equ	00010001b
+	dodirecs	equ	00100010b
+	ridirecs	equ	01000100b
+	updirecs	equ	10001000b
+
+	ledirec		equ	0001000100010001b
+	dodirec		equ	0010001000100010b
+	ridirec		equ	0100010001000100b
+	updirec		equ	1000100010001000b
 .code
 main proc
 
@@ -1800,6 +1860,9 @@ movepacman proc
 	mov bx,pindex
 	mov prevpin,bx
 
+	mov al,pdir
+	mov [fomap + bx],al
+
 	cmp pdir,4
 	je md4
 	cmp pdir,3
@@ -2507,7 +2570,7 @@ convg4toindex endp
 
 moveghost1 proc
 cmp g1m,3
-	jne agag1
+	jne willturng1
 
 	mov bx,g1ind
 	cmp [retmap + bx],5
@@ -2529,6 +2592,8 @@ waitghost1:
 		mov g1d,2
 	stillwaitingg1:
 ret
+willturng1:
+	call newturnghost1
 agag1:
 	mov bx,g1ind
 	mov prg1ind,bx
@@ -2541,36 +2606,41 @@ agag1:
 	je g1md2
 		;else 1
 g1md1:
-	sub bx,1
-	cmp [map + bx],1
-	je g1endmove
+
+	;sub bx,1
+	;cmp [map + bx],1
+	;je g1endmove
+
 	sub g1x,1
 	sub g1xs,nssqrsz
 	sub g1ind,1
 	call replaceg1
 	ret
 g1md2:
-	sub bx,nmapWidw
-	cmp [map + bx],1
-	je g1endmove
+	;sub bx,nmapWidw
+	;cmp [map + bx],1
+	;je g1endmove
+	
 	sub g1y,1
 	sub g1ys,nssqrsz
 	sub g1ind,nmapWid
 	call replaceg1
 	ret
 g1md3:	;direita
-	add bx,1
-	cmp [map + bx],1
-	je g1endmove
+	;add bx,1
+	;cmp [map + bx],1
+	;je g1endmove
+	
 	add g1x,1
 	add g1xs,nssqrsz
 	add g1ind,1
 	call replaceg1
 	ret
 g1md4:
-	add bx,nmapWidw
-	cmp [map + bx],1
-	je g1endmove
+	;add bx,nmapWidw
+	;cmp [map + bx],1
+	;je g1endmove
+	
 	add g1y,1
 	add g1ys,nssqrsz
 	add g1ind,nmapWid
@@ -2579,7 +2649,8 @@ g1md4:
 g1endmove:
 	cmp g1m,3
 	je dontturng1
-	call turnghost1
+	;call turnghost1
+	call newturnghost1
 	jmp agag1
 	dontturng1:
 ret
@@ -2587,7 +2658,7 @@ moveghost1 endp
 
 moveghost2 proc
 cmp g2m,3
-	jne agag2
+	jne willturng2
 
 	mov bx,g2ind
 	cmp [retmap + bx],5
@@ -2609,9 +2680,17 @@ waitghost2:
 		mov g2d,2
 	stillwaitingg2:
 ret
+willturng2:
+	call newturnghost2
 agag2:
+	;call newturnghost2
+
 	mov bx,g2ind
 	mov prg2ind,bx
+
+	;xor ah,ah
+	;mov al,[fomap + bx]
+	;mov g2d,ax
 
 	cmp g2d,4
 	je g2md4
@@ -2620,36 +2699,41 @@ agag2:
 	cmp g2d,2
 	je g2md2
 		;else 1
-	sub bx,1
-	cmp [map + bx],1
-	je g2endmove
+
+	;sub bx,1
+	;cmp [map + bx],1
+	;je g2endmove
+	
 	sub g2x,1
 	sub g2xs,nssqrsz
 	sub g2ind,1
 	call replaceg2
 	ret
 g2md2:
-	sub bx,nmapWidw
-	cmp [map + bx],1
-	je g2endmove
+	;sub bx,nmapWidw
+	;cmp [map + bx],1
+	;je g2endmove
+	
 	sub g2y,1
 	sub g2ys,nssqrsz
 	sub g2ind,nmapWid
 	call replaceg2
 	ret
 g2md3:	;direita
-	add bx,1
-	cmp [map + bx],1
-	je g2endmove
+	;add bx,1
+	;cmp [map + bx],1
+	;je g2endmove
+	
 	add g2x,1
 	add g2xs,nssqrsz
 	add g2ind,1
 	call replaceg2
 	ret
 g2md4:
-	add bx,nmapWidw
-	cmp [map + bx],1
-	je g2endmove
+	;add bx,nmapWidw
+	;cmp [map + bx],1
+	;je g2endmove
+	
 	add g2y,1
 	add g2ys,nssqrsz
 	add g2ind,nmapWid
@@ -2658,7 +2742,8 @@ g2md4:
 g2endmove:
 	cmp g2m,3
 	je dontturng2
-	call turnghost2
+	;call turnghost2
+	call newturnghost2
 	jmp agag2
 dontturng2:
 ret
@@ -2666,7 +2751,7 @@ moveghost2 endp
 
 moveghost3 proc
 cmp g3m,3
-	jne agag3
+	jne willturng3
 
 	mov bx,g3ind
 	cmp [retmap + bx],5
@@ -2688,9 +2773,17 @@ waitghost3:
 		mov g3d,2
 	stillwaitingg3:
 ret
-agag3:
+willturng3:
+	call newturnghost3
+agag3:	
+	;call newturnghost3
+
 	mov bx,g3ind
 	mov prg3ind,bx
+
+	;xor ah,ah
+	;mov al,[fomap + bx]
+	;mov g3d,ax
 
 	cmp g3d,4
 	je g3md4
@@ -2699,36 +2792,41 @@ agag3:
 	cmp g3d,2
 	je g3md2
 		;else 1
-	sub bx,1
-	cmp [map + bx],1
-	je g3endmove
+
+	;sub bx,1
+	;cmp [map + bx],1
+	;je g3endmove
+	
 	sub g3x,1
 	sub g3xs,nssqrsz
 	sub g3ind,1
 	call replaceg3
 	ret
 g3md2:
-	sub bx,nmapWidw
-	cmp [map + bx],1
-	je g3endmove
+	;sub bx,nmapWidw
+	;cmp [map + bx],1
+	;je g3endmove
+	
 	sub g3y,1
 	sub g3ys,nssqrsz
 	sub g3ind,nmapWid
 	call replaceg3
 	ret
 g3md3:	;direita
-	add bx,1
-	cmp [map + bx],1
-	je g3endmove
+	;add bx,1
+	;cmp [map + bx],1
+	;je g3endmove
+	
 	add g3x,1
 	add g3xs,nssqrsz
 	add g3ind,1
 	call replaceg3
 	ret
 g3md4:
-	add bx,nmapWidw
-	cmp [map + bx],1
-	je g3endmove
+	;add bx,nmapWidw
+	;cmp [map + bx],1
+	;je g3endmove
+	
 	add g3y,1
 	add g3ys,nssqrsz
 	add g3ind,nmapWid
@@ -2737,7 +2835,8 @@ g3md4:
 g3endmove:
 	cmp g3m,3
 	je dontturng3
-	call turnghost3
+	;call turnghost3
+	call newturnghost3
 	jmp agag3
 dontturng3:
 ret
@@ -2745,7 +2844,7 @@ moveghost3 endp
 
 moveghost4 proc
 cmp g4m,3
-	jne agag4
+	jne willturng4
 
 	mov bx,g4ind
 	cmp [retmap + bx],5
@@ -2767,9 +2866,17 @@ waitghost4:
 		mov g4d,2
 	stillwaitingg4:
 ret
+willturng4:
+	call newturnghost4
 agag4:
+	;call newturnghost4
+
 	mov bx,g4ind
 	mov prg4ind,bx
+
+	;xor ah,ah
+	;mov al,[fomap + bx]
+	;mov g4d,ax
 
 	cmp g4d,4
 	je g4md4
@@ -2778,36 +2885,41 @@ agag4:
 	cmp g4d,2
 	je g4md2
 		;else 1
-	sub bx,1
-	cmp [map + bx],1
-	je g4endmove
+
+	;sub bx,1
+	;cmp [map + bx],1
+	;je g4endmove
+	
 	sub g4x,1
 	sub g4xs,nssqrsz
 	sub g4ind,1
 	call replaceg4
 	ret
 g4md2:
-	sub bx,nmapWidw
-	cmp [map + bx],1
-	je g4endmove
+	;sub bx,nmapWidw
+	;cmp [map + bx],1
+	;je g4endmove
+	
 	sub g4y,1
 	sub g4ys,nssqrsz
 	sub g4ind,nmapWid
 	call replaceg4
 	ret
 g4md3:	;direita
-	add bx,1
-	cmp [map + bx],1
-	je g4endmove
+	;add bx,1
+	;cmp [map + bx],1
+	;je g4endmove
+	
 	add g4x,1
 	add g4xs,nssqrsz
 	add g4ind,1
 	call replaceg4
 	ret
 g4md4:
-	add bx,nmapWidw
-	cmp [map + bx],1
-	je g4endmove
+	;add bx,nmapWidw
+	;cmp [map + bx],1
+	;je g4endmove
+	
 	add g4y,1
 	add g4ys,nssqrsz
 	add g4ind,nmapWid
@@ -2816,7 +2928,8 @@ g4md4:
 g4endmove:
 	cmp g4m,3
 	je dontturng4
-	call turnghost4
+	;call turnghost4
+	call newturnghost4
 	jmp agag4
 dontturng4:
 ret
@@ -2976,6 +3089,67 @@ findrandom proc
 	mov ah,dl
 ret
 findrandom endp
+
+newturnghost1 proc
+	mov bx,g1ind
+	xor ah,ah
+	mov al,[fomap + bx]
+
+; 	cmp g1m,2
+; 	jne g1notscared
+; 		add ax,2
+; 		cmp ax,5
+; 		jb g1notscared
+; 			sub ax,4
+; g1notscared:
+	mov g1d,ax
+ret
+newturnghost1 endp
+newturnghost2 proc
+	mov bx,g2ind
+	xor ah,ah
+	mov al,[fomap + bx]
+
+; 	cmp g2m,2
+; 	jne g2notscared
+; 		add ax,2
+; 		cmp ax,5
+; 		jb g2notscared
+; 			sub ax,4
+; g2notscared:
+	mov g2d,ax
+ret
+newturnghost2 endp
+newturnghost3 proc
+	mov bx,g3ind
+	xor ah,ah
+	mov al,[fomap + bx]
+
+; 	cmp g3m,2
+; 	jne g3notscared
+; 		add ax,2
+; 		cmp ax,5
+; 		jb g3notscared
+; 			sub ax,4
+; g3notscared:
+	mov g3d,ax
+ret
+newturnghost3 endp
+newturnghost4 proc
+	mov bx,g4ind
+	xor ah,ah
+	mov al,[fomap + bx]
+
+; 	cmp g4m,2
+; 	jne g4notscared
+; 		add ax,2
+; 		cmp ax,5
+; 		jb g4notscared
+; 			sub ax,4
+; g4notscared:
+	mov g4d,ax
+ret
+newturnghost4 endp
 
 turnghost1 proc
 	call findrandom
@@ -3170,22 +3344,43 @@ resetpositions proc
 	mov g1x,6
 	mov g1y,12
 
+	mov g1m,1
+
 	mov g2x,19
 	mov g2y,4
+
+	mov g2m,1
 	
 	mov g3x,6
 	mov g3y,18
+
+	mov g3m,1
 	
 	mov g4x,19
 	mov g4y,18
+
+	mov g4m,1
 
 	call setpacs
 	call setpacindex
 
 	call setghosts
 	call setghostindexes
+
+	call resetdirectionalmaps
 ret
 resetpositions endp
+
+resetdirectionalmaps proc
+	mov cx,mapSize
+	mov bx,0
+resetnextdirectionalcell:
+	mov al,[fomapor+bx]
+	mov [fomap+bx],al
+	inc bx
+	loop resetnextdirectionalcell
+ret
+resetdirectionalmaps endp
 
 setcherrys proc
 	mov ax,cherry1x
