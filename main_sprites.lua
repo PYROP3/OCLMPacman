@@ -1,11 +1,13 @@
 function love.load()
+	lines = 16
+	cols = 16
+	sqrsz = 20
+
 	map = {}
-	--for i = 1, 26 do
-		for j = 1, 16 do
-			--map[i][j] = false
+		for j = 1, lines do
 			table.insert(map, {})
-			for i = 1, 16 do 
-				table.insert(map[j], 2)
+			for i = 1, cols do 
+				table.insert(map[j], 1)
 			end
 		end
 	
@@ -28,40 +30,14 @@ function love.load()
 		{255,255,255}	--white
 	}
 	letters = {"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"}
-	--end
-	--scrx = love.window.getWidth()
-	--scry = love.window.getHeight()
-	-- map =	{{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	-- 			{1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1},
-	-- 			{1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,0,1,1,1},
-	-- 			{1,1,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,1,1,1},
-	-- 			{1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,1},
-	-- 			{1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,0,0,1,1,0,1,1,0,1,1,1},
-	-- 			{1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1},
-	-- 			{1,0,0,0,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1},
-	-- 			{1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1},
-	-- 			{1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1},
-	-- 			{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	-- 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}}
-	scrx = 360
-	scry = 320
+	scrx = cols * sqrsz + 2 * sqrsz
+	scry = lines * sqrsz
+	--scrx = 360
+	--scry = 320
 	love.window.setMode(scrx,scry)
-	szx = scrx/26
-	szy = scry/24
+	--szx = scrx/26
+	--szy = scry/24
 	oktouch = true
-	--love.filesystem.setIdentity("")
 	curcol = 1
 end
 
@@ -100,53 +76,44 @@ function love.update()
 		curcol = 16
 	end
 
-	if (oktouch and love.mouse.isDown(1)) then
+	if (love.mouse.isDown(1)) then
 		mx = love.mouse.getX()
 		my = love.mouse.getY()
 
-		cx = math.ceil(mx/20)
-		cy = math.ceil(my/20)
+		cx = math.ceil(mx/sqrsz)
+		cy = math.ceil(my/sqrsz)
+		if my <= cols * sqrsz then
+			map[cy][cx] = curcol
+		end
 
-		--if map[cy][cx] == 1 then map[cy][cx] = 0 else map[cy][cx] = 1 end
-		
-		--map[cy][cx] = map[cy][cx] + 1
-		--if map[cy][cx] == 17 then map[cy][cx] = 1 end
-		map[cy][cx] = curcol
-
-		oktouch = false
-	elseif (love.mouse.isDown(2)) then
+		--oktouch = false
+	elseif (oktouch == true and love.mouse.isDown(2)) then
 		file, errorstr = love.filesystem.newFile("out.txt")
 		file:open("w")
 		str = ""
-		for j = 1,16 do
+		for j = 1,lines do
 			str = str.."db\t"
-			for i = 1,16 do
+			for i = 1,cols do
 				str = str.."0"..letters[map[j][i]].."h"
-				--if map[j][i] == 1 then str = str.."1" else str = str.."0" end
-				if i ~= 16 then str = str.."," end
+				if i ~= lines then str = str.."," end
 			end
 			str = str.."\n"
 		end
 		file:write(str)
 		file:close()
-		--love.filesystem.write("C:/Users/Owner/Desktop/testss/out.txt", str)
+		oktouch = false
 	elseif (love.mouse.isDown(1) == false) then oktouch = true
 	end
 
 end
 
 function love.draw()
-	for i = 1, 16 do
-		for j = 1, 16 do
-			--if map[i][j] == 1 then
-			--	love.graphics.setColor(30, 30, 255, 255)
-			--	love.graphics.rectangle("fill", j*20-20, i*20-20, 20, 20)
-			--else
-				love.graphics.setColor(colortable[map[i][j]])
-				love.graphics.rectangle("fill", j*20-20, i*20-20, 19, 19)
-			--end
+	for i = 1, lines do
+		for j = 1, cols do
+			love.graphics.setColor(colortable[map[i][j]])
+			love.graphics.rectangle("fill", j*sqrsz - sqrsz, i*sqrsz - sqrsz, sqrsz - 1, sqrsz - 1)
 		end
 	end
 	love.graphics.setColor(colortable[curcol])
-	love.graphics.rectangle("fill", 320,0,40,320)
+	love.graphics.rectangle("fill", cols*sqrsz,0,2*sqrsz,scry)
 end
