@@ -26,7 +26,7 @@ TITLE PACOMANO
 			db	0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh
 			
 
-	gnsqrsz	 equ 10
+	gnsqrsz	 equ 3
 	gnssqrsz equ 4
 	gnmapWid equ 140
 
@@ -510,6 +510,31 @@ TITLE PACOMANO
 			db 	0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0
 			db 	0,2,3,3,3,3,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,0
 			db 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+	intmap	db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,1,0,0,0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			db	0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 	map1	db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 			db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -1033,30 +1058,54 @@ TITLE PACOMANO
 	dodirec		equ	0010001000100010b
 	ridirec		equ	0100010001000100b
 	updirec		equ	1000100010001000b
+
+	targetx	dw	0
+	targety	dw	0
+	cgx		dw	0
+	cgy		dw	0
+
+	dists	db	0,0,0,0
+	dirs	db	1,2,3,4
+
+	tempbyte1	db	0
+	tempbyte2	db	0
+
+	currprohibdir	dw	0
 .code
 main proc
 
 	mov ax,@data
 	mov ds,ax
 
-	;mov ax,0a00eh
-	;mov es,ax
-
-	xor ax,ax
-	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
-	int 10h
-
-	;xor ah,ah
-	;mov al,10h
-	;int 13
-	call gdrawmap
-
-	mov ah,01h
-	int 21h
-
-	xor ax,ax
-	mov al,3h	;modo de texto normal
-	int 10h
+;	;mov ax,0a00eh
+;	;mov es,ax
+;
+;	xor ax,ax
+;	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
+;	int 10h
+;
+;	;xor ah,ah
+;	;mov al,10h
+;	;int 13
+;	call gdrawmap
+;mov cx, 20
+;mov ah,01h
+;mov ch,32
+;mov cl,1h
+;int 10h
+;mov cx,10
+;here:
+;	mov ah,09
+;	mov al,33h
+;	mov bl,0ch
+;	int 10h
+;loop here
+;	mov ah,01h
+;	int 21h
+;
+;	xor ax,ax
+;	mov al,3h	;modo de texto normal
+;	int 10h
 
 	mov ax,0a000h
 	mov es,ax
@@ -1132,11 +1181,16 @@ notsuper:
 	;call drawmap
 	call processitems
 	call turnpacman
+	call turnpacman
+	call turnpacman
+	call turnpacman
+	call turnpacman
 
 	call updatepacmansprite
 	
 	call movepacman
 	;call slidepacman
+	;call doubletapghosts
 	call processghosts
 	call drawpac
 	
@@ -1187,9 +1241,14 @@ dontclearpacman:
 
 	call processitems
 	call turnpacman
+	call turnpacman
+	call turnpacman
+	call turnpacman
+	call turnpacman
 	call updatepacmansprite
 
 	call movepacman
+	call doubletapghosts
 	call collidewithghosts
 	call drawghosts
 
@@ -1247,6 +1306,26 @@ gamefinished:
 
 call finalizar
 main endp
+
+doubletapghosts proc
+	cmp g1m,2
+	je wontdoubletapg1
+		call moveghost1
+wontdoubletapg1:
+cmp g2m,2
+	je wontdoubletapg2
+		call moveghost2
+wontdoubletapg2:
+cmp g3m,2
+	je wontdoubletapg3
+		call moveghost3
+wontdoubletapg3:
+cmp g4m,2
+	je wontdoubletapg4
+		call moveghost4
+wontdoubletapg4:
+ret
+doubletapghosts endp
 
 loadmap proc
 	mov cx, mapSize
@@ -1331,6 +1410,7 @@ processghosts proc
 	call collidewithghosts
 	call moveghosts
 	call drawghosts
+	;call doubletapghosts
 	call collidewithghosts
 	call drawghosts
 ret
@@ -2568,6 +2648,163 @@ convg4toindex proc
 ret
 convg4toindex endp
 
+; newmoveghost1 proc
+; cmp g1m,3
+; 	jne willturng1
+
+; 	mov bx,g1ind
+; 	cmp [retmap + bx],5
+; 	je waitghost1
+
+; 	xor ah,ah
+; 	mov al,[retmap + bx]
+; 	mov g1d,ax
+
+; 	jmp agag1
+; waitghost1:
+; 	cmp g1stim,0
+; 	jnz processg1wait
+; 		mov g1stim,ghostreconstructtime
+; 	processg1wait:
+; 	sub g1stim,1
+; 	jnz stillwaitingg1
+; 		mov g1m,1
+; 		mov g1d,2
+; 	stillwaitingg1:
+; ret
+; willturng1:
+; 	mov bx,g1ind
+; 	cmp [intmap + bx],1
+; 	je g1atintersection
+; 		;else normal movement
+; 		cmp g1d,1
+; 		je g1willtry1
+; 		cmp g1d,2
+; 		je g1willtry2
+; 		cmp g1d,3
+; 		je g1willtry3
+; 		cmp g1d,4
+; 		je g1willtry4
+; 		g1willtry4:		;down
+; 			add bx,nmapWid
+; 			cmp [map + bx], 1
+; 			je g1cantmove4
+; 				;else just move
+; 				jmp g1willmove4
+; 			g1cantmove4:
+; 				sub bx,nmapWid
+; 				sub bx,1
+; 				cmp [map + bx], 1
+; 				je g1willmove3
+; 					;else move 1
+; 				jmp g1willmove1
+; 		g1willtry3:		;right
+; 			add bx,1
+; 			cmp [map + bx], 1
+; 			je g1cantmove3
+; 				;else just move
+; 				jmp g1willmove3
+; 			g1cantmove3:
+; 				sub bx,1
+; 				sub bx,nmapWid
+; 				cmp [map + bx], 1
+; 				je g1willmove4
+; 					;else move 2
+; 				jmp g1willmove2
+; 		g1willtry2:		;up
+; 			sub bx,nmapWid
+; 			cmp [map + bx], 1
+; 			je g1cantmove2
+; 				;else just move
+; 				jmp g1willmove2
+; 			g1cantmove2:
+; 				add bx,nmapWid
+; 				sub bx,1
+; 				cmp [map + bx], 1
+; 				je g1willmove3
+; 					;else move 1
+; 				jmp g1willmove1
+; 		g1willtry1:		;left
+; 			sub bx,1
+; 			cmp [map + bx], 1
+; 			je g1cantmove1
+; 				;else just move
+; 				jmp g1willmove1
+; 			g1cantmove1:
+; 				add bx,1
+; 				sub bx,nmapWid
+; 				cmp [map + bx], 1
+; 				je g1willmove4
+; 					;else move 2
+; 				jmp g1willmove2
+
+; agag1:
+; 	cmp g1d,1
+; 	je g1willmove1
+; 	cmp g1d,2
+; 	je g1willmove2
+; 	cmp g1d,3
+; 	je g1willmove3
+; 	cmp g1d,4
+; 	je g1willmove4
+; g1willmove1:	;left
+; 	mov g1d,1
+; 	sub g1x,1
+; 	sub g1xs,nssqrsz
+; 	sub g1ind,1
+; 	call replaceg1
+; 	ret
+; g1willmove2:	;up
+; 	mov g1d,2
+; 	sub g1y,1
+; 	sub g1ys,nssqrsz
+; 	sub g1ind,nmapWid
+; 	call replaceg1
+; 	ret
+; g1willmove3:	;right
+; 	mov g1d,3
+; 	add g1x,1
+; 	add g1xs,nssqrsz
+; 	add g1ind,1
+; 	call replaceg1
+; 	ret
+; g1willmove4:	;down
+; 	mov g1d,4
+; 	add g1y,1
+; 	add g1ys,nssqrsz
+; 	add g1ind,nmapWid
+; 	call replaceg1
+; 	ret
+
+; g1atintersection:
+; 	mov ax,px
+; 	sub ax,g1x
+; 	mov testx,ax
+; 	mov ax,py
+; 	sub ax,g1y
+; 	mov testy,ax
+; 	cmp g1d,1
+; 	je g1willtry1int
+; 	cmp g1d,2
+; 	je g1willtry2int
+; 	cmp g1d,3
+; 	je g1willtry3int
+; 	cmp g1d,4
+; 	je g1willtry4int
+; 	g1willtry1int:	;test 4 (D), 1 (L), 2 (U)
+		
+		
+
+; newmoveghost1 endp
+
+; finddist proc
+; 	mov ax,px
+; 	add ax,py
+; 	sub ax,testx
+; 	sub ax,testy
+; ret
+; finddist endp
+
 moveghost1 proc
 cmp g1m,3
 	jne willturng1
@@ -2650,7 +2887,7 @@ g1endmove:
 	cmp g1m,3
 	je dontturng1
 	;call turnghost1
-	call newturnghost1
+	;call newturnghost1
 	jmp agag1
 	dontturng1:
 ret
@@ -3090,21 +3327,185 @@ findrandom proc
 ret
 findrandom endp
 
+calcdist proc
+	mov ax,targetx
+	sub ax,cgx
+	mul al
+	mov dl,al
+	mov ax,targety
+	sub ax,cgy
+	mul al
+	add al,dl
+ret
+calcdist endp
+
+targetpac proc
+	mov ax,px
+	mov targetx,ax
+	mov ax,py
+	mov targety,ax
+ret
+targetpac endp
+
+sortlists proc
+	mov bx,0
+	mov cx,4
+	for1:
+		push cx 
+		for2:
+			push cx
+			mov al,[dists + bx]
+			inc bx
+			mov dl,[dists + bx]
+			cmp al,bl
+			jb wassorted
+				mov [dists + bx],al
+				mov cl,[dirs + bx]
+				mov tempbyte1,cl
+				dec bx 
+				mov [dists + bx],dl
+				mov cl,[dirs + bx]
+				mov tempbyte2,cl
+				mov cl,tempbyte1
+				mov [dirs + bx], cl
+				inc bx
+				mov cl,tempbyte2
+				mov [dirs + bx], cl
+			wassorted:
+			pop cx
+			loop for2
+		pop cx
+		loop for1
+	;end sort hopefully
+ret
+sortlists endp
+
 newturnghost1 proc
 	mov bx,g1ind
-	xor ah,ah
-	mov al,[fomap + bx]
+	cmp [intmap + bx],1
+	je g1isatintersection
+		;else linha reta
+		ret
+g1isatintersection:
+		mov ax,g1d
+		add ax,2
+		cmp ax,5
+		jb nooverlapg1
+		sub ax,4
+		nooverlapg1:
+		mov currprohibdir,ax
 
-; 	cmp g1m,2
-; 	jne g1notscared
-; 		add ax,2
-; 		cmp ax,5
-; 		jb g1notscared
-; 			sub ax,4
-; g1notscared:
-	mov g1d,ax
+		call targetpac
+
+		mov ax,g1x
+		mov cgx,ax
+		mov ax,g1y
+		mov cgy,ax
+
+		sub targetx,1
+		call calcdist
+		mov [dists + 0],al
+		mov [dirs + 0],1
+
+		add targetx,1
+		sub targety,1
+		call calcdist
+		mov [dists + 1],al
+		mov [dirs + 1],2
+
+		add targetx,1
+		add targety,1
+		call calcdist
+		mov [dists + 2],al
+		mov [dirs + 2],3
+
+		sub targetx,1
+		add targety,1
+		call calcdist
+		mov [dists + 3],al
+		mov [dirs + 3],4
+
+		;sort vinculated lists (distances and directions)
+		call sortlists
+
+		mov bx,0
+	trynextg1:
+		mov ax,currprohibdir
+		cmp [dirs + bx],al		;ghost cant turn 180
+		je couldntmoveg1
+
+		cmp [dirs + bx],1
+		je willtry1g1
+		cmp [dirs + bx],2
+		je willtry2g1
+		cmp [dirs + bx],3
+		je willtry3g1
+		;else 4
+		jmp willtry4g1
+		willtry1g1:
+			push bx
+			mov bx,g1ind
+			sub bx,1 ;left
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg1
+			;else can move 
+			mov g1d,1
+			ret ;end turning algorithm
+		willtry2g1:
+			push bx
+			mov bx,g1ind
+			sub bx,nmapWid ;up
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg1
+			;else can move 
+			mov g1d,2
+			ret ;end turning algorithm
+		willtry3g1:
+			push bx
+			mov bx,g1ind
+			add bx,1 ;right
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg1
+			;else can move 
+			mov g1d,3
+			ret ;end turning algorithm
+		willtry4g1:
+			push bx
+			mov bx,g1ind
+			add bx,nmapWid ;down
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg1
+			;else can move 
+			mov g1d,4
+			ret ;end turning algorithm
+		couldntmoveg1:
+			;else will find next shortest path
+			pop bx 
+			inc bx
+			jmp trynextg1
+		
+
+
+
+;	mov bx,g1ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g1m,2
+;; 	jne g1notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g1notscared
+;; 			sub ax,4
+;; g1notscared:
+;	mov g1d,ax
 ret
 newturnghost1 endp
+
 newturnghost2 proc
 	mov bx,g2ind
 	xor ah,ah
@@ -3120,6 +3521,7 @@ newturnghost2 proc
 	mov g2d,ax
 ret
 newturnghost2 endp
+
 newturnghost3 proc
 	mov bx,g3ind
 	xor ah,ah
@@ -3135,6 +3537,7 @@ newturnghost3 proc
 	mov g3d,ax
 ret
 newturnghost3 endp
+
 newturnghost4 proc
 	mov bx,g4ind
 	xor ah,ah
