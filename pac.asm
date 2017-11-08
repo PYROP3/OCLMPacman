@@ -44,12 +44,12 @@ TITLE PACOMANO
 	points	dw	0
 	dotseaten	dw	0
 
-	px		dw	6
-	prevpx 	dw 	6
+	px		dw	12
+	prevpx 	dw 	12
 	pxs		dw 	0
 	prevpxs dw 	0
-	py		dw 	1
-	prevpy	dw 	1
+	py		dw 	14
+	prevpy	dw 	14
 	pys		dw 	0
 	prevpys	dw 	0
 
@@ -60,7 +60,7 @@ TITLE PACOMANO
 	prevpin	dw 	0
 
 	pm 		db	0
-	pdir	db 	4 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
+	pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
 	pmouth	db 	0 ;0 = fechada; 1 = aberta
 
 	;cscr	db 	0
@@ -210,14 +210,14 @@ TITLE PACOMANO
 			db	00h,00h,00h,00h,00h,00h,0eh,0eh,0eh,00h,00h,00h,00h,00h,00h
 
 
-	g1x		dw	6
-	g1y		dw	14
+	g1x		dw	11
+	g1y		dw	12
 	g1xs	dw	0
 	g1ys	dw	0
-	g1d 	dw 	4
+	g1d 	dw 	2
 	g1ind 	dw	0
-	g1m		dw	1
-	g1stim	dw	0
+	g1m		dw	3
+	g1stim	dw	10
 	prg1ind	dw	0
 
 	;ghost1	db 	00h,00h,0ch,0ch,0ch,00h,00h
@@ -244,14 +244,14 @@ TITLE PACOMANO
 			db	0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch
 			db	0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch
 	
-	g2x		dw	19
-	g2y		dw	4
+	g2x		dw	12
+	g2y		dw	12
 	g2xs	dw	0
 	g2ys	dw	0
-	g2d 	dw 	3
+	g2d 	dw 	2
 	g2ind	dw	0
-	g2m		dw	1
-	g2stim	dw	0
+	g2m		dw	3
+	g2stim	dw	20
 	prg2ind	dw	0
 
 	;ghost2	db 	00h,00h,0dh,0dh,0dh,00h,00h
@@ -278,14 +278,14 @@ TITLE PACOMANO
 			db	0dh,0dh,00h,00h,00h,0dh,0dh,0dh,0dh,0dh,00h,00h,00h,0dh,0dh
 			db	0dh,00h,00h,00h,00h,00h,0dh,0dh,0dh,00h,00h,00h,00h,00h,0dh
 
-	g3x		dw	6
-	g3y		dw	18
+	g3x		dw	13
+	g3y		dw	12
 	g3xs	dw	0
 	g3ys	dw	0
-	g3d 	dw 	3
+	g3d 	dw 	2
 	g3ind	dw	0
-	g3m		dw	1
-	g3stim	dw	0
+	g3m		dw	3
+	g3stim	dw	30
 	prg3ind	dw	0
 
 	;ghost3	db 	00h,00h,0ah,0ah,0ah,00h,00h
@@ -296,41 +296,7 @@ TITLE PACOMANO
 	;		db 	0ah,0ah,0ah,0ah,0ah,0ah,0ah
 	;		db 	0ah,00h,00h,0ah,00h,00h,0ah
 
-	ghost3	db	00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,00h
-			db	00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h
-			db	00h,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,00h
-			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ah,0fh,0fh,0fh,0fh,0fh,0fh,00h
-			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,00h
-			db	00h,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,00h
-			db	0ah,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,0ah
-			db	0ah,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,0ah
-			db	0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah
-			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
-			db	0ah,0ah,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,0ah,0ah
-			db	0ah,00h,00h,00h,00h,00h,0ah,0ah,0ah,00h,00h,00h,00h,00h,0ah
-
-	g4x		dw	19
-	g4y		dw	18
-	g4xs	dw	0
-	g4ys	dw	0
-	g4d 	dw 	3
-	g4ind	dw	0
-	g4m		dw	1
-	g4stim	dw	0
-	prg4ind	dw	0
-
-	;ghost4	db 	00h,00h,0bh,0bh,0bh,00h,00h
-	;		db 	00h,0fh,0fh,0bh,0fh,0fh,00h
-	;		db 	09h,09h,0fh,0bh,0fh,09h,09h
-	;		db 	09h,09h,0bh,0bh,0bh,09h,09h
-	;		db 	0fh,0fh,0bh,0bh,0bh,0fh,0fh
-	;		db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
-	;		db 	0bh,00h,00h,0bh,00h,00h,0bh
-
-	ghost4	db	00h,00h,00h,00h,0bh,0bh,0bh,0bh,0bh,0bh,0bh,00h,00h,00h,00h
+	ghost3	db	00h,00h,00h,00h,0bh,0bh,0bh,0bh,0bh,0bh,0bh,00h,00h,00h,00h
 			db	00h,00h,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,00h,00h
 			db	00h,0bh,0fh,0fh,0fh,0fh,0bh,0bh,0bh,0fh,0fh,0fh,0fh,0bh,00h
 			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0bh,0fh,0fh,0fh,0fh,0fh,0fh,00h
@@ -345,6 +311,40 @@ TITLE PACOMANO
 			db	0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh,0bh
 			db	0bh,0bh,00h,00h,00h,0bh,0bh,0bh,0bh,0bh,00h,00h,00h,0bh,0bh
 			db	0bh,00h,00h,00h,00h,00h,0bh,0bh,0bh,00h,00h,00h,00h,00h,0bh
+
+	g4x		dw	14
+	g4y		dw	12
+	g4xs	dw	0
+	g4ys	dw	0
+	g4d 	dw 	2
+	g4ind	dw	0
+	g4m		dw	3
+	g4stim	dw	40
+	prg4ind	dw	0
+
+	;ghost4	db 	00h,00h,0bh,0bh,0bh,00h,00h
+	;		db 	00h,0fh,0fh,0bh,0fh,0fh,00h
+	;		db 	09h,09h,0fh,0bh,0fh,09h,09h
+	;		db 	09h,09h,0bh,0bh,0bh,09h,09h
+	;		db 	0fh,0fh,0bh,0bh,0bh,0fh,0fh
+	;		db 	0bh,0bh,0bh,0bh,0bh,0bh,0bh
+	;		db 	0bh,00h,00h,0bh,00h,00h,0bh
+
+	ghost4	db	00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,00h
+			db	00h,00h,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,00h,00h
+			db	00h,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0ah,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,00h
+			db	00h,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,00h
+			db	0ah,0fh,09h,09h,09h,09h,0fh,0ah,0fh,09h,09h,09h,09h,0fh,0ah
+			db	0ah,0fh,0fh,09h,09h,0fh,0fh,0ah,0fh,0fh,09h,09h,0fh,0fh,0ah
+			db	0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah,0ah,0fh,0fh,0fh,0fh,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah,0ah
+			db	0ah,0ah,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,00h,00h,00h,0ah,0ah
+			db	0ah,00h,00h,00h,00h,00h,0ah,0ah,0ah,00h,00h,00h,00h,00h,0ah
 
 	vulgho	db	00h,00h,00h,00h,09h,09h,09h,09h,09h,09h,09h,00h,00h,00h,00h
 			db	00h,00h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,09h,00h,00h
@@ -447,8 +447,8 @@ TITLE PACOMANO
 			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
 			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
 			db 	0,3,3,3,3,3,4,0,0,3,3,3,4,4,1,1,1,0,0,4,1,1,1,1,1,0
-			db 	0,0,0,2,0,0,4,0,0,2,0,0,4,4,0,0,2,0,0,4,0,0,2,0,0,0
-			db 	0,0,0,2,0,0,3,3,3,2,0,0,5,5,0,0,2,1,1,1,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,4,0,0,2,0,4,4,4,4,0,2,0,0,4,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,3,3,3,2,0,5,5,5,5,0,2,1,1,1,0,0,2,0,0,0
 			db 	0,3,3,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
 			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,3,3,3,2,0,0,2,0,0,0,0,2,0
 			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
@@ -698,8 +698,8 @@ TITLE PACOMANO
 			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
 			db 	0,4,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,4,0
 			db 	0,3,3,3,3,3,4,0,0,3,3,3,4,4,1,1,1,0,0,4,1,1,1,1,1,0
-			db 	0,0,0,2,0,0,4,0,0,2,0,0,4,4,0,0,2,0,0,4,0,0,2,0,0,0
-			db 	0,0,0,2,0,0,3,3,3,2,0,0,5,5,0,0,2,1,1,1,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,4,0,0,2,0,4,4,4,4,0,2,0,0,4,0,0,2,0,0,0
+			db 	0,0,0,2,0,0,3,3,3,2,0,5,5,5,5,0,2,1,1,1,0,0,2,0,0,0
 			db 	0,3,3,2,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,2,1,1,0
 			db 	0,2,0,0,0,0,2,0,0,2,1,1,1,3,3,3,2,0,0,2,0,0,0,0,2,0
 			db 	0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0
@@ -3401,6 +3401,29 @@ case4tg2:
 	ret 
 targetpacg2 endp
 
+targetpacg3 proc 
+	mov ax,px 
+	mov targetx,ax
+	add targetx,ax
+	mov ax,g1x
+	sub targetx,ax
+
+	mov ax,py
+	mov targety,ax
+	add targety,ax
+	mov ax,g1y
+	sub targety,ax
+ret
+targetpacg3 endp
+
+targetpacg4 proc
+	mov ax,g2x
+	mov targetx,ax
+	mov ax,g2y
+	mov targety,ax
+ret
+targetpacg4 endp
+
 newsortlists proc 
 	mov cx,4
 	xor bx,bx
@@ -3805,37 +3828,369 @@ newturnghost2 endp
 ;ret
 ;newturnghost2 endp
 
+prohibdirg3 proc 
+	mov currprohibdir,3
+	cmp g3d,1
+	je foundprohibg3
+	mov currprohibdir,4
+	cmp g3d,2
+	je foundprohibg3
+	mov currprohibdir,1
+	cmp g3d,3
+	je foundprohibg3
+	mov currprohibdir,2
+
+foundprohibg3:
+ret
+prohibdirg3 endp
+
 newturnghost3 proc
 	mov bx,g3ind
-	xor ah,ah
-	mov al,[fomap + bx]
+	cmp [intmap + bx],1
+	je g3isatintersection
+		;else linha reta
+		ret
+g3isatintersection:
+		;mov ax,g3d
+		;add ax,2
+		;cmp ax,5
+		;jb nooverlapg3
+		;sub ax,4
+		;nooverlapg3:
+		;mov currprohibdir,al
+		call prohibdirg3
 
-; 	cmp g3m,2
-; 	jne g3notscared
-; 		add ax,2
-; 		cmp ax,5
-; 		jb g3notscared
-; 			sub ax,4
-; g3notscared:
-	mov g3d,ax
+		call targetpacg3
+
+		mov ax,g3x
+		mov cgx,ax
+		mov ax,g3y
+		mov cgy,ax
+
+		dec cgx
+		call calcdist
+		mov [dists + 0],al
+		mov [dirs  + 0],1
+
+		inc cgx
+		dec cgy
+		call calcdist
+		mov [dists + 1],al
+		mov [dirs  + 1],2
+
+		inc cgx
+		inc cgy
+		call calcdist
+		mov [dists + 2],al
+		mov [dirs  + 2],3
+
+		dec cgx
+		inc cgy
+		call calcdist
+		mov [dists + 3],al
+		mov [dirs  + 3],4
+
+		;sort vinculated lists (distances and directions)
+		cmp g3m,2
+		je g3willflee
+			call newsortlists
+		jmp finishedsettingmodeg3
+		g3willflee:
+			call sortlistforfleeing
+	finishedsettingmodeg3:
+
+		mov bx,0
+		;mov cx,4
+	trynextg3:
+		;mov al,currprohibdir
+		;cmp [dirs + bx],al		;ghost cant turn 180
+		;je couldntmoveg3
+
+		cmp [dirs + bx],1
+		je willtry1g3
+		cmp [dirs + bx],2
+		je willtry2g3
+		cmp [dirs + bx],3
+		je willtry3g3
+		;else 4
+		jmp willtry4g3
+		willtry1g3:
+			;push bx
+			mov ttt,bx
+			mov bx,g3ind
+			sub bx,1 ;left
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg3
+			;will check for forbidden
+			cmp currprohibdir,1
+			je couldntmoveg3
+			;else can move 
+			mov g3d,1
+			ret ;end turning algorithm
+		willtry2g3:
+			;push bx
+			mov ttt,bx
+			mov bx,g3ind
+			sub bx,nmapWid ;up
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg3
+			;will check for forbidden
+			cmp currprohibdir,2
+			je couldntmoveg3
+			;else can move 
+			mov g3d,2
+			ret ;end turning algorithm
+		willtry3g3:
+			;push bx
+			mov ttt,bx
+			mov bx,g3ind
+			add bx,1 ;right
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg3
+			;will check for forbidden
+			cmp currprohibdir,3
+			je couldntmoveg3
+			;else can move 
+			mov g3d,3
+			ret ;end turning algorithm
+		willtry4g3:
+			;push bx
+			mov ttt,bx
+			mov bx,g3ind
+			add bx,nmapWid ;down
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg3
+			;will check for forbidden
+			cmp currprohibdir,4
+			je couldntmoveg3
+			;else can move 
+			mov g3d,4
+			ret ;end turning algorithm
+		couldntmoveg3:
+			;else will find next shortest path
+			;pop bx 
+			mov bx,ttt
+			;inc bx
+			add bx,1
+			;loop trynextg3
+			jmp trynextg3
+		
+;	mov bx,g3ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g3m,2
+;; 	jne g3notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g3notscared
+;; 			sub ax,4
+;; g3notscared:
+;	mov g3d,ax
 ret
 newturnghost3 endp
 
+;newturnghost3 proc
+;	mov bx,g3ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g3m,2
+;; 	jne g3notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g3notscared
+;; 			sub ax,4
+;; g3notscared:
+;	mov g3d,ax
+;ret
+;newturnghost3 endp
+
+prohibdirg4 proc 
+	mov currprohibdir,3
+	cmp g4d,1
+	je foundprohibg4
+	mov currprohibdir,4
+	cmp g4d,2
+	je foundprohibg4
+	mov currprohibdir,1
+	cmp g4d,3
+	je foundprohibg4
+	mov currprohibdir,2
+
+foundprohibg4:
+ret
+prohibdirg4 endp
+
 newturnghost4 proc
 	mov bx,g4ind
-	xor ah,ah
-	mov al,[fomap + bx]
+	cmp [intmap + bx],1
+	je g4isatintersection
+		;else linha reta
+		ret
+g4isatintersection:
+		;mov ax,g4d
+		;add ax,2
+		;cmp ax,5
+		;jb nooverlapg4
+		;sub ax,4
+		;nooverlapg4:
+		;mov currprohibdir,al
+		call prohibdirg4
 
-; 	cmp g4m,2
-; 	jne g4notscared
-; 		add ax,2
-; 		cmp ax,5
-; 		jb g4notscared
-; 			sub ax,4
-; g4notscared:
-	mov g4d,ax
+		call targetpacg4
+
+		mov ax,g4x
+		mov cgx,ax
+		mov ax,g4y
+		mov cgy,ax
+
+		dec cgx
+		call calcdist
+		mov [dists + 0],al
+		mov [dirs  + 0],1
+
+		inc cgx
+		dec cgy
+		call calcdist
+		mov [dists + 1],al
+		mov [dirs  + 1],2
+
+		inc cgx
+		inc cgy
+		call calcdist
+		mov [dists + 2],al
+		mov [dirs  + 2],3
+
+		dec cgx
+		inc cgy
+		call calcdist
+		mov [dists + 3],al
+		mov [dirs  + 3],4
+
+		;sort vinculated lists (distances and directions)
+		cmp g4m,2
+		je g4willflee
+			call newsortlists
+		jmp finishedsettingmodeg4
+		g4willflee:
+			call sortlistforfleeing
+	finishedsettingmodeg4:
+
+		mov bx,0
+		;mov cx,4
+	trynextg4:
+		;mov al,currprohibdir
+		;cmp [dirs + bx],al		;ghost cant turn 180
+		;je couldntmoveg4
+
+		cmp [dirs + bx],1
+		je willtry1g4
+		cmp [dirs + bx],2
+		je willtry2g4
+		cmp [dirs + bx],3
+		je willtry3g4
+		;else 4
+		jmp willtry4g4
+		willtry1g4:
+			;push bx
+			mov ttt,bx
+			mov bx,g4ind
+			sub bx,1 ;left
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg4
+			;will check for forbidden
+			cmp currprohibdir,1
+			je couldntmoveg4
+			;else can move 
+			mov g4d,1
+			ret ;end turning algorithm
+		willtry2g4:
+			;push bx
+			mov ttt,bx
+			mov bx,g4ind
+			sub bx,nmapWid ;up
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg4
+			;will check for forbidden
+			cmp currprohibdir,2
+			je couldntmoveg4
+			;else can move 
+			mov g4d,2
+			ret ;end turning algorithm
+		willtry3g4:
+			;push bx
+			mov ttt,bx
+			mov bx,g4ind
+			add bx,1 ;right
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg4
+			;will check for forbidden
+			cmp currprohibdir,3
+			je couldntmoveg4
+			;else can move 
+			mov g4d,3
+			ret ;end turning algorithm
+		willtry4g4:
+			;push bx
+			mov ttt,bx
+			mov bx,g4ind
+			add bx,nmapWid ;down
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg4
+			;will check for forbidden
+			cmp currprohibdir,4
+			je couldntmoveg4
+			;else can move 
+			mov g4d,4
+			ret ;end turning algorithm
+		couldntmoveg4:
+			;else will find next shortest path
+			;pop bx 
+			mov bx,ttt
+			;inc bx
+			add bx,1
+			;loop trynextg4
+			jmp trynextg4
+		
+;	mov bx,g4ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g4m,2
+;; 	jne g4notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g4notscared
+;; 			sub ax,4
+;; g4notscared:
+;	mov g4d,ax
 ret
 newturnghost4 endp
+
+;newturnghost4 proc
+;	mov bx,g4ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g4m,2
+;; 	jne g4notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g4notscared
+;; 			sub ax,4
+;; g4notscared:
+;	mov g4d,ax
+;ret
+;newturnghost4 endp
 
 turnghost1 proc
 	call findrandom
@@ -4024,28 +4379,33 @@ ret
 collidewithghosts endp
 
 resetpositions proc
-	mov px,6
-	mov py,1
+	mov px,12
+	mov py,14
+	mov pdir,3
 
-	mov g1x,6
+	mov g1x,11
 	mov g1y,12
 
-	mov g1m,1
+	mov g1stim,10
+	mov g1m,3
 
-	mov g2x,19
-	mov g2y,4
+	mov g2x,12
+	mov g2y,12
 
-	mov g2m,1
+	mov g2stim,15
+	mov g2m,3
 	
-	mov g3x,6
-	mov g3y,18
+	mov g3x,13
+	mov g3y,12
 
-	mov g3m,1
+	mov g3stim,20
+	mov g3m,3
 	
-	mov g4x,19
-	mov g4y,18
+	mov g4x,14
+	mov g4y,12
 
-	mov g4m,1
+	mov g4stim,25
+	mov g4m,3
 
 	call setpacs
 	call setpacindex
