@@ -546,7 +546,7 @@ TITLE PACOMANO
 			db	0,1,0,0,0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,0
 			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			db	0,1,0,1,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,1,0,1,0
+			db	0,1,0,1,0,0,1,0,0,1,0,1,1,1,1,0,1,0,0,1,0,0,1,0,1,0
 			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			db	0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0
 			db	0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0
@@ -3367,46 +3367,39 @@ calcdist proc
 ret
 calcdist endp
 
-targetpac proc
+targetpacg1 proc
 	mov ax,px
 	mov targetx,ax
 	mov ax,py
 	mov targety,ax
 ret
-targetpac endp
+targetpacg1 endp
 
-; sortlists proc
-; 	mov bx,0
-; 	mov cx,4
-; 	for1:
-; 		mov tttt,cx
-; 		for2:
-; 			mov ttt,cx
-; 			mov al,[dists + bx]
-; 			inc bx
-; 			mov dl,[dists + bx]
-; 			cmp al,bl
-; 			ja wassorted
-; 				mov [dists + bx],al
-; 				mov cl,[dirs + bx]
-; 				mov tempbyte1,cl
-; 				dec bx 
-; 				mov [dists + bx],dl
-; 				mov cl,[dirs + bx]
-; 				mov tempbyte2,cl
-; 				mov cl,tempbyte1
-; 				mov [dirs + bx], cl
-; 				inc bx
-; 				mov cl,tempbyte2
-; 				mov [dirs + bx], cl
-; 			wassorted:
-; 			mov cx,ttt
-; 			loop for2
-; 		mov cx,tttt
-; 		loop for1
-; 	;end sort hopefully
-; ret
-; sortlists endp
+targetpacg2 proc
+	mov ax,px 
+	mov targetx,ax
+	mov ax,py
+	mov targety,ax
+	cmp pdir,1
+	je case1tg2
+	cmp pdir,2
+	je case2tg2
+	cmp pdir,3
+	je case3tg2
+	jmp case4tg2
+case1tg2:
+	sub targetx,3
+	ret 
+case2tg2:
+	sub targety,3
+	ret
+case3tg2:
+	add targetx,3
+	ret 
+case4tg2:
+	add targety,3
+	ret 
+targetpacg2 endp
 
 newsortlists proc 
 	mov cx,4
@@ -3435,6 +3428,34 @@ for2:
 	loop for2
 ret
 newsortlists endp
+
+sortlistforfleeing proc 
+	mov cx,4
+	xor bx,bx
+ffor2:
+	mov tttt,cx
+	mov cx,3
+	xor bx,bx
+	ffor1:
+		mov al,[dists + bx]
+		;cmp al,[bx + 2]
+		cmp al,[dists + bx + 1]
+		ja fwassorted
+			mov dl,[dists + bx + 1]
+			mov [dists + bx + 1],al
+			mov [dists + bx],dl
+
+			mov al,[dirs + bx + 0]
+			mov dl,[dirs + bx + 1]
+			mov [dirs + bx + 1],al
+			mov [dirs + bx + 0],dl
+		fwassorted:
+		add bx,1
+		loop ffor1
+	mov cx,tttt
+	loop ffor2
+ret
+sortlistforfleeing endp
 
 prohibdirg1 proc 
 	mov currprohibdir,3
@@ -3468,7 +3489,7 @@ g1isatintersection:
 		;mov currprohibdir,al
 		call prohibdirg1
 
-		call targetpac
+		call targetpacg1
 
 		mov ax,g1x
 		mov cgx,ax
@@ -3499,9 +3520,16 @@ g1isatintersection:
 		mov [dirs  + 3],4
 
 		;sort vinculated lists (distances and directions)
-		call newsortlists
+		cmp g1m,2
+		je g1willflee
+			call newsortlists
+		jmp finishedsettingmodeg1
+		g1willflee:
+			call sortlistforfleeing
+	finishedsettingmodeg1:
 
 		mov bx,0
+		;mov cx,4
 	trynextg1:
 		;mov al,currprohibdir
 		;cmp [dirs + bx],al		;ghost cant turn 180
@@ -3523,6 +3551,9 @@ g1isatintersection:
 			cmp [map + bx], 1
 			;found wall, will try next shortest path
 			je couldntmoveg1
+			;will check for forbidden
+			cmp currprohibdir,1
+			je couldntmoveg1
 			;else can move 
 			mov g1d,1
 			ret ;end turning algorithm
@@ -3533,6 +3564,9 @@ g1isatintersection:
 			sub bx,nmapWid ;up
 			cmp [map + bx], 1
 			;found wall, will try next shortest path
+			je couldntmoveg1
+			;will check for forbidden
+			cmp currprohibdir,2
 			je couldntmoveg1
 			;else can move 
 			mov g1d,2
@@ -3545,6 +3579,9 @@ g1isatintersection:
 			cmp [map + bx], 1
 			;found wall, will try next shortest path
 			je couldntmoveg1
+			;will check for forbidden
+			cmp currprohibdir,3
+			je couldntmoveg1
 			;else can move 
 			mov g1d,3
 			ret ;end turning algorithm
@@ -3556,6 +3593,9 @@ g1isatintersection:
 			cmp [map + bx], 1
 			;found wall, will try next shortest path
 			je couldntmoveg1
+			;will check for forbidden
+			cmp currprohibdir,4
+			je couldntmoveg1
 			;else can move 
 			mov g1d,4
 			ret ;end turning algorithm
@@ -3565,6 +3605,7 @@ g1isatintersection:
 			mov bx,ttt
 			;inc bx
 			add bx,1
+			;loop trynextg1
 			jmp trynextg1
 		
 ;	mov bx,g1ind
@@ -3582,21 +3623,187 @@ g1isatintersection:
 ret
 newturnghost1 endp
 
+prohibdirg2 proc 
+	mov currprohibdir,3
+	cmp g2d,1
+	je foundprohibg2
+	mov currprohibdir,4
+	cmp g2d,2
+	je foundprohibg2
+	mov currprohibdir,1
+	cmp g2d,3
+	je foundprohibg2
+	mov currprohibdir,2
+
+foundprohibg2:
+ret
+prohibdirg2 endp
+
 newturnghost2 proc
 	mov bx,g2ind
-	xor ah,ah
-	mov al,[fomap + bx]
+	cmp [intmap + bx],1
+	je g2isatintersection
+		;else linha reta
+		ret
+g2isatintersection:
+		;mov ax,g2d
+		;add ax,2
+		;cmp ax,5
+		;jb nooverlapg2
+		;sub ax,4
+		;nooverlapg2:
+		;mov currprohibdir,al
+		call prohibdirg2
 
-; 	cmp g2m,2
-; 	jne g2notscared
-; 		add ax,2
-; 		cmp ax,5
-; 		jb g2notscared
-; 			sub ax,4
-; g2notscared:
-	mov g2d,ax
+		call targetpacg2
+
+		mov ax,g2x
+		mov cgx,ax
+		mov ax,g2y
+		mov cgy,ax
+
+		dec cgx
+		call calcdist
+		mov [dists + 0],al
+		mov [dirs  + 0],1
+
+		inc cgx
+		dec cgy
+		call calcdist
+		mov [dists + 1],al
+		mov [dirs  + 1],2
+
+		inc cgx
+		inc cgy
+		call calcdist
+		mov [dists + 2],al
+		mov [dirs  + 2],3
+
+		dec cgx
+		inc cgy
+		call calcdist
+		mov [dists + 3],al
+		mov [dirs  + 3],4
+
+		;sort vinculated lists (distances and directions)
+		cmp g2m,2
+		je g2willflee
+			call newsortlists
+		jmp finishedsettingmodeg2
+		g2willflee:
+			call sortlistforfleeing
+	finishedsettingmodeg2:
+
+		mov bx,0
+		;mov cx,4
+	trynextg2:
+		;mov al,currprohibdir
+		;cmp [dirs + bx],al		;ghost cant turn 180
+		;je couldntmoveg2
+
+		cmp [dirs + bx],1
+		je willtry1g2
+		cmp [dirs + bx],2
+		je willtry2g2
+		cmp [dirs + bx],3
+		je willtry3g2
+		;else 4
+		jmp willtry4g2
+		willtry1g2:
+			;push bx
+			mov ttt,bx
+			mov bx,g2ind
+			sub bx,1 ;left
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg2
+			;will check for forbidden
+			cmp currprohibdir,1
+			je couldntmoveg2
+			;else can move 
+			mov g2d,1
+			ret ;end turning algorithm
+		willtry2g2:
+			;push bx
+			mov ttt,bx
+			mov bx,g2ind
+			sub bx,nmapWid ;up
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg2
+			;will check for forbidden
+			cmp currprohibdir,2
+			je couldntmoveg2
+			;else can move 
+			mov g2d,2
+			ret ;end turning algorithm
+		willtry3g2:
+			;push bx
+			mov ttt,bx
+			mov bx,g2ind
+			add bx,1 ;right
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg2
+			;will check for forbidden
+			cmp currprohibdir,3
+			je couldntmoveg2
+			;else can move 
+			mov g2d,3
+			ret ;end turning algorithm
+		willtry4g2:
+			;push bx
+			mov ttt,bx
+			mov bx,g2ind
+			add bx,nmapWid ;down
+			cmp [map + bx], 1
+			;found wall, will try next shortest path
+			je couldntmoveg2
+			;will check for forbidden
+			cmp currprohibdir,4
+			je couldntmoveg2
+			;else can move 
+			mov g2d,4
+			ret ;end turning algorithm
+		couldntmoveg2:
+			;else will find next shortest path
+			;pop bx 
+			mov bx,ttt
+			;inc bx
+			add bx,1
+			;loop trynextg2
+			jmp trynextg2
+		
+;	mov bx,g2ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g2m,2
+;; 	jne g2notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g2notscared
+;; 			sub ax,4
+;; g2notscared:
+;	mov g2d,ax
 ret
 newturnghost2 endp
+
+;newturnghost2 proc
+;	mov bx,g2ind
+;	xor ah,ah
+;	mov al,[fomap + bx]
+;
+;; 	cmp g2m,2
+;; 	jne g2notscared
+;; 		add ax,2
+;; 		cmp ax,5
+;; 		jb g2notscared
+;; 			sub ax,4
+;; g2notscared:
+;	mov g2d,ax
+;ret
+;newturnghost2 endp
 
 newturnghost3 proc
 	mov bx,g3ind
