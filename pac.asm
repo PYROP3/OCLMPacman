@@ -1055,7 +1055,7 @@ TITLE PACOMANO
 			db	 5, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 5
 			db	 5, 0, 7, 8, 0,10, 0, 7, 8, 0, 9, 0, 7, 8, 0, 9, 0, 7, 8, 0,10, 0, 7, 8, 0, 5
 			db	 5, 0, 0, 0, 0, 0, 0, 0, 0, 0,10, 0, 0, 0, 0,10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
-			db	 5, 0, 0, 9, 0, 9, 0, 7, 4, 0, 0, 0, 7, 8, 0, 0, 0, 6, 8, 0,13, 0, 9, 0, 0, 5
+			db	 5, 0, 0, 9, 0,13, 0, 7, 4, 0, 0, 0, 7, 8, 0, 0, 0, 6, 8, 0,13, 0, 9, 0, 0, 5
 			db	12, 2, 2,11, 0, 0, 0, 0, 3, 2, 8, 0, 0, 0, 0, 7, 2, 1, 0, 0, 0, 0,12, 2, 2,11
 			db	 5, 0, 0,10, 0,13, 0, 0, 0, 0, 0, 0, 7, 8, 0, 0, 0, 0, 0, 0,13, 0,10, 0, 0, 5
 			db	 5, 0, 0, 0, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 5
@@ -1838,6 +1838,19 @@ loadmap proc
 	je lmap2
 	;else map 3
 lmap3:
+		mov spastil1x,4
+		mov spastil1y,9
+		mov spastil2y,1
+		mov spastil3y,19
+		mov spastil4x,1
+		mov spastil4y,19
+
+		mov cherry3y,12
+		mov cherry4y,17
+
+		mov cherry3x,1
+		mov cherry2y,2
+		mov cherry4x,24
 		mov al,[map3+bx]
 		mov [map+bx],al
 		mov al,[pmap3+bx]
@@ -1851,6 +1864,8 @@ lmap3:
 		inc bx
 		loop lmap3
 ret
+lmap1:
+jmp lmp11
 lmap2:
 		mov al,[map2+bx]
 		mov [map+bx],al
@@ -1865,7 +1880,19 @@ lmap2:
 		inc bx
 		loop lmap2
 ret
-lmap1:
+lmp11:
+		mov spastil1x,3
+		mov spastil1y,3
+		mov spastil2x,22
+		mov spastil2y,10
+		mov spastil3x,22
+		mov spastil3y,16
+		mov spastil4x,3
+		mov spastil4y,20
+		mov cherry1x,6 
+		mov cherry3y,16
+		mov cherry2x,22 
+
 		mov al,[map1+bx]
 		mov [map+bx],al
 		mov al,[pmap1+bx]
@@ -1877,7 +1904,7 @@ lmap1:
 		mov al,[cosmap1+bx]
 		mov [cosmap+bx],al
 		inc bx
-		loop lmap1
+		loop lmp11
 ret
 loadmap endp
 
@@ -5833,16 +5860,6 @@ resetpositions endp
 
 setcherrys proc
 
-;-	cmp maptoload,2
-;-	je  setcherries
-;-	add cherry1x,2
-;-	sub cherry2x,2
-;-	cmp maptoload,1
-;-	je  setcherries
-;-	add cherry3y,1
-
-
-setcherries:
 	mov ax,cherry1x
 	mov dl,nssqrsz
 	mul dl
@@ -6123,16 +6140,6 @@ ret
 eatcherries endp
 
 setspastilss proc
-	;-cmp maptoload, 2
-	;-je drawnowpastils
-	;-add spastil3x,2
-;-	add spastil3y,1
-;-	sub spastil4x,2
-;-	add spastil4y,1
-;-	cmp maptoload,1
-;-	je drawnowpastils
-
-;-drawnowpastils:
 	mov dl,nssqrsz
 	mov ax,spastil1x
 	mul dl
