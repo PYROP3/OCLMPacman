@@ -28,6 +28,7 @@ TITLE PACOMANO
 
 	hhhh 	dw 0h	
 	result 	dw 0h
+
 	
 	num0	db  00h,0fh,0fh,0fh,0fh,00h
 			db  0fh,00h,00h,00h,00h,0fh
@@ -154,7 +155,7 @@ TITLE PACOMANO
 	saidacx dw  0
 	prox	dw  0		
 	
-	gnsqrsz	 equ 3
+	gnsqrsz	 equ 4
 	gnssqrsz equ 4
 	gnmapWid equ 140
 
@@ -784,14 +785,14 @@ TITLE PACOMANO
 
 	cosmap1	db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 			db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-			db	0, 0, 6, 2, 2, 2, 2, 4, 6, 2, 2, 2, 2, 2, 2, 2, 2, 4, 6, 2, 2, 2, 2, 4, 0, 0
+			db	0, 0, 6, 2, 2, 2, 2,15,15, 2, 2, 2, 2, 2, 2, 2, 2,15,15, 2, 2, 2, 2, 4, 0, 0
 			db	0, 0, 5, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 0, 0
 			db	0, 0, 5, 0, 6, 4, 0, 5, 5, 0, 9, 0, 7, 8, 0, 9, 0, 5, 5, 0, 6, 4, 0, 5, 0, 0
 			db	0, 0, 5, 0, 5, 5, 0, 5, 5, 0, 5, 0, 0, 0, 0, 5, 0, 5, 5, 0, 5, 5, 0, 5, 0, 0
 			db  0, 0, 5, 0, 3, 1, 0, 3, 1, 0,10, 0, 6, 4, 0,10, 0, 3, 1, 0, 3, 1, 0, 5, 0, 0
 			db	0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0
-			db	0, 0, 3, 2, 2, 4, 0, 6, 2, 2, 4, 0, 0, 0, 0, 6, 2, 2, 4, 0, 6, 2, 2, 1, 0, 0
-			db	0, 0, 6, 2, 2, 1, 0, 3, 2, 2, 1, 0, 7, 8, 0, 3, 2, 2, 1, 0, 3, 2, 2, 4, 0, 0
+			db	0, 0,12, 2, 2, 4, 0, 6, 2, 2, 4, 0, 0, 0, 0, 6, 2, 2, 4, 0, 6, 2, 2,11, 0, 0
+			db	0, 0,12, 2, 2, 1, 0, 3, 2, 2, 1, 0, 7, 8, 0, 3, 2, 2, 1, 0, 3, 2, 2,11, 0, 0
 			db	0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0
 			db	0, 0, 5, 0, 6, 4, 0, 7, 8, 0, 6, 2, 2, 2, 2, 4, 0, 7, 8, 0, 6, 4, 0, 5, 0, 0
 			db	0, 0, 5, 0, 5, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 5, 0, 5, 0, 0
@@ -806,7 +807,7 @@ TITLE PACOMANO
 			db	0, 0, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0
 			db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 			db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
- 
+Â 
 			
 
 	map2	db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -909,7 +910,7 @@ TITLE PACOMANO
 			db	0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0
 			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-	cosmap2	db	6,2,2,2,2,2,2,2,2,2,2,2,4,6,2,2,2,2,2,2,2,2,2,2,2,4
+	cosmap2	db	6,2,2,2,2,2,2,2,2,2,2,2,15,15,2,2,2,2,2,2,2,2,2,2,2,4
 			db	5,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,5
 			db	5,0,6,2,2,4,0,6,2,2,4,0,5,5,0,6,2,2,4,0,6,2,2,4,0,5
 			db	5,0,3,2,2,1,0,3,2,2,1,0,3,1,0,3,2,2,1,0,3,2,2,1,0,5
@@ -920,14 +921,14 @@ TITLE PACOMANO
 			db	5,0,6,2,2,4,0,5,3,2,4,0,5,5,0,6,2,1,5,0,6,2,2,4,0,5
 			db	5,0,3,2,2,1,0,5,6,2,1,0,3,1,0,3,2,4,5,0,3,2,2,1,0,5
 			db	5,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,5
-			db	3,2,4,0,6,4,0,3,1,0,6,2,2,2,2,4,0,3,1,0,6,4,0,6,2,1
-			db	6,2,1,0,5,5,0,0,0,0,5,0,0,0,0,5,0,0,0,0,5,5,0,3,2,4
+			db	12,2,4,0,6,4,0,3,1,0,6,2,2,2,2,4,0,3,1,0,6,4,0,6,2,11
+			db	12,2,1,0,5,5,0,0,0,0,5,0,0,0,0,5,0,0,0,0,5,5,0,3,2,11
 			db	5,0,0,0,5,5,0,6,4,0,3,2,2,2,2,1,0,6,4,0,5,5,0,0,0,5
 			db	5,0,6,2,1,5,0,5,5,0,0,0,0,0,0,0,0,5,5,0,5,3,2,4,0,5
 			db	5,0,3,2,2,1,0,5,5,0,6,2,2,2,2,4,0,5,5,0,3,2,2,1,0,5
 			db	5,0,0,0,0,0,0,5,5,0,3,2,4,6,2,1,0,5,5,0,0,0,0,0,0,5
-			db	3,2,4,0,6,4,0,5,5,0,0,0,5,5,0,0,0,5,5,0,6,4,0,6,2,1
-			db	6,2,1,0,5,5,0,5,3,2,4,0,5,5,0,6,2,1,5,0,5,5,0,3,2,4
+			db	12,2,4,0,6,4,0,5,5,0,0,0,5,5,0,0,0,5,5,0,6,4,0,6,2,11
+			db	12,2,1,0,5,5,0,5,3,2,4,0,5,5,0,6,2,1,5,0,5,5,0,3,2,11
 			db	5,0,0,0,5,5,0,3,2,2,1,0,3,1,0,3,2,2,1,0,5,5,0,0,0,5
 			db	5,0,6,2,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,3,2,4,0,5
 			db	5,0,3,2,2,1,0,7,2,2,2,2,2,2,2,2,2,2,8,0,3,2,2,1,0,5
@@ -1038,30 +1039,30 @@ TITLE PACOMANO
 			db	0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0
 			db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-	cosmap3	db	9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9
-			db	9, 9, 1, 0, 0, 0, 0, 0, 0, 0, 3, 9, 9, 9, 9, 1, 0, 0, 0, 0, 0, 0, 0, 3, 9, 9
-			db	9, 0, 0, 0, 6, 9, 0, 9, 4, 0, 0, 0, 9, 9, 0, 0, 0, 6, 9, 0, 9, 4, 0, 0, 0, 9
-			db	9, 0,13, 0, 9, 0, 0, 0, 3, 2, 9, 0, 3, 1, 0, 9, 2, 1, 0, 0, 0, 9, 0,13, 0, 9
-			db	9, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 9
-			db	9, 0, 9, 2, 4, 0, 0, 0, 9, 0, 9, 4, 0, 0, 6, 9, 0, 9, 0, 0, 0, 6, 2, 9, 0, 9
-			db	9, 0, 0, 0, 3, 9, 0, 6, 9, 0, 0, 3, 2, 2, 1, 0, 0, 9, 4, 0, 9, 1, 0, 0, 0, 9
-			db	9, 0, 9, 0, 0, 0, 0, 3, 9, 4, 0, 0, 0, 0, 0, 0, 6, 9, 1, 0, 0, 0, 0, 9, 0, 9
-			db	9, 0, 3, 2, 2, 4, 0, 0, 3, 9, 4, 0, 6, 4, 0, 6, 9, 1, 0, 0, 6, 2, 2, 1, 0, 9
-			db	9, 0, 0, 0, 0, 9, 4, 0, 0, 3, 1, 0, 3, 1, 0, 3, 1, 0, 0, 6, 9, 0, 0, 0, 0, 9
-			db	9, 9, 9, 0, 0, 9, 9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 9, 9, 0, 0, 9, 9, 9
-			db	9, 1, 0, 0, 6, 9, 9, 9, 9, 0, 6, 2, 2, 2, 2, 4, 0, 9, 9, 9, 9, 4, 0, 0, 3, 9
-			db	9, 0, 0, 6, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 4, 0, 0, 9
-			db	9, 0, 9, 1, 0, 0, 0, 9, 9, 0, 3, 2, 2, 2, 2, 1, 0, 7, 8, 0, 0, 0, 3, 9, 0, 9
-			db	9, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 9
-			db	9, 0, 9, 9, 0, 9, 0, 7, 8, 0, 5, 0, 7, 8, 0, 9, 0, 7, 8, 0,10, 0, 9, 9, 0, 9
-			db	9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0,10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9
-			db	9, 0, 0, 9, 0, 9, 0, 9, 4, 0, 0, 0, 7, 8, 0, 0, 0, 6, 9, 0, 9, 0, 9, 0, 0, 9
-			db	9, 2, 2,11, 0, 0, 0, 0, 3, 2, 9, 0, 0, 0, 0, 9, 2, 1, 0, 0, 0, 0,12, 2, 2, 9
-			db	9, 0, 0,10, 0,13, 0, 0, 0, 0, 0, 0, 7, 8, 0, 0, 0, 0, 0, 0,13, 0,10, 0, 0, 9
-			db	9, 0, 0, 0, 0, 0, 0, 9, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 9, 0, 0, 0, 0, 0, 0, 9
-			db	9, 0,13, 0,13, 0, 9, 9, 2, 2, 5, 2, 2, 2, 2, 5, 2, 2, 9, 9, 0,13, 0,13, 0, 9
-			db	9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9
-			db	9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9
+	cosmap3	db	 6, 2,15, 2, 2, 2, 2, 2, 2, 2,15, 2, 2, 2, 2,15, 2, 2, 2, 2, 2, 2, 2,15, 2, 4
+			db	12, 2, 1, 0, 0, 0, 0, 0, 0, 0, 3, 2, 4, 6, 2, 1, 0, 0, 0, 0, 0, 0, 0, 3, 2,11
+			db 	 5, 0, 0, 0, 6, 8, 0, 7, 4, 0, 0, 0, 5, 5, 0, 0, 0, 6, 8, 0, 7, 4, 0, 0, 0, 5
+			db	 5, 0,13, 0,10, 0, 0, 0, 3, 2, 8, 0, 3, 1, 0, 7, 2, 1, 0, 0, 0,10, 0,13, 0, 5
+			db	 5, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,13, 0, 0, 0, 0, 0, 5
+			db	 5, 0, 7, 2, 4, 0, 0, 0, 9, 0, 7, 4, 0, 0, 6, 8, 0, 9, 0, 0, 0, 6, 2, 8, 0, 5
+			db	 5, 0, 0, 0, 3, 8, 0, 6,11, 0, 0, 3, 2, 2, 1, 0, 0,12, 4, 0, 7, 1, 0, 0, 0, 5
+			db	 5, 0, 9, 0, 0, 0, 0, 3,16, 4, 0, 0, 0, 0, 0, 0, 6,16, 1, 0, 0, 0, 0, 9, 0, 5
+			db	 5, 0, 3, 2, 2, 4, 0, 0, 3,16, 4, 0, 6, 4, 0, 6,16, 1, 0, 0, 6, 2, 2, 1, 0, 5
+			db	 5, 0, 0, 0, 0,12, 4, 0, 0, 3, 1, 0, 3, 1, 0, 3, 1, 0, 0, 6,11, 0, 0, 0, 0, 5
+			db	12,15, 8, 0, 0,12,16, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6,16,11, 0, 0, 7,15,11
+			db	12, 1, 0, 0, 6,14,14,14, 8, 0, 6, 2, 2, 2, 2, 4, 0, 7,14,14,14, 4, 0, 0, 3,11
+			db	 5, 0, 0, 6, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 4, 0, 0, 5
+			db	 5, 0, 7, 1, 0, 0, 0, 7, 8, 0, 3, 2, 2, 2, 2, 1, 0, 7, 8, 0, 0, 0, 3, 8, 0, 5
+			db	 5, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 5
+			db	 5, 0, 7, 8, 0,10, 0, 7, 8, 0, 9, 0, 7, 8, 0, 9, 0, 7, 8, 0,10, 0, 7, 8, 0, 5
+			db	 5, 0, 0, 0, 0, 0, 0, 0, 0, 0,10, 0, 0, 0, 0,10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
+			db	 5, 0, 0, 9, 0,13, 0, 7, 4, 0, 0, 0, 7, 8, 0, 0, 0, 6, 8, 0,13, 0, 9, 0, 0, 5
+			db	12, 2, 2,11, 0, 0, 0, 0, 3, 2, 8, 0, 0, 0, 0, 7, 2, 1, 0, 0, 0, 0,12, 2, 2,11
+			db	 5, 0, 0,10, 0,13, 0, 0, 0, 0, 0, 0, 7, 8, 0, 0, 0, 0, 0, 0,13, 0,10, 0, 0, 5
+			db	 5, 0, 0, 0, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 9, 0, 0, 0, 0, 0, 0, 5
+			db	 5, 0,13, 0,13, 0, 7,14, 2, 2,14, 2, 2, 2, 2,14, 2, 2,14, 8, 0,13, 0,13, 0, 5
+			db	 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
+			db	 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1
 
 	maxdots	dw	0
 	mapSize	equ	624
@@ -1370,6 +1371,57 @@ TITLE PACOMANO
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
+	tudline		db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
+	tdline		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h,01h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+
+	tdint		db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+
 	square		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,01h,01h,01h,01h,01h,01h,00h,00h,00h,00h,00h
@@ -1486,6 +1538,265 @@ TITLE PACOMANO
 	currprohibdir	db	0
 
 	borderw	equ	40
+
+	leta 	db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+
+	letb	db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+
+	letc	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+
+	letd	db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+
+	lete	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+
+
+	letf	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+
+	letg	db	00h,00h,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	00h,00h,0fh,0fh,0fh,0fh,0fh,00h
+
+	leth	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+
+	leti	db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+
+	letj	db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,00h,00h,00h,0fh,0fh
+			db	00h,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,0fh,0fh,0fh,0fh,0fh,0fh
+
+	letk	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,0fh,0fh,0fh,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,00h,00h,00h
+			db	0fh,0fh,00h,0fh,0fh,0fh,00h,00h
+			db	0fh,0fh,00h,00h,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+
+	letl	db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+
+	letm	db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,00h,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,0fh,00h,0fh,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+
+	letn	db	0fh,0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh,0fh
+
+	leto	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+
+	letp	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+
+	letq	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,0fh,0fh,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,00h,00h,00h,00h,0fh,0fh,0fh
+
+	letr	db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+
+	lets	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	00h,00h,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,00h
+
+	lett	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+
+	letu	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+
+	letv	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+
+
+	tela    dw  0h
+	letwid  equ 8h
+	positiv dw  0h
+	strsize dw  26
+	play	db  30,30,10,15, 7, 1,18, 0, 3,15,14,20,18,15,12, 5,19, 0,30,30,19, 1, 9,18,30,30
+	play2   db  30,30, 6, 1, 3, 9,12, 0,30,30,13, 5, 4, 9,15,30,30, 0, 4, 9, 6, 9, 3, 9,12,30
+	espaco  dw  232
+	espacoc dw  160
+	;name	dw  "digite seu nome!$"
+	letnsqrsz  equ 2
+	letnssqrsz equ 2
+
+	;up1:  
 .code
 main proc
 	mov ax,@data
@@ -1495,7 +1806,7 @@ main proc
 	;mov es,ax
 
 	xor ax,ax
-	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
+	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
 	int 10h
 
 	;xor ah,ah
@@ -1503,10 +1814,10 @@ main proc
 	;int 13
 
 	call updatepacmansprite
-
+	call drawlet
 	mov maptoload, 1
-	mov pys, 150
-	mov pxs, 280
+	mov pys, 163
+	mov pxs, 200
 
 	jmp escolha
 
@@ -1520,6 +1831,10 @@ main proc
 	jmp escolha
 
 	escolha:
+	mov ax, pxs
+	mov scrx,ax
+	mov ax, pys
+	mov scry, ax
 	call drawpac
 	call gdrawmap
 
@@ -1535,20 +1850,33 @@ main proc
 	jmp escolha
 
 acima:	
-	cmp pys, 150
+	call black
+	cmp pys, 163
 	je ac
 	sub maptoload, 1
 	sub pys, 30
 	jmp escolha
 
 abaixo:
-	cmp pys, 210
+	call black
+	cmp pys, 223
 	je ab
 	add maptoload, 1
 	add pys, 30
 	jmp escolha
 
+tela2:
+	add tela, 1
+	mov al, 02h
+	int 10h
+	mov espaco, 232
+	mov espacoc, 160
+	call drawlet
+	jmp escolha
+
 jogo:
+	cmp tela, 0
+	je tela2
 	;xor ax,ax
 	;mov al,3h	;modo de texto normal
 	;int 10h
@@ -1557,7 +1885,7 @@ jogo:
 	mov es,ax
 
 	xor ax,ax
-	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
+	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
 	int 10h
 
 	xor ah,ah
@@ -1787,6 +2115,19 @@ loadmap proc
 	je lmap2
 	;else map 3
 lmap3:
+		mov spastil1x,4
+		mov spastil1y,9
+		mov spastil2y,1
+		mov spastil3y,19
+		mov spastil4x,1
+		mov spastil4y,19
+
+		mov cherry3y,12
+		mov cherry4y,17
+
+		mov cherry3x,1
+		mov cherry2y,2
+		mov cherry4x,24
 		mov al,[map3+bx]
 		mov [map+bx],al
 		mov al,[pmap3+bx]
@@ -1800,6 +2141,8 @@ lmap3:
 		inc bx
 		loop lmap3
 ret
+lmap1:
+jmp lmp11
 lmap2:
 		mov al,[map2+bx]
 		mov [map+bx],al
@@ -1814,7 +2157,19 @@ lmap2:
 		inc bx
 		loop lmap2
 ret
-lmap1:
+lmp11:
+		mov spastil1x,3
+		mov spastil1y,3
+		mov spastil2x,22
+		mov spastil2y,10
+		mov spastil3x,22
+		mov spastil3y,16
+		mov spastil4x,3
+		mov spastil4y,20
+		mov cherry1x,6 
+		mov cherry3y,16
+		mov cherry2x,22 
+
 		mov al,[map1+bx]
 		mov [map+bx],al
 		mov al,[pmap1+bx]
@@ -1826,7 +2181,7 @@ lmap1:
 		mov al,[cosmap1+bx]
 		mov [cosmap+bx],al
 		inc bx
-		loop lmap1
+		loop lmp11
 ret
 loadmap endp
 
@@ -2628,6 +2983,138 @@ nextrowb12:
 	ret
 drawblock12 endp
 
+drawblock14 proc;setar scrx e scry 
+	mov cx,nssqrsz
+	mov dx,nssqrsz
+nextrowb14:
+	mov cury,dx
+	add dx,scry 
+	
+	mov cx,nssqrsz
+	drawwrowb14:
+		sub dx,scry 
+		mov bl,nssqrsz
+		;sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nssqrsz
+		sub bx,1
+
+		mov al,[tudline+bx]
+
+		add dx,scry 
+
+		mov curx,cx
+		add cx,scrx
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowb14
+		;cmp cx,0
+		;je drawwrowb6
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowb14
+
+	ret
+drawblock14 endp
+
+drawblock15 proc;setar scrx e scry 
+	mov cx,nssqrsz
+	mov dx,nssqrsz
+nextrowb15:
+	mov cury,dx
+	add dx,scry 
+	
+	mov cx,nssqrsz
+	drawwrowb15:
+		sub dx,scry 
+		mov bl,nssqrsz
+		;sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nssqrsz
+		sub bx,1
+
+		mov al,[tdline+bx]
+
+		add dx,scry 
+
+		mov curx,cx
+		add cx,scrx
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowb15
+		;cmp cx,0
+		;je drawwrowb6
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowb15
+
+	ret
+drawblock15 endp
+
+drawblock16 proc;setar scrx e scry 
+	mov cx,nssqrsz
+	mov dx,nssqrsz
+nextrowb16:
+	mov cury,dx
+	add dx,scry 
+	
+	mov cx,nssqrsz
+	drawwrowb16:
+		sub dx,scry 
+		mov bl,nssqrsz
+		;sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nssqrsz
+		sub bx,1
+
+		mov al,[tdint+bx]
+
+		add dx,scry 
+
+		mov curx,cx
+		add cx,scrx
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowb16
+		;cmp cx,0
+		;je drawwrowb6
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowb16
+
+	ret
+drawblock16 endp
+
 drawsquare proc;setar scrx e scry 
 	mov cx,nssqrsz
 	mov dx,nssqrsz
@@ -2745,6 +3232,12 @@ drawcorrectblock proc
 	je willdrawblock12
 	cmp [cosmap + bx],13
 	je willdrawsquare
+	cmp [cosmap + bx],14
+	je willdrawblock14
+	cmp [cosmap + bx],15
+	je willdrawblock15
+	cmp [cosmap + bx],16
+	je willdrawblock16
 
 	jmp blackq
 willdrawblock1:
@@ -2794,6 +3287,18 @@ willdrawblock11:
 willdrawblock12:
 	xor bx,bx
 	call drawblock12
+	ret
+willdrawblock14:
+	xor bx,bx
+	call drawblock14
+	ret
+willdrawblock15:
+	xor bx,bx
+	call drawblock15
+	ret
+willdrawblock16:
+	xor bx,bx
+	call drawblock16
 	ret
 willdrawsquare:
 	xor bx,bx
@@ -5631,6 +6136,7 @@ resetpositions endp
 ;resetdirectionalmaps endp
 
 setcherrys proc
+
 	mov ax,cherry1x
 	mov dl,nssqrsz
 	mul dl
@@ -6379,6 +6885,443 @@ gconvindextocoord proc; bx = index => scrx e scry
 	ret
 gconvindextocoord endp
 
+drawlet proc
+mov tempb,0
+cmp tela, 1
+je  ttl
+mov cx, strsize
+jmp desenho
+ttl:
+mov cx, 17
+
+desenho:
+	mov tempc,cx
+	mov bx, tempb
+	mov cx,80
+	mov gtempb, 0
+
+letdrawnextcell:
+	call letconvindextocoord
+	mov gtempc,cx
+	mov bx, 0
+	cmp tela, 1
+	je  telalet2
+	call drawstring
+	jmp drawletn
+	telalet2:
+	call drawstring2
+	drawletn:
+	call letdrawsqr
+	jmp letincr
+
+letnothb:
+	mov bx,gtempb
+	call letconvindextocoord
+	mov al,0
+	call letdrawsqr
+letincr:
+	mov bx,gtempb
+	inc bx
+	
+	mov cx,gtempc
+	mov gtempb, bx
+	loop letdrawnextcell
+	add tempb, 1
+	add espaco, 20
+	mov cx, tempc
+	loop desenho
+	ret
+drawlet endp
+letdrawsqr proc;setar scrx e scry
+	mov gtempc,cx
+	mov gtempb,bx
+	
+	mov ah,0ch
+	mov bh,0
+	
+	mov cx,letnsqrsz
+	mov dx,letnsqrsz
+	
+letnextrow:
+	mov gcury,dx
+	add dx,gscry
+	add dx, espacoc
+	mov cx,letnsqrsz
+	letdrawwrow:
+		mov gcurx,cx
+		add cx,gscrx
+		add cx, espaco
+		int 10h
+
+		mov cx,gcurx
+		loop letdrawwrow
+
+	mov dx,gcury
+	;add espaco, 20
+	sub dx,1
+	jnz letnextrow
+	;add espaco, 20
+	mov cx,gtempc
+	mov bx,gtempb
+
+	ret
+letdrawsqr endp
+
+letconvindextocoord proc; bx = index => scrx e scry
+	mov ax,bx
+	call widno
+	div dl
+	;cbw
+	mov dl,letnssqrsz
+	mul dl
+	mov gscry,ax
+	
+	mov ax,bx
+	call widno
+	div dl
+	mov al,ah
+	;cbw
+	mov dl,letnssqrsz
+	mul dl
+	mov gscrx,ax
+	ret
+letconvindextocoord endp
+
+widno proc
+cmp positiv, 1
+je  adiciona
+mov dl, letwid
+ret
+adiciona:
+mov dl, 9
+ret
+widno endp
+	
+drawstring proc
+	strlett:
+	mov positiv, 0
+	mov bx, tempb
+	cmp [play + bx], 0
+	je jumplet
+	cmp [play + bx], 1
+	je drawa
+	cmp [play + bx], 2
+	je drawb
+	cmp [play + bx], 3
+	je drawc
+	cmp [play + bx], 4
+	je drawd
+	cmp [play + bx], 5
+	je drawe
+	cmp [play + bx], 6
+	je drawf
+	cmp [play + bx], 7
+	je drawg
+	jmp nxtlett
+
+jumplet:
+mov bx, gtempb
+add tempb, 1
+add espacoc, 30
+mov espaco, 232
+jmp strlett
+
+drawa:
+mov bx, gtempb
+mov al,[leta + bx]
+ret
+drawb:
+mov bx, gtempb
+mov al,[letb + bx]
+ret
+drawc:
+mov bx, gtempb
+mov al,[letc + bx]
+ret
+drawd:
+mov bx, gtempb
+mov al,[letd + bx]
+ret
+drawe:
+mov bx, gtempb
+mov al,[lete + bx]
+ret
+drawf:
+mov bx, gtempb
+mov al,[letf + bx]
+ret
+drawg:
+mov bx, gtempb
+mov al,[letg + bx]
+ret
+nxtlett:
+	mov positiv, 0
+	cmp [play + bx], 8
+	je drawh
+	cmp [play + bx], 9
+	je drawi
+	cmp [play + bx],10
+	je drawj
+	cmp [play + bx],11
+	je drawk
+	cmp [play + bx],12
+	je drawl
+	cmp [play + bx],13
+	je drawm
+	cmp [play + bx],14
+	je drawn
+	jmp nxtlett2
+
+drawh:
+mov bx, gtempb
+mov al,[leth + bx]
+ret
+drawi:
+mov bx, gtempb
+mov al,[leti + bx]
+ret
+drawj:
+mov bx, gtempb
+mov al,[letj + bx]
+ret
+drawk:
+mov bx, gtempb
+mov al,[letk + bx]
+ret
+drawl:
+mov bx, gtempb
+mov al,[letl + bx]
+ret
+drawm:
+mov positiv, 1
+mov bx, gtempb
+mov al,[letm + bx]
+ret
+drawn:
+mov positiv, 1
+mov bx, gtempb
+mov al,[letn + bx]
+ret
+
+nxtlett2:
+	mov positiv, 0
+	cmp [play + bx],15
+	je drawo
+	cmp [play + bx],16
+	je drawp
+	cmp [play + bx],17
+	je drawq
+	cmp [play + bx],18
+	je drawr
+	cmp [play + bx],19
+	je draws
+	cmp [play + bx],20
+	je drawt
+	cmp [play + bx],21
+	je drawu
+	cmp [play + bx],22
+	je drawv
+	cmp [play + bx],30
+	mov al, 0
+	ret
+
+drawo:
+mov bx, gtempb
+mov al,[leto + bx]
+ret
+drawp:
+mov bx, gtempb
+mov al,[letp + bx]
+ret
+drawq:
+mov bx, gtempb
+mov al,[letq + bx]
+ret
+drawr:
+mov bx, gtempb
+mov al,[letr + bx]
+ret
+draws:
+mov bx, gtempb
+mov al,[lets + bx]
+ret
+drawt:
+mov bx, gtempb
+mov al,[lett + bx]
+ret
+drawu:
+mov bx, gtempb
+mov al,[letu + bx]
+ret
+drawv:
+mov bx, gtempb
+mov al,[letv + bx]
+ret
+
+drawstring endp
+
+drawstring2 proc
+	strlett2:
+	mov positiv, 0
+	mov bx, tempb
+	cmp [play2 + bx], 0
+	je jumplet2
+	cmp [play2 + bx], 1
+	je drawa2
+	cmp [play2 + bx], 2
+	je drawb2
+	cmp [play2 + bx], 3
+	je drawc2
+	cmp [play2 + bx], 4
+	je drawd2
+	cmp [play2 + bx], 5
+	je drawe2
+	cmp [play2 + bx], 6
+	je drawf2
+	cmp [play2 + bx], 7
+	je drawg2
+	jmp nxtlettt2
+
+jumplet2:
+mov bx, gtempb
+add tempb, 1
+add espacoc, 30
+mov espaco, 232
+jmp strlett2
+
+drawa2:
+mov bx, gtempb
+mov al,[leta + bx]
+ret
+drawb2:
+mov bx, gtempb
+mov al,[letb + bx]
+ret
+drawc2:
+mov bx, gtempb
+mov al,[letc + bx]
+ret
+drawd2:
+mov bx, gtempb
+mov al,[letd + bx]
+ret
+drawe2:
+mov bx, gtempb
+mov al,[lete + bx]
+ret
+drawf2:
+mov bx, gtempb
+mov al,[letf + bx]
+ret
+drawg2:
+mov bx, gtempb
+mov al,[letg + bx]
+ret
+nxtlettt2:
+	mov positiv, 0
+	cmp [play2 + bx], 8
+	je drawh2
+	cmp [play2 + bx], 9
+	je drawi2
+	cmp [play2 + bx],10
+	je drawj2
+	cmp [play2 + bx],11
+	je drawk2
+	cmp [play2 + bx],12
+	je drawl2
+	cmp [play2 + bx],13
+	je drawm2
+	cmp [play2 + bx],14
+	je drawn2
+	jmp nxtlettt22
+
+drawh2:
+mov bx, gtempb
+mov al,[leth + bx]
+ret
+drawi2:
+mov bx, gtempb
+mov al,[leti + bx]
+ret
+drawj2:
+mov bx, gtempb
+mov al,[letj + bx]
+ret
+drawk2:
+mov bx, gtempb
+mov al,[letk + bx]
+ret
+drawl2:
+mov bx, gtempb
+mov al,[letl + bx]
+ret
+drawm2:
+mov positiv, 1
+mov bx, gtempb
+mov al,[letm + bx]
+ret
+drawn2:
+mov positiv, 1
+mov bx, gtempb
+mov al,[letn + bx]
+ret
+
+nxtlettt22:
+	mov positiv, 0
+	cmp [play2 + bx],15
+	je drawo2
+	cmp [play2 + bx],16
+	je drawp2
+	cmp [play2 + bx],17
+	je drawq2
+	cmp [play2 + bx],18
+	je drawr2
+	cmp [play2 + bx],19
+	je draws2
+	cmp [play2 + bx],20
+	je drawt2
+	cmp [play2 + bx],21
+	je drawu2
+	cmp [play2 + bx],22
+	je drawv2
+	cmp [play2 + bx],30
+	mov al, 0
+	ret
+drawo2:
+mov bx, gtempb
+mov al,[leto + bx]
+ret
+drawp2:
+mov bx, gtempb
+mov al,[letp + bx]
+ret
+drawq2:
+mov bx, gtempb
+mov al,[letq + bx]
+ret
+drawr2:
+mov bx, gtempb
+mov al,[letr + bx]
+ret
+draws2:
+mov bx, gtempb
+mov al,[lets + bx]
+ret
+drawt2:
+mov bx, gtempb
+mov al,[lett + bx]
+ret
+drawu2:
+mov bx, gtempb
+mov al,[letu + bx]
+ret
+drawv2:
+mov bx, gtempb
+mov al,[letv + bx]
+ret
+
+drawstring2 endp
+
 gdrawnum proc
 
 	mov bx,0
@@ -6557,14 +7500,14 @@ magic:
 
             CMP AX, 0   ;compara o resultado da div com 0
 
-            JNE DVD2   	;se o resultado for !=0 faz a operação novamente
+            JNE DVD2   	;se o resultado for !=0 faz a operaÃ§Ã£o novamente
 			;mov cx, 3
 			mov saidacx, cx
         GHEX:
 			;mov saidacx, cx
 			XOR DX,DX
 
-            pop dx   	;copia o conteúdo da memória indicado por dx
+            pop dx   	;copia o conteÃºdo da memÃ³ria indicado por dx
 			mov result, dx
 			add agora, 1   
 			mov saidacx, cx
@@ -6572,7 +7515,7 @@ magic:
 		
         PRINTHEX: 
 			mov cx, saidacx
-            LOOP GHEX    ;executa ghex decrementando cx até que este seja 0 
+            LOOP GHEX    ;executa ghex decrementando cx atÃ© que este seja 0 
 			mov saidacx, 0
 			mov dl, 0
 		mov ax, tempa
