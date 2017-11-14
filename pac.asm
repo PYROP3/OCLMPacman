@@ -1537,7 +1537,11 @@ TITLE PACOMANO
 
 	currprohibdir	db	0
 
-	borderw	equ	40
+	borderw	equ	48
+	borderthick	equ	10
+
+	scrwid equ 640
+	scrhei equ 480
 
 	leta 	db	00h,00h,00h,0fh,0fh,00h,00h,00h
 			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
@@ -1813,6 +1817,7 @@ main proc
 	;mov al,10h
 	;int 13
 
+	call gdrawmap
 	call updatepacmansprite
 	call drawlet
 	mov maptoload, 1
@@ -1836,7 +1841,7 @@ main proc
 	mov ax, pys
 	mov scry, ax
 	call drawpac
-	call gdrawmap
+	;call gdrawmap
 
 	mov ah,01h
 	int 21h
@@ -1905,6 +1910,7 @@ jogo:
 	call setspastilss
 	
 	call drawmap
+	call drawborder
 	call drawcherries
 	call drawspastils
 	call drawghosts
@@ -2087,6 +2093,64 @@ gamefinished:
 
 call finalizar
 main endp
+
+drawborder proc
+	mov bh, 0
+	mov dx, borderthick
+	mov ah, 0ch
+	mov al, 1
+	nexttoprowborder:
+		mov cx,scrwid
+		printtoprowborder:
+			int 10h
+			loop printtoprowborder
+		dec dx
+		jnz nexttoprowborder
+	mov cx,scrwid
+	finishtoprowborder:
+			int 10h
+			loop finishtoprowborder
+
+	mov dx,scrhei
+	nextrightcolborder:
+		mov cx,scrwid
+		sub cx,borderthick
+		printrightcolborder:
+			int 10h
+			inc cx
+			cmp cx,scrwid
+			jnz printrightcolborder
+			int 10h
+		dec dx
+		jnz nextrightcolborder
+	int 10h
+
+	mov dx,scrhei
+	sub dx,borderthick
+	nextdownrowborder:
+		mov cx,scrwid
+		printdownrowborder:
+			int 10h
+			loop printdownrowborder
+		inc dx
+		cmp dx,scrhei
+		jnz nextdownrowborder
+
+	mov dx,scrhei
+	nextleftcolborder:
+		mov cx,borderthick
+		printleftcolborder:
+			int 10h
+			loop printleftcolborder
+		int 10h
+		dec dx
+		jnz nextleftcolborder
+
+	int 10h
+	
+
+ret
+drawborder endp
 
 redrawdoor proc ;y = 11 (0-ind), x = 11,12,13,14 (0-ind)
 	mov bx, 297
@@ -6195,6 +6259,7 @@ takedamage:
 	call resetpositions
 	mov waitloops,1500
 	call draweverything
+	call redrawdoor
 ret
 pacmandied:
 	;handle gameover
