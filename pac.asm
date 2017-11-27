@@ -807,7 +807,7 @@ TITLE PACOMANO
 			db	0, 0, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0
 			db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 			db	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Â 
+ 
 			
 
 	map2	db 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -1789,7 +1789,7 @@ TITLE PACOMANO
 	positiv dw  0h
 	strsize dw  26
 	play	db  30,30,10,15, 7, 1,18, 0, 3,15,14,20,18,15,12, 5,19, 0,30,30,19, 1, 9,18,30,30
-	play2   db  30,30, 6, 1, 3, 9,12, 0,30,30,13, 5, 4, 9,15,30,30, 0, 4, 9, 6, 9, 3, 9,12,30
+	play2   db  30,30, 6, 1, 3, 9,12, 0,30,30,13, 5, 4, 9,15,30,30, 0,30, 4, 9, 6, 9, 3, 9,12
 	espaco  dw  232
 	espacoc dw  160
 	;name	dw  "digite seu nome!$"
@@ -1806,13 +1806,13 @@ main proc
 	;mov es,ax
 
 	xor ax,ax
-	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
+	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
 	int 10h
 
 	;xor ah,ah
 	;mov al,10h
 	;int 13
-
+	call gdrawmap
 	call updatepacmansprite
 	call drawlet
 	mov maptoload, 1
@@ -1836,10 +1836,9 @@ main proc
 	mov ax, pys
 	mov scry, ax
 	call drawpac
-	call gdrawmap
 
-	mov ah,01h
-	int 21h
+	mov ah,00h
+	int 16h
 
 	cmp al, 77h
 	je acima
@@ -1866,12 +1865,20 @@ abaixo:
 	jmp escolha
 
 tela2:
-	add tela, 1
-	mov al, 02h
-	int 10h
+	mov bx,0
+	mov cx, 26
+
+	strr:
+	mov al,[play2+bx]
+	mov [play+bx],al
+	add bx,1
+	loop strr
+	;add tela, 1
+	
 	mov espaco, 232
 	mov espacoc, 160
 	call drawlet
+	add tela, 1
 	jmp escolha
 
 jogo:
@@ -1885,7 +1892,7 @@ jogo:
 	mov es,ax
 
 	xor ax,ax
-	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
+	mov al,12h	;modo de vídeo (12h = resolucao maior; 13h = resolucao menor)
 	int 10h
 
 	xor ah,ah
@@ -6887,18 +6894,23 @@ gconvindextocoord endp
 
 drawlet proc
 mov tempb,0
-cmp tela, 1
-je  ttl
+;cmp tela, 1
+;je  ttl
 mov cx, strsize
 jmp desenho
-ttl:
-mov cx, 17
+;ttl:
+;mov cx, 17
 
 desenho:
 	mov tempc,cx
 	mov bx, tempb
-	mov cx,80
 	mov gtempb, 0
+	;cmp positiv, 1
+	;je morn
+	mov cx,80
+	jmp letdrawnextcell
+	morn: 
+	;mov cx, 88
 
 letdrawnextcell:
 	call letconvindextocoord
@@ -7122,9 +7134,12 @@ nxtlett2:
 	cmp [play + bx],22
 	je drawv
 	cmp [play + bx],30
-	mov al, 0
-	ret
+	je nadaa
 
+nadaa:
+mov bx, gtempb
+mov al, 0
+ret
 drawo:
 mov bx, gtempb
 mov al,[leto + bx]
@@ -7284,7 +7299,7 @@ nxtlettt22:
 	je drawu2
 	cmp [play2 + bx],22
 	je drawv2
-	cmp [play2 + bx],30
+	mov bx, gtempb
 	mov al, 0
 	ret
 drawo2:
@@ -7500,14 +7515,14 @@ magic:
 
             CMP AX, 0   ;compara o resultado da div com 0
 
-            JNE DVD2   	;se o resultado for !=0 faz a operaÃ§Ã£o novamente
+            JNE DVD2   	;se o resultado for !=0 faz a operação novamente
 			;mov cx, 3
 			mov saidacx, cx
         GHEX:
 			;mov saidacx, cx
 			XOR DX,DX
 
-            pop dx   	;copia o conteÃºdo da memÃ³ria indicado por dx
+            pop dx   	;copia o conteúdo da memória indicado por dx
 			mov result, dx
 			add agora, 1   
 			mov saidacx, cx
@@ -7515,7 +7530,7 @@ magic:
 		
         PRINTHEX: 
 			mov cx, saidacx
-            LOOP GHEX    ;executa ghex decrementando cx atÃ© que este seja 0 
+            LOOP GHEX    ;executa ghex decrementando cx até que este seja 0 
 			mov saidacx, 0
 			mov dl, 0
 		mov ax, tempa
