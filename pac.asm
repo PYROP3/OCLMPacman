@@ -2027,7 +2027,8 @@ nn:
 	jmp strr
 
 jogo:
-	
+
+	;mov lives, 20
     mov ggg, 1
 
 	mov ax,0a000h
@@ -2062,6 +2063,7 @@ jogo:
 	call drawghosts
 	call drawpac
 	call redrawdoor
+
 	;mov cx,70	;loops to execute (debug only)
 m:
 	;mov ttt,cx
@@ -2249,7 +2251,29 @@ gamefinished:
 
 	cmp lives, 0
 	je perdeu
-	call finalizar
+
+	mov cx, 11
+	mov espaco, 210
+	mov espacoc, 163
+venceuu:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[winn+bx]
+	mov ll, al
+
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop venceuu
+
+	mov espaco, 250
+	mov espacoc, 200
+	mov cx, 8
+	mov bx,0
+	jmp nommem
+
 	perdeu:
 
 	mov tempd, bx
@@ -2264,7 +2288,31 @@ gamefinished:
 	loop perdeu
 	mov ah,00
 	int 16h
-call finalizar
+	nommem:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[namez+bx]
+	mov ll, al
+
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop nommem
+	mov espaco, 270
+	mov espacoc, 240
+	call elisabeth
+	call drawborder
+	agann:
+	mov ah,00
+	int 16h
+	cmp al, 0dh
+	je ffimm
+	jmp agann
+	ffimm:
+	call finalizar
+
 main endp
 
 drawborder proc
@@ -4422,15 +4470,15 @@ turnpacman proc
 	cmp al,65 	;A = left
 	je t1
 
-	cmp al,050h	; down
+	cmp ah,050h	; down
 	je t4
-	cmp al,04dh 	; right
+	cmp ah,04dh 	; right
 	je t3
-	cmp al,048h 	; up
+	cmp ah,048h 	; up
 	je t2
-	cmp al,04bh 	; left
+	cmp ah,04bh 	; left
 	je t1
-	
+
 	cmp al,'K'
 	je fin
 	jmp endturn ;Unrecognized
