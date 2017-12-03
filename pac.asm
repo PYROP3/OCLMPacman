@@ -1458,7 +1458,7 @@ TITLE PACOMANO
 				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
 				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
 
-	square		db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+	square		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,01h,01h,01h,01h,01h,01h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,01h,00h,00h,00h,00h,00h,00h,01h,00h,00h,00h,00h
@@ -1473,7 +1473,7 @@ TITLE PACOMANO
 				db	00h,00h,00h,00h,01h,00h,00h,00h,00h,00h,00h,01h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,01h,01h,01h,01h,01h,01h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	hldline		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1578,6 +1578,7 @@ TITLE PACOMANO
 
 	scrwid equ 640
 	scrhei equ 480
+	limpp   db  00H
 
 	leta 	db	00h,00h,00h,0fh,0fh,00h,00h,00h
 			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
@@ -1837,15 +1838,36 @@ TITLE PACOMANO
 
 	letx	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
 			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
-			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
-			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
 			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
 			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
 			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
-			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
 
+	lety	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+
+	letz	db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	00h,00h,00h,00h,00h,0fh,0fh,0fh
+			db	00h,00h,00h,00h,0fh,0fh,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+			db	00h,00h,0fh,0fh,00h,00h,00h,00h
+			db	00h,0fh,0fh,00h,00h,00h,00h,00h
+			db	0fh,0fh,00h,00h,00h,00h,00h,00h
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
+			db	0fh,0fh,0fh,0fh,0fh,0fh,0fh,0fh
 
 
 	quad    db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1877,8 +1899,8 @@ TITLE PACOMANO
 	vidga   db  76h,69h,64h,61h,73h
 	loose   db  67h,61h,6dh,65h,30h,6fh,76h,65h,72h
 	winn    db  76h,6fh,63h,65h,30h,67h,61h,6eh,68h,6fh,75h
-	;play3   db  16,1,18,1,30,13,15,30,5,18,30,15,30,16,1,3,13,1,14,30,21,,0,20,9,12,9,30,5,30,1,0,19,0,30,20,5,3,12,1,19,30,30,1,19,4,30,30,30,13,15,30,5,30,16,1,18,1,0,30,3,9,13,1,30,19,30,13,15,30,5,30,16,1,18,1,0,30,2,1,9,24,15,30,4,30,13,15,22,5,30,16,1,18,1,30,4,9,18,5,9,20,1,30,1,,0,30,13,15,30,5,30,16,1,18,1,30,1,30,5,19,17,30,5,18,4,1
-	espaco  dw  232
+    play3   db  70h,61h,72h,61h,30h,6dh,6fh,76h,65h,72h,30h,6fh,30h,70h,61h,63h,6dh,61h,6eh,30h,75h,74h,69h,6ch,69h,7ah,65h,30h,30h,0,61h,73h,30h,74h,65h,63h,6ch,61h,73h,30h,77h,61h,73h,64h,30h,6fh,75h,30h,61h,73h,30h,73h,65h,74h,61h,73h,30h,30h,00h,64h,69h,72h,65h,63h,69h,6fh,6eh,61h,69h,73h,30h,64h,6fh,30h,74h,65h,63h,6ch,61h,64h,6fh,30h,30h
+   	espaco  dw  232
 	espacoc dw  160
 	;name	dw  "digite seu nome!$"
 	letnsqrsz  equ 2
@@ -1904,7 +1926,7 @@ main proc
 	call drawlet
 	mov maptoload, 1
 	mov pys, 163
-	mov pxs, 200
+	mov pxs, 193
 
 	jmp escolha
 
@@ -1931,8 +1953,13 @@ main proc
 	je acima
 	cmp al, 73h
 	je abaixo
+	cmp ah,050h	; down
+	je abaixo
+	cmp ah,048h 	; up
+	je acima
 	cmp al, 0dh
 	je gamm
+
 	jmp escolha
 
 acima:	
@@ -1987,6 +2014,21 @@ tela2:
 	fimmm:
 	call finalizar
 	printtel:
+	;call clee
+	call drawcont
+	enterr:
+	mov ah, 00H
+	int 16h
+	cmp al, 0dh
+	je adf
+	jmp enterr
+	adf:
+	call cleep
+	mov espaco, 232
+	mov espacoc, 160
+	call drawlet
+	jmp escolha
+
 
 namm:
 call clee
@@ -2387,6 +2429,38 @@ uu:
 	call drawlet
 	ret
 clee endp
+cleep proc
+mov limpp, 1
+	mov bx,0
+	mov cx,5600
+ggdrawnextcell:
+	call gconvindextocoord
+
+;cmp [map + bx],0
+;je incr
+	mov gtempc,cx
+	mov gtempb,bx
+
+	;mov al,[map + bx]
+	mov al,00h
+	call gdrawsqr
+	jmp ggincr
+
+ggnothb:
+	mov bx,gtempb
+	call gconvindextocoord
+	mov al,0
+	call gdrawsqr
+
+ggincr:
+	mov bx,gtempb
+	inc bx
+	
+	mov cx,gtempc
+	
+	loop ggdrawnextcell
+	ret
+cleep endp
 
 gdrawgame proc
 	mov cx, 6
@@ -2423,6 +2497,32 @@ lll:
 	ret
 gdrawgame endp
 
+drawcont proc
+	mov cx, 80
+	mov bx, 0
+	mov espaco, 32
+	mov espacoc, 160
+llll:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[play3+bx]
+	mov ll, al
+	cmp ll, 0
+	jz  pullinha
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop llll
+	ret
+pullinha:
+add espacoc, 30
+mov espaco, 32
+add bx, 1
+jmp llll
+	ret
+ drawcont endp
 
 redrawdoor proc ;y = 11 (0-ind), x = 11,12,13,14 (0-ind)
 	mov bx, 297
@@ -7887,12 +7987,20 @@ gdrawsqr proc;setar scrx e scry
 gnextrow:
 	mov gcury,dx
 	add dx,gscry
-	add dx, 20
 	mov cx,gnsqrsz
+	add dx, 20
+	cmp limpp, 0
+	je gdrawwrow
+	add dx, 140
+	
 	gdrawwrow:
 		mov gcurx,cx
 		add cx,gscrx
-		add cx, 40
+		cmp limpp, 1
+		je bego
+		add cx, 20
+		bego:
+		add cx, 20
 		int 10h
 
 		mov cx,gcurx
@@ -8696,7 +8804,8 @@ llconvind endp
 drawstrin proc
 	gstrlett:
 	mov bx, tempb
-
+	;cmp ll, 0
+	;je gjumplet
 	cmp ll, 61h
 	je gdrawa
 	cmp ll, 62h
@@ -8817,6 +8926,14 @@ gnxtlett2:
 	je gdrawv
 	cmp ll,30h
 	je gnadaa
+	cmp ll, 77h
+	je gdraww
+	cmp ll, 79h
+	je gdrawy
+	cmp ll, 78h
+	je gdrawx
+	cmp ll, 7ah
+	je gdrawz
 	ret
 
 gnadaa:
@@ -8854,6 +8971,22 @@ ret
 gdrawv:
 mov bx, gtempb
 mov al,[letv + bx]
+ret
+gdraww:
+mov bx, gtempb
+mov al,[letw + bx]
+ret
+gdrawx:
+mov bx, gtempb
+mov al,[letx + bx]
+ret
+gdrawy:
+mov bx, gtempb
+mov al,[lety + bx]
+ret
+gdrawz:
+mov bx, gtempb
+mov al,[letz + bx]
 ret
 
 drawstrin endp
