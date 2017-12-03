@@ -186,6 +186,7 @@ TITLE PACOMANO
 	
 
 	lives 	db	3
+	lvv     db  0
 	points	dw	0
 	dotseaten	dw	0
 
@@ -206,8 +207,8 @@ TITLE PACOMANO
 
 	pm 		db	0
 	pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
-	newpdir	db	3
 	pmouth	db 	1 ;0 = fechada; 1 = aberta
+	newpdir db  3
 
 	;cscr	db 	0
 
@@ -218,8 +219,7 @@ TITLE PACOMANO
 	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
 	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
-
-	cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
 			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
 			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
@@ -338,6 +338,38 @@ TITLE PACOMANO
 	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
 	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
+
+	cora	db	00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,00h
+
+	corabl	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	pacfech	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
@@ -1067,13 +1099,7 @@ TITLE PACOMANO
 
 	maxdots	dw	0
 	mapSize	equ	624
-	;spastil	db 	00h,00h,00h,00h,00h,00h,00h
-	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
-	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
-	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
-	;		db 	00h,00h,00h,00h,00h,00h,00h
+
 
 	spastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1122,13 +1148,7 @@ TITLE PACOMANO
 	supertimer	dw	0
 	invultime	equ	15
 
-	;pastil	db 	00h,00h,00h,00h,00h,00h,00h
-	;		db 	00h,00h,00h,00h,00h,00h,00h
-	;		db 	00h,00h,00h,0fh,00h,00h,00h
-	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
-	;		db 	00h,00h,00h,0fh,00h,00h,00h
-	;		db 	00h,00h,00h,00h,00h,00h,00h
-	;		db 	00h,00h,00h,00h,00h,00h,00h
+
 
 	pastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1147,13 +1167,6 @@ TITLE PACOMANO
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 
-	;cherry	db 	00h,00h,00h,0ah,0ah,0ah,00h
-	;		db 	00h,00h,0ah,0ah,00h,00h,00h
-	;		db 	00h,00h,0ah,00h,04h,04h,00h
-	;		db 	00h,0ch,0ch,04h,04h,04h,04h
-	;		db 	0ch,0ch,0ch,0ch,04h,04h,04h
-	;		db 	0ch,0ch,0ch,0ch,04h,04h,00h
-	;		db 	00h,0ch,0ch,00h,00h,00h,00h
 
 	cherry	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah
@@ -1677,27 +1690,27 @@ TITLE PACOMANO
 			db	0fh,0fh,00h,00h,00h,00h,00h,00h
 			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
 
-	letm	db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,0fh,00h,00h,00h,0fh,0fh,0fh
-			db	0fh,0fh,00h,0fh,00h,0fh,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,00h,0fh,0fh
+	letm	db	0fh,00h,00h,00h,00h,00h,00h,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,0fh,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,0fh,0fh,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
 
-	letn	db	0fh,0fh,0fh,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,0fh,00h,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh,0fh
-			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh,0fh
+	letn	db	0fh,0fh,0fh,00h,00h,00h,00h,0fh
+			db	0fh,0fh,0fh,00h,00h,00h,00h,0fh
+			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh
+			db	0fh,0fh,00h,0fh,00h,00h,00h,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh
+			db	0fh,0fh,00h,00h,0fh,00h,00h,0fh
+			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh
+			db	0fh,0fh,00h,00h,00h,0fh,00h,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
 
 	leto	db	00h,0fh,0fh,0fh,0fh,0fh,0fh,00h
 			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
@@ -1788,13 +1801,59 @@ TITLE PACOMANO
 			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
 			db	00h,00h,00h,0fh,0fh,00h,00h,00h
 
+	letw	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,0fh,0fh,00h,0fh,0fh
+			db	0fh,0fh,0fh,00h,00h,0fh,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,00h,00h,00h,00h,00h,00h,0fh
 
+	letx	db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,0fh,0fh,00h,00h,0fh,0fh,00h
+			db	00h,00h,0fh,0fh,0fh,0fh,00h,00h
+			db	00h,00h,00h,0fh,0fh,00h,00h,00h
+
+
+
+	quad    db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
+	ggg     db  00h
+	ll      db  0h
 	tela    dw  0h
 	letwid  equ 8h
 	positiv dw  0h
 	strsize dw  26
+	sslet	equ 128
 	play	db  30,30,10,15, 7, 1,18, 0, 3,15,14,20,18,15,12, 5,19, 0,30,30,19, 1, 9,18,30,30
-	play2   db  30,30, 6, 1, 3, 9,12, 0,30,30,13, 5, 4, 9,15,30,30, 0, 4, 9, 6, 9, 3, 9,12,30
+	limpa   db  30,30,30,30,30,30,30, 0,30,30,30,30,30,30,30,30,30, 0,30,30,30,30,30,30,30,30
+	play2   db  30,30, 6, 1, 3, 9,12, 0,30,30,13, 5, 4, 9,15,30,30, 0,30, 4, 9, 6, 9, 3, 9,12
+	nomm    db  30,30,14,15,13,5,30, 0,30,30,30,30,30,30,30,30,30, 0,30,30,30,30,30,30,30,30
+	namez   db  30h,30h,30h,30h,30h,30h,30h,30h
+	ptga    db  70h,6fh,6eh,74h,6fh,73h
+	vidga   db  76h,69h,64h,61h,73h
+	loose   db  67h,61h,6dh,65h,30h,6fh,76h,65h,72h
+	;play3   db  16,1,18,1,30,13,15,30,5,18,30,15,30,16,1,3,13,1,14,30,21,,0,20,9,12,9,30,5,30,1,0,19,0,30,20,5,3,12,1,19,30,30,1,19,4,30,30,30,13,15,30,5,30,16,1,18,1,0,30,3,9,13,1,30,19,30,13,15,30,5,30,16,1,18,1,0,30,2,1,9,24,15,30,4,30,13,15,22,5,30,16,1,18,1,30,4,9,18,5,9,20,1,30,1,,0,30,13,15,30,5,30,16,1,18,1,30,1,30,5,19,17,30,5,18,4,1
 	espaco  dw  232
 	espacoc dw  160
 	;name	dw  "digite seu nome!$"
@@ -1842,20 +1901,20 @@ main proc
 	mov ax, pys
 	mov scry, ax
 	call drawpac
-	;call gdrawmap
 
-	mov ah,01h
-	int 21h
+	mov ah,00h
+	int 16h
 
 	cmp al, 77h
 	je acima
 	cmp al, 73h
 	je abaixo
-	cmp al, 31h
-	je jogo
+	cmp al, 0dh
+	je gamm
 	jmp escolha
 
 acima:	
+
 	call black
 	cmp pys, 163
 	je ac
@@ -1872,20 +1931,82 @@ abaixo:
 	jmp escolha
 
 tela2:
-	add tela, 1
-	mov al, 02h
-	int 10h
+	mov bx,0
+	mov cx, 26
+	cmp maptoload, 2
+	je printtel
+	cmp maptoload, 3
+	je fimmm
+	jmp namm
+	gamm:
+	cmp tela, 0
+	je tela2
+	jmp jogo
+	strr:
+	mov cx,26
+	mov bx, 0
+	call clee
+	mov cx,26
+	mov bx, 0
+	mov espaco, 232
+	mov espacoc, 160
+	strrr:
+	mov al,[play2+bx]
+	mov [play+bx],al
+	add bx,1
+	loop strrr
+	;add tela, 1
+	
 	mov espaco, 232
 	mov espacoc, 160
 	call drawlet
+	add tela, 1
 	jmp escolha
+	fimmm:
+	call finalizar
+	printtel:
+
+namm:
+call clee
+mov cx,26
+mov bx, 0
+
+nn:
+	mov al,[nomm+bx]
+	mov [play+bx],al
+	add bx,1
+	loop nn
+
+	mov espaco, 232
+	mov espacoc, 160
+	call drawlet
+	mov espaco, 232
+	mov espacoc, 190
+	mov tempb, 0
+	ooo:
+	mov bx, tempb
+	mov ah,00h
+	int 16h
+	add espaco, 20
+	cmp al, 0dh
+	je stlrr
+	mov ll, al
+	mov [namez+bx], al
+	call drawll
+	add tempb, 1
+	cmp tempb, 8
+	je stlrr
+	jmp ooo
+
+	stlrr:
+	mov bx, 0
+	mov cx, 26
+
+	jmp strr
 
 jogo:
-	cmp tela, 0
-	je tela2
-	;xor ax,ax
-	;mov al,3h	;modo de texto normal
-	;int 10h
+	
+    mov ggg, 1
 
 	mov ax,0a000h
 	mov es,ax
@@ -1897,7 +2018,8 @@ jogo:
 	xor ah,ah
 	mov al,10h
 	int 13
-
+	call gdrawgame
+	call drawlives
 	call loadmap
 	call countmaxdots
 
@@ -1917,6 +2039,7 @@ jogo:
 	call drawghosts
 	call drawpac
 	call redrawdoor
+
 	;mov cx,70	;loops to execute (debug only)
 m:
 	;mov ttt,cx
@@ -1966,14 +2089,12 @@ notsuper:
 	;call drawmap
 	call processitems
 	call turnpacman
-	call newturnpacman
+	call applyturnpacman
+	;call newturnpacman
 
 	call updatepacmansprite
 	
 	call movepacman
-	;call slidepacman
-	;call updatepacmanvars
-
 	;call slidepacman
 	;call doubletapghosts
 	call collidewithghosts
@@ -2001,8 +2122,8 @@ notsuper:
 	mov al,0
 	call drawsqr
 dontclearpacman:
-	call drawpac
 	;cmp cscr,2
+	call drawpac
 	;je chng1
 	;mov cscr,2
 	;jmp donechng
@@ -2028,13 +2149,12 @@ dontclearpacman:
 
 	call processitems
 	call turnpacman
-	call newturnpacman
+	call applyturnpacman
+	;call newturnpacman
+	
 	call updatepacmansprite
 
 	call movepacman
-	;call slidepacman
-	;call updatepacmanvars
-
 	call collidewithghosts
 	call doubletapghosts
 
@@ -2090,9 +2210,36 @@ nosecondstep:
 	jz gamefinished
 	jmp mjump
 gamefinished:
-	mov ah,01h
-	int 21h
+	xor ax,ax
+	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
+	int 10h
 
+	xor ah,ah
+	mov al,10h
+	int 13
+	mov cx, 5
+	mov bx, 0
+	mov espaco, 350
+	mov espacoc, 360
+
+	cmp lives, 0
+	je perdeu
+	;GANHOU AQUI
+	call finalizar
+	perdeu:
+
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[loose+bx]
+	mov ll, al
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 16
+	add bx, 1
+	loop perdeu
+	mov ah,00
+	int 16h
 call finalizar
 main endp
 
@@ -2153,6 +2300,21 @@ drawborder proc
 
 ret
 drawborder endp
+
+clee proc
+mov cx, 26
+mov bx, 0
+uu:
+	mov al,[limpa+bx]
+	mov [play+bx],al
+	add bx,1
+	loop uu
+
+	mov espaco, 232
+	mov espacoc, 160
+	call drawlet
+	ret
+clee endp
 
 redrawdoor proc ;y = 11 (0-ind), x = 11,12,13,14 (0-ind)
 	mov bx, 297
@@ -2317,6 +2479,41 @@ lmp11:
 		loop lmp11
 ret
 loadmap endp
+
+gdrawgame proc
+	mov cx, 6
+	mov bx, 0
+	mov espaco, 480
+	mov espacoc, 60
+lll:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[ptga+bx]
+	mov ll, al
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop lll
+
+	mov cx, 5
+	mov bx, 0
+	mov espaco, 480
+	mov espacoc, 360
+	onn:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[vidga+bx]
+	mov ll, al
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop onn
+	ret
+gdrawgame endp
 
 printdata proc 
 	mov ah,2
@@ -3675,437 +3872,438 @@ nextrowpas:
 	ret
 drawpast endp
 
-slidepacman proc
-	mov ax,pxs
-	mov prevpxs,ax
-	mov ax,pys
-	mov prevpys,ax
+; slidepacman proc
+; 	mov ax,pxs
+; 	mov prevpxs,ax
+; 	mov ax,pys
+; 	mov prevpys,ax
 
-	mov bx,pindex
-	mov prevpin,bx
+; 	mov bx,pindex
+; 	mov prevpin,bx
 
-	mov cx,pxs
-	mov dx,pys
-	mov ah,0dh
-	mov bh,0
+; 	mov cx,pxs
+; 	mov dx,pys
+; 	mov ah,0dh
+; 	mov bh,0
 
-	cmp pdir,4
-	je sd4j
-	cmp pdir,3
-	je sd3
-	cmp pdir,2
-	je sd2
-		;else 1 esquerda
-		;sub bx,1
-		;cmp [map + bx], 1
-		sub cx,2
-		int 10h
-		cmp al,1
-		je finishmoving
-		cmp al,5
-		je finishmoving
-		;else slide another
-		dec pxs
-		ret
-	sd4j:jmp sd4
-	sd2:
-		;sub bx,nmapWid
-		;cmp [map + bx], 1
-		sub dx,2
-		int 10h
-		cmp al,1
-		je finishmoving
-		cmp al,5
-		je finishmoving
-		;else slide another
-		dec pys
-		ret
-	sd3:
-		;add bx,1
-		;cmp [map + bx], 1
-		add cx,19
-		int 10h
-		cmp al,1
-		je finishmoving
-		cmp al,5
-		je finishmoving
-		;else slide another
-		inc pxs
-		ret
-	sd4:
-		;add bx,nmapWid
-		;cmp [map + bx], 1
-		add dx,19
-		int 10h
-		cmp al,1
-		je finishmoving
-		cmp al,5
-		je finishmoving
-		;else slide another
-		inc pys
-		ret
-finishmoving:
-ret
-slidepacman endp
+; 	cmp pdir,4
+; 	je sd4j
+; 	cmp pdir,3
+; 	je sd3
+; 	cmp pdir,2
+; 	je sd2
+; 		;else 1 esquerda
+; 		;sub bx,1
+; 		;cmp [map + bx], 1
+; 		sub cx,2
+; 		int 10h
+; 		cmp al,1
+; 		je finishmoving
+; 		cmp al,5
+; 		je finishmoving
+; 		;else slide another
+; 		dec pxs
+; 		ret
+; 	sd4j:jmp sd4
+; 	sd2:
+; 		;sub bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		sub dx,2
+; 		int 10h
+; 		cmp al,1
+; 		je finishmoving
+; 		cmp al,5
+; 		je finishmoving
+; 		;else slide another
+; 		dec pys
+; 		ret
+; 	sd3:
+; 		;add bx,1
+; 		;cmp [map + bx], 1
+; 		add cx,19
+; 		int 10h
+; 		cmp al,1
+; 		je finishmoving
+; 		cmp al,5
+; 		je finishmoving
+; 		;else slide another
+; 		inc pxs
+; 		ret
+; 	sd4:
+; 		;add bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		add dx,19
+; 		int 10h
+; 		cmp al,1
+; 		je finishmoving
+; 		cmp al,5
+; 		je finishmoving
+; 		;else slide another
+; 		inc pys
+; 		ret
+; finishmoving:
+; ret
+; slidepacman endp
 
-updatepacmanvars proc
-	mov ax,pxs
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov px,ax
-	mov ax,pys
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov py,ax
+; updatepacmanvars proc
+; 	mov ax,pxs
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov px,ax
+; 	mov ax,pys
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov py,ax
 
-	mov dl,nmapWid
-	mul dl
-	add ax,px
-	mov pindex,ax
+; 	mov dl,nmapWid
+; 	mul dl
+; 	add ax,px
+; 	mov pindex,ax
 
-	call eatpast
-ret
-updatepacmanvars endp
+; 	call eatpast
+; ret
+; updatepacmanvars endp
 
-slideg1 proc
-	mov bx,g1ind
-	mov prg1ind,bx
+; slideg1 proc
+; 	mov bx,g1ind
+; 	mov prg1ind,bx
 
-	mov cx,g1xs
-	mov dx,g1ys
-	mov ah,0dh
-	mov bh,0
+; 	mov cx,g1xs
+; 	mov dx,g1ys
+; 	mov ah,0dh
+; 	mov bh,0
 
-	cmp g1d,4
-	je g1sd4j
-	cmp g1d,3
-	je g1sd3
-	cmp g1d,2
-	je g1sd2
-		;else 1 esquerda
-		;sub bx,1
-		;cmp [map + bx], 1
+; 	cmp g1d,4
+; 	je g1sd4j
+; 	cmp g1d,3
+; 	je g1sd3
+; 	cmp g1d,2
+; 	je g1sd2
+; 		;else 1 esquerda
+; 		;sub bx,1
+; 		;cmp [map + bx], 1
 		
-		;sub cx,2
-		;int 10h
-		;cmp al,1
-		;je g1finishmoving
+; 		;sub cx,2
+; 		;int 10h
+; 		;cmp al,1
+; 		;je g1finishmoving
 		
-		;else slide another
-		dec g1xs
-		ret
-	g1sd4j:jmp g1sd4
-	g1sd2:
-		;sub bx,nmapWid
-		;cmp [map + bx], 1
+; 		;else slide another
+; 		dec g1xs
+; 		ret
+; 	g1sd4j:jmp g1sd4
+; 	g1sd2:
+; 		;sub bx,nmapWid
+; 		;cmp [map + bx], 1
 		
-		;sub dx,2
-		;int 10h
-		;cmp al,1
-		;je g1finishmoving
+; 		;sub dx,2
+; 		;int 10h
+; 		;cmp al,1
+; 		;je g1finishmoving
 		
-		;else slide another
-		dec g1ys
-		ret
-	g1sd3:
-		;add bx,1
-		;cmp [map + bx], 1
+; 		;else slide another
+; 		dec g1ys
+; 		ret
+; 	g1sd3:
+; 		;add bx,1
+; 		;cmp [map + bx], 1
 		
-		;add cx,19
-		;int 10h
-		;cmp al,1
-		;je g1finishmoving
+; 		;add cx,19
+; 		;int 10h
+; 		;cmp al,1
+; 		;je g1finishmoving
 		
-		;else slide another
-		inc g1xs
-		ret
-	g1sd4:
-		;add bx,nmapWid
-		;cmp [map + bx], 1
+; 		;else slide another
+; 		inc g1xs
+; 		ret
+; 	g1sd4:
+; 		;add bx,nmapWid
+; 		;cmp [map + bx], 1
 		
-		;add dx,19
-		;int 10h
-		;cmp al,1
-		;je g1finishmoving
+; 		;add dx,19
+; 		;int 10h
+; 		;cmp al,1
+; 		;je g1finishmoving
 		
-		;else slide another
-		inc g1ys
-		ret
-g1finishmoving:
-ret
-slideg1 endp
+; 		;else slide another
+; 		inc g1ys
+; 		ret
+; g1finishmoving:
+; ret
+; slideg1 endp
 
-updateg1vars proc
-	mov ax,g1xs
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g1x,ax
-	mov ax,g1ys
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g1y,ax
+; updateg1vars proc
+; 	mov ax,g1xs
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g1x,ax
+; 	mov ax,g1ys
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g1y,ax
 
-	mov dl,nmapWid
-	mul dl
-	add ax,g1x
-	mov g1ind,ax
+; 	mov dl,nmapWid
+; 	mul dl
+; 	add ax,g1x
+; 	mov g1ind,ax
 
-ret
-updateg1vars endp
+; ret
+; updateg1vars endp
 
-slideg2 proc
-	mov bx,g2ind
-	mov prg2ind,bx
+; slideg2 proc
+; 	mov bx,g2ind
+; 	mov prg2ind,bx
 
-	mov cx,g2xs
-	mov dx,g2ys
-	mov ah,0dh
-	mov bh,0
+; 	mov cx,g2xs
+; 	mov dx,g2ys
+; 	mov ah,0dh
+; 	mov bh,0
 
-	cmp g2d,4
-	je g2sd4j
-	cmp g2d,3
-	je g2sd3
-	cmp g2d,2
-	je g2sd2
-		;else 1 esquerda
-		;sub bx,1
-		;cmp [map + bx], 1
-		sub cx,2
-		int 10h
-		cmp al,0
-		jne g2finishmoving
-		;else slide another
-		dec g2xs
-		ret
-	g2sd4j:jmp g2sd4
-	g2sd2:
-		;sub bx,nmapWid
-		;cmp [map + bx], 1
-		sub dx,2
-		int 10h
-		cmp al,0
-		jne g2finishmoving
-		;else slide another
-		dec g2ys
-		ret
-	g2sd3:
-		;add bx,1
-		;cmp [map + bx], 1
-		add cx,19
-		int 10h
-		cmp al,0
-		jne g2finishmoving
-		;else slide another
-		inc g2xs
-		ret
-	g2sd4:
-		;add bx,nmapWid
-		;cmp [map + bx], 1
-		add dx,19
-		int 10h
-		cmp al,0
-		jne g2finishmoving
-		;else slide another
-		inc g2ys
-		ret
-g2finishmoving:
-ret
-slideg2 endp
+; 	cmp g2d,4
+; 	je g2sd4j
+; 	cmp g2d,3
+; 	je g2sd3
+; 	cmp g2d,2
+; 	je g2sd2
+; 		;else 1 esquerda
+; 		;sub bx,1
+; 		;cmp [map + bx], 1
+; 		sub cx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g2finishmoving
+; 		;else slide another
+; 		dec g2xs
+; 		ret
+; 	g2sd4j:jmp g2sd4
+; 	g2sd2:
+; 		;sub bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		sub dx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g2finishmoving
+; 		;else slide another
+; 		dec g2ys
+; 		ret
+; 	g2sd3:
+; 		;add bx,1
+; 		;cmp [map + bx], 1
+; 		add cx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g2finishmoving
+; 		;else slide another
+; 		inc g2xs
+; 		ret
+; 	g2sd4:
+; 		;add bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		add dx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g2finishmoving
+; 		;else slide another
+; 		inc g2ys
+; 		ret
+; g2finishmoving:
+; ret
+; slideg2 endp
 
-updateg2vars proc
-	mov ax,g2xs
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g2x,ax
-	mov ax,g2ys
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g2y,ax
+; updateg2vars proc
+; 	mov ax,g2xs
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g2x,ax
+; 	mov ax,g2ys
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g2y,ax
 
-	mov dl,nmapWid
-	mul dl
-	add ax,g2x
-	mov g2ind,ax
+; 	mov dl,nmapWid
+; 	mul dl
+; 	add ax,g2x
+; 	mov g2ind,ax
 
-ret
-updateg2vars endp
+; ret
+; updateg2vars endp
 
-slideg3 proc
-	mov bx,g3ind
-	mov prg3ind,bx
+; slideg3 proc
+; 	mov bx,g3ind
+; 	mov prg3ind,bx
 
-	mov cx,g3xs
-	mov dx,g3ys
-	mov ah,0dh
-	mov bh,0
+; 	mov cx,g3xs
+; 	mov dx,g3ys
+; 	mov ah,0dh
+; 	mov bh,0
 
-	cmp g3d,4
-	je g3sd4j
-	cmp g3d,3
-	je g3sd3
-	cmp g3d,2
-	je g3sd2
-		;else 1 esquerda
-		;sub bx,1
-		;cmp [map + bx], 1
-		sub cx,2
-		int 10h
-		cmp al,0
-		jne g3finishmoving
-		;else slide another
-		dec g3xs
-		ret
-	g3sd4j:jmp g3sd4
-	g3sd2:
-		;sub bx,nmapWid
-		;cmp [map + bx], 1
-		sub dx,2
-		int 10h
-		cmp al,0
-		jne g3finishmoving
-		;else slide another
-		dec g3ys
-		ret
-	g3sd3:
-		;add bx,1
-		;cmp [map + bx], 1
-		add cx,19
-		int 10h
-		cmp al,0
-		jne g3finishmoving
-		;else slide another
-		inc g3xs
-		ret
-	g3sd4:
-		;add bx,nmapWid
-		;cmp [map + bx], 1
-		add dx,19
-		int 10h
-		cmp al,0
-		jne g3finishmoving
-		;else slide another
-		inc g3ys
-		ret
-g3finishmoving:
-ret
-slideg3 endp
+; 	cmp g3d,4
+; 	je g3sd4j
+; 	cmp g3d,3
+; 	je g3sd3
+; 	cmp g3d,2
+; 	je g3sd2
+; 		;else 1 esquerda
+; 		;sub bx,1
+; 		;cmp [map + bx], 1
+; 		sub cx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g3finishmoving
+; 		;else slide another
+; 		dec g3xs
+; 		ret
+; 	g3sd4j:jmp g3sd4
+; 	g3sd2:
+; 		;sub bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		sub dx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g3finishmoving
+; 		;else slide another
+; 		dec g3ys
+; 		ret
+; 	g3sd3:
+; 		;add bx,1
+; 		;cmp [map + bx], 1
+; 		add cx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g3finishmoving
+; 		;else slide another
+; 		inc g3xs
+; 		ret
+; 	g3sd4:
+; 		;add bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		add dx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g3finishmoving
+; 		;else slide another
+; 		inc g3ys
+; 		ret
+; g3finishmoving:
+; ret
+; slideg3 endp
 
-updateg3vars proc
-	mov ax,g3xs
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g3x,ax
-	mov ax,g3ys
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g3y,ax
+; updateg3vars proc
+; 	mov ax,g3xs
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g3x,ax
+; 	mov ax,g3ys
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g3y,ax
 
-	mov dl,nmapWid
-	mul dl
-	add ax,g3x
-	mov g3ind,ax
+; 	mov dl,nmapWid
+; 	mul dl
+; 	add ax,g3x
+; 	mov g3ind,ax
 
-ret
-updateg3vars endp
+; ret
+; updateg3vars endp
 
-slideg4 proc
-	mov bx,g4ind
-	mov prg4ind,bx
+; slideg4 proc
+; 	mov bx,g4ind
+; 	mov prg4ind,bx
 
-	mov cx,g4xs
-	mov dx,g4ys
-	mov ah,0dh
-	mov bh,0
+; 	mov cx,g4xs
+; 	mov dx,g4ys
+; 	mov ah,0dh
+; 	mov bh,0
 
-	cmp g4d,4
-	je g4sd4j
-	cmp g4d,3
-	je g4sd3
-	cmp g4d,2
-	je g4sd2
-		;else 1 esquerda
-		;sub bx,1
-		;cmp [map + bx], 1
-		sub cx,2
-		int 10h
-		cmp al,0
-		jne g4finishmoving
-		;else slide another
-		dec g4xs
-		ret
-	g4sd4j:jmp g4sd4
-	g4sd2:
-		;sub bx,nmapWid
-		;cmp [map + bx], 1
-		sub dx,2
-		int 10h
-		cmp al,0
-		jne g4finishmoving
-		;else slide another
-		dec g4ys
-		ret
-	g4sd3:
-		;add bx,1
-		;cmp [map + bx], 1
-		add cx,19
-		int 10h
-		cmp al,0
-		jne g4finishmoving
-		;else slide another
-		inc g4xs
-		ret
-	g4sd4:
-		;add bx,nmapWid
-		;cmp [map + bx], 1
-		add dx,19
-		int 10h
-		cmp al,0
-		jne g4finishmoving
-		;else slide another
-		inc g4ys
-		ret
-g4finishmoving:
-ret
-slideg4 endp
+; 	cmp g4d,4
+; 	je g4sd4j
+; 	cmp g4d,3
+; 	je g4sd3
+; 	cmp g4d,2
+; 	je g4sd2
+; 		;else 1 esquerda
+; 		;sub bx,1
+; 		;cmp [map + bx], 1
+; 		sub cx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g4finishmoving
+; 		;else slide another
+; 		dec g4xs
+; 		ret
+; 	g4sd4j:jmp g4sd4
+; 	g4sd2:
+; 		;sub bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		sub dx,2
+; 		int 10h
+; 		cmp al,0
+; 		jne g4finishmoving
+; 		;else slide another
+; 		dec g4ys
+; 		ret
+; 	g4sd3:
+; 		;add bx,1
+; 		;cmp [map + bx], 1
+; 		add cx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g4finishmoving
+; 		;else slide another
+; 		inc g4xs
+; 		ret
+; 	g4sd4:
+; 		;add bx,nmapWid
+; 		;cmp [map + bx], 1
+; 		add dx,19
+; 		int 10h
+; 		cmp al,0
+; 		jne g4finishmoving
+; 		;else slide another
+; 		inc g4ys
+; 		ret
+; g4finishmoving:
+; ret
+; slideg4 endp
 
-updateg4vars proc
-	mov ax,g4xs
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g4x,ax
-	mov ax,g4ys
-	sub ax,40
-	mov dl,16
-	div dl
-	xor ah,ah
-	mov g4y,ax
+; updateg4vars proc
+; 	mov ax,g4xs
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g4x,ax
+; 	mov ax,g4ys
+; 	sub ax,40
+; 	mov dl,16
+; 	div dl
+; 	xor ah,ah
+; 	mov g4y,ax
 
-	mov dl,nmapWid
-	mul dl
-	add ax,g4x
-	mov g4ind,ax
+; 	mov dl,nmapWid
+; 	mul dl
+; 	add ax,g4x
+; 	mov g4ind,ax
 
-ret
-updateg4vars endp
+; ret
+; updateg4vars endp
+
 
 movepacman proc
 	mov ax,pxs
@@ -4170,6 +4368,8 @@ eatpast proc
 	cmp [pmap + bx],0
 	je nopast
 	add points,10
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	add dotseaten,1
 	mov [pmap + bx],0
@@ -4265,29 +4465,29 @@ endtry:
 ret
 applyturnpacman endp
 
-newturnpacman proc
-	;sub pxs,8
-	;test pxs,16
-	mov ax,pxs
-	mov dl,16
-	div dl
-	cmp ah,0
-	jnz cantturn1
-	;sub pys,8
-	;test pys,16
-	mov ax,pys
-	mov dl,16
-	div dl
-	cmp ah,0
-	jnz cantturn2
-	;jnz cantturn2
-		call applyturnpacman
-cantturn2:
-	;add pys,8
-cantturn1:
-	;add pxs,8
-ret
-newturnpacman endp
+; newturnpacman proc
+; 	;sub pxs,8
+; 	;test pxs,16
+; 	mov ax,pxs
+; 	mov dl,16
+; 	div dl
+; 	cmp ah,0
+; 	jnz cantturn1
+; 	;sub pys,8
+; 	;test pys,16
+; 	mov ax,pys
+; 	mov dl,16
+; 	div dl
+; 	cmp ah,0
+; 	jnz cantturn2
+; 	;jnz cantturn2
+; 		call applyturnpacman
+; cantturn2:
+; 	;add pys,8
+; cantturn1:
+; 	;add pxs,8
+; ret
+; newturnpacman endp
 
 setghosts proc
 	call setghost1s
@@ -4844,10 +5044,6 @@ moveghosts proc
 	call moveghost2
 	call moveghost3
 	call moveghost4
-	; call slideg1
-	; call slideg2
-	; call slideg3
-	; call slideg4
 ret
 moveghosts endp
 
@@ -5083,10 +5279,6 @@ waitghost1:
 	jnz stillwaitingg1
 		mov g1m,1
 		mov g1d,2
-		;mov g1x,13
-		;mov g1y,11
-		;mov g1xs,256
-		;mov g1ys,224
 	stillwaitingg1:
 ret
 
@@ -5094,11 +5286,6 @@ willturng1:
 	call newturnghost1
 
 agag1:
-	;call slideg1
-	;call updateg1vars
-	;call replaceg1
-	;ret
-
 	mov bx,g1ind
 	mov prg1ind,bx
 
@@ -5189,9 +5376,6 @@ ret
 willturng2:
 	call newturnghost2
 agag2:
-	;call slideg2
-	;call updateg2vars
-	;ret
 	;call newturnghost2
 
 	mov bx,g2ind
@@ -5286,9 +5470,6 @@ ret
 willturng3:
 	call newturnghost3
 agag3:	
-	;call slideg3
-	;call updateg3vars
-	;ret
 	;call newturnghost3
 	mov bx,g3ind
 	mov prg3ind,bx
@@ -5383,9 +5564,6 @@ ret
 willturng4:
 	call newturnghost4
 agag4:
-	;call slideg4
-	;call updateg4vars
-	;ret
 	;call newturnghost4
 
 	mov bx,g4ind
@@ -6577,13 +6755,10 @@ collidewithghosts proc
 	;mov ax,g1y
 	;cmp ax,py
 	;jne nocollisiong1
-
+	
 	;cmp pm,0
 	cmp g1m,1
 	je takedamagejump
-
-	cmp g1m,3
-	je nocollisiong1
 	;else eat and add points
 	
 	;mov g1x,gretx
@@ -6594,10 +6769,13 @@ collidewithghosts proc
 	;mov g1ind,greti
 	
 	mov g1m,3
+
 	and g1xs,1111111111110000b
 	and g1ys,1111111111110000b
 
 	add points,200
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 nocollisiong1:
 	mov ax,pindex
@@ -6625,6 +6803,8 @@ nocollisiong1:
 	mov g2m,3
 
 	add points,200
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	jmp nocollisiong2
 takedamagejump:
@@ -6681,20 +6861,79 @@ nocollisiong3:
 	mov g4m,3
 
 	add points,200
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 nocollisiong4:
 ret
 
 takedamage:
 	sub lives,1
-	jz pacmandied
+	call drawlives
+	cmp lives, 0
+	je pacmandied
 	call resetpositions
 	mov waitloops,1500
 	call draweverything
 	call redrawdoor
 ret
 pacmandied:
-	;handle gameover
+	xor ax,ax
+	mov al,12h	;modo de vÃ­deo (12h = resolucao maior; 13h = resolucao menor)
+	int 10h
+
+	xor ah,ah
+	mov al,10h
+	int 13
+	mov cx, 9
+	mov bx, 0
+	mov espaco, 230
+	mov espacoc, 163
+
+	cmp lives, 0
+	je perdeuu
+	call finalizar
+	perdeuu:
+
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[loose+bx]
+	mov ll, al
+
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop perdeuu
+
+	mov espaco, 250
+	mov espacoc, 200
+	mov cx, 8
+	mov bx,0
+	nomme:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[namez+bx]
+	mov ll, al
+
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop nomme
+	mov espaco, 270
+	mov espacoc, 240
+	call elisabeth
+	call drawborder
+	agan:
+	mov ah,00
+	int 16h
+	cmp al, 0dh
+	je ffim
+	jmp agan
+	ffim:
 	call finalizar
 ret
 collidewithghosts endp
@@ -6976,6 +7215,8 @@ eatcherry1 proc
 	jne cherry1safe
 
 	add points,50
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	mov cherry1ex,0
 cherry1safe:
@@ -6990,6 +7231,8 @@ eatcherry2 proc
 	jne cherry2safe
 
 	add points,50
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	mov cherry2ex,0
 cherry2safe:
@@ -7004,6 +7247,8 @@ eatcherry3 proc
 	jne cherry3safe
 
 	add points,50
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	mov cherry3ex,0
 cherry3safe:
@@ -7018,6 +7263,8 @@ eatcherry4 proc
 	jne cherry4safe
 
 	add points,50
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	mov cherry4ex,0
 cherry4safe:
@@ -7277,6 +7524,8 @@ eatspastil1 proc
 	jne spastil1safe
 
 	add points,100
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	call setsupermode
 	;mov supertimer,invultime
@@ -7293,6 +7542,8 @@ eatspastil2 proc
 	jne spastil2safe
 
 	add points,100
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	;mov pm,1
 	call setsupermode
@@ -7310,7 +7561,8 @@ eatspastil3 proc
 	jne spastil3safe
 
 	add points,100
-
+	mov espacoc, 100
+	mov espaco, 480	
 	call elisabeth
 	;mov pm,1
 	call setsupermode
@@ -7328,6 +7580,8 @@ eatspastil4 proc
 	jne spastil4safe
 
 	add points,100
+	mov espacoc, 100
+	mov espaco, 480	
 
 	call elisabeth
 	;mov pm,1
@@ -7352,6 +7606,65 @@ ret
 drawscore endp
 
 drawlives proc
+mov bl, lives
+mov lvv, bl
+xor bx, bx
+mov cx, 3
+mov pys, 400
+mov pxs, 480
+
+opp:
+mov tempc, cx
+	mov cx,nsqrsz
+	mov dx,nsqrsz
+nextrowpc:
+	mov cury,dx
+	add dx,pys
+	
+	mov cx,nsqrsz
+
+	drawwrowpc:
+		sub dx,pys
+		mov bl,nssqrsz
+		sub bl,1
+		mov ax,dx
+		mul bl
+		
+		add al,cl
+		
+		mov bx,ax
+		sub bx,nsqrsz
+		sub bx,1
+		cmp lvv, 0
+		jz blaco
+		mov al,[cora+bx]
+		jmp corr
+		blaco:
+		mov al,[corabl+bx]
+
+		corr:
+		add dx,pys
+
+		mov curx,cx
+		add cx,pxs
+		
+		mov ah,0ch
+		mov bh,0
+		int 10h
+
+		mov cx,curx
+		loop drawwrowpc
+
+	mov dx,cury
+	sub dx,1
+	ja nextrowpc
+	mov cx, tempc
+	add pxs, 18
+	cmp lvv, 0
+	jz jjj
+	sub lvv, 1
+	jjj:
+	loop opp
 
 ret
 drawlives endp
@@ -7413,7 +7726,6 @@ gdrawnextcell:
 	mov al,[lp + bx]
 	call gdrawsqr
 	jmp gincr
-
 gnothb:
 	mov bx,gtempb
 	call gconvindextocoord
@@ -7501,11 +7813,37 @@ gconvindextocoord proc; bx = index => scrx e scry
 	ret
 gconvindextocoord endp
 
+;controles proc
+;mov cx, strsize
+;cmp tela, 2
+;je maioor
+;mov bx, 0
+;jmp aca
+;maioor:
+;mov cx, sslet
+;mov bx, 0
+;aca:
+;mov tempd, cx
+;mov cx, 0
+;mov [play2+bx], [play3+bx]
+;mov al,[play3+bx]
+;mov [play2+bx],al
+;add bx,1
+;mov cx, tempd
+;loop aca
+;ret
+;controles endp
+
 drawlet proc
 mov tempb,0
 cmp tela, 1
 je  ttl
+cmp tela, 2
+je tt2
 mov cx, strsize
+jmp desenho
+tt2:
+mov cx, sslet
 jmp desenho
 ttl:
 mov cx, 17
@@ -7522,8 +7860,12 @@ letdrawnextcell:
 	mov bx, 0
 	cmp tela, 1
 	je  telalet2
+	cmp tela, 2
+	je control
 	call drawstring
 	jmp drawletn
+	control:
+;	call controles
 	telalet2:
 	call drawstring2
 	drawletn:
@@ -7709,12 +8051,12 @@ mov bx, gtempb
 mov al,[letl + bx]
 ret
 drawm:
-mov positiv, 1
+;mov positiv, 1
 mov bx, gtempb
 mov al,[letm + bx]
 ret
 drawn:
-mov positiv, 1
+;mov positiv, 1
 mov bx, gtempb
 mov al,[letn + bx]
 ret
@@ -7738,9 +8080,13 @@ nxtlett2:
 	cmp [play + bx],22
 	je drawv
 	cmp [play + bx],30
-	mov al, 0
+	je nadaa
 	ret
 
+nadaa:
+mov bx, gtempb
+mov al, 0
+ret
 drawo:
 mov bx, gtempb
 mov al,[leto + bx]
@@ -7872,12 +8218,12 @@ mov bx, gtempb
 mov al,[letl + bx]
 ret
 drawm2:
-mov positiv, 1
+;mov positiv, 1
 mov bx, gtempb
 mov al,[letm + bx]
 ret
 drawn2:
-mov positiv, 1
+;mov positiv, 1
 mov bx, gtempb
 mov al,[letn + bx]
 ret
@@ -7901,8 +8247,13 @@ nxtlettt22:
 	cmp [play2 + bx],22
 	je drawv2
 	cmp [play2 + bx],30
-	mov al, 0
+	je nada
 	ret
+
+nada:
+mov bx, gtempb
+mov al, 0
+ret
 drawo2:
 mov bx, gtempb
 mov al,[leto + bx]
@@ -7985,6 +8336,7 @@ gdrawnextnum:
 	je  now
 	hhh:
 cmp hhhh, 1
+
 je hh
 now:
 	call gdrawsqrnum
@@ -8021,17 +8373,17 @@ gdrawsqrnum proc;setar scrx e scry
 	
 	mov cx,gnsqrsz
 	mov dx,gnsqrsz
-	
+
 gnextrownum:
 	mov gcuryn,dx
 	add dx,gscryn
 	mov cx,gnsqrsz
-	add dx, 20
+	add dx, espacoc
 
 	gdrawwrownum:
 		mov gcurxn,cx
 		add cx,gscrxn
-		add cx, 460
+		add cx, espaco
 		cmp agora, 1
 		je gg
 		add cx, 26
@@ -8080,6 +8432,7 @@ gconvindexnum proc; bx = index => scrx e scry
 
 	ret
 gconvindexnum endp
+
 
 elisabeth proc
 mov tempa, ax
@@ -8140,4 +8493,262 @@ magic:
 		mov cx, tempc
 		ret
 elisabeth endp
+
+drawll proc
+	mov bx,0
+	mov cx,80
+
+drawnextll:
+	call llconvind
+
+	mov gtempc,cx
+	mov gtempb,bx
+
+
+	call drawstrin
+	call drawsqll
+	jmp incll
+notll:
+	mov bx,gtempb
+	call llconvind
+	mov al,0
+	call drawsqll
+
+incll:
+	mov bx,gtempb
+	inc bx
+	
+	mov cx,gtempc
+	
+	loop drawnextll
+	ret
+drawll endp
+drawsqll proc;setar scrx e scry
+	mov gtempc,cx
+	mov gtempb,bx
+	
+	mov ah,0ch
+	mov bh,0
+	
+	;cmp ggg, 1
+	;je letme
+	mov cx,2
+	mov dx,2
+	;jmp nextll
+	;letme:
+	;mov cx,1
+	;mov dx,1
+nextll:
+	mov gcury,dx
+	add dx,gscry
+	add dx, espacoc
+	;cmp ggg,1
+	;je addum
+	mov cx,2
+;	jmp drawrll
+;	addum:
+;	mov cx,1
+	drawrll:
+		mov gcurx,cx
+		add cx,gscrx
+		add cx, espaco
+		int 10h
+
+		mov cx,gcurx
+		loop drawrll
+
+	mov dx,gcury
+	sub dx,1
+	jnz nextll
+
+	mov cx,gtempc
+	mov bx,gtempb
+
+	ret
+drawsqll endp
+
+llconvind proc; bx = index => scrx e scry
+	mov ax,bx
+	mov dl,8
+	div dl
+	;cbw
+	mov dl,2
+	mul dl
+	mov gscry,ax
+	
+	mov ax,bx
+	mov dl,8
+	div dl
+	mov al,ah
+	;cbw
+	mov dl,2
+	mul dl
+	mov gscrx,ax
+
+	ret
+llconvind endp
+drawstrin proc
+	gstrlett:
+	mov bx, tempb
+
+	cmp ll, 61h
+	je gdrawa
+	cmp ll, 62h
+	je gdrawb
+	cmp ll, 63h
+	je gdrawc
+	cmp ll, 64h
+	je gdrawd
+	cmp ll, 65h
+	je gdrawe
+	cmp ll, 66h
+	je gdrawf
+	cmp ll, 67h
+	je gdrawg
+	jmp gnxtlett
+
+gjumplet:
+mov bx, gtempb
+add tempb, 1
+add espacoc, 30
+mov espaco, 232
+jmp gstrlett
+
+gdrawa:
+mov bx, gtempb
+mov al,[leta + bx]
+ret
+gdrawb:
+mov bx, gtempb
+mov al,[letb + bx]
+ret
+gdrawc:
+mov bx, gtempb
+mov al,[letc + bx]
+ret
+gdrawd:
+mov bx, gtempb
+mov al,[letd + bx]
+ret
+gdrawe:
+mov bx, gtempb
+mov al,[lete + bx]
+ret
+gdrawf:
+mov bx, gtempb
+mov al,[letf + bx]
+ret
+gdrawg:
+mov bx, gtempb
+mov al,[letg + bx]
+ret
+gnxtlett:
+	mov positiv, 0
+	cmp ll, 68h
+	je gdrawh
+	cmp ll, 69h
+	je gdrawi
+	cmp ll,6ah
+	je gdrawj
+	cmp ll,6bh
+	je gdrawk
+	cmp ll,6ch
+	je gdrawl
+	cmp ll,6dh
+	je gdrawm
+	cmp ll,6eh
+	je gdrawn
+	jmp gnxtlett2
+
+gdrawh:
+mov bx, gtempb
+mov al,[leth + bx]
+ret
+gdrawi:
+mov bx, gtempb
+mov al,[leti + bx]
+ret
+gdrawj:
+mov bx, gtempb
+mov al,[letj + bx]
+ret
+gdrawk:
+mov bx, gtempb
+mov al,[letk + bx]
+ret
+gdrawl:
+mov bx, gtempb
+mov al,[letl + bx]
+ret
+gdrawm:
+;mov positiv, 1
+mov bx, gtempb
+mov al,[letm + bx]
+ret
+gdrawn:
+;mov positiv, 1
+mov bx, gtempb
+mov al,[letn + bx]
+ret
+
+gnxtlett2:
+	mov positiv, 0
+	cmp ll,6fh
+	je gdrawo
+	cmp ll,70h
+	je gdrawp
+	cmp ll,71h
+	je gdrawq
+	cmp ll,72h
+	je gdrawr
+	cmp ll,73h
+	je gdraws
+	cmp ll,74h
+	je gdrawt
+	cmp ll,75h
+	je gdrawu
+	cmp ll,76h
+	je gdrawv
+	cmp ll,30h
+	je gnadaa
+	ret
+
+gnadaa:
+mov bx, gtempb
+mov al, 0
+ret
+gdrawo:
+mov bx, gtempb
+mov al,[leto + bx]
+ret
+gdrawp:
+mov bx, gtempb
+mov al,[letp + bx]
+ret
+gdrawq:
+mov bx, gtempb
+mov al,[letq + bx]
+ret
+gdrawr:
+mov bx, gtempb
+mov al,[letr + bx]
+ret
+gdraws:
+mov bx, gtempb
+mov al,[lets + bx]
+ret
+gdrawt:
+mov bx, gtempb
+mov al,[lett + bx]
+ret
+gdrawu:
+mov bx, gtempb
+mov al,[letu + bx]
+ret
+gdrawv:
+mov bx, gtempb
+mov al,[letv + bx]
+ret
+
+drawstrin endp
 end main
