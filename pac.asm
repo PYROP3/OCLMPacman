@@ -186,7 +186,6 @@ TITLE PACOMANO
 	
 
 	lives 	db	3
-	lvv     db  0
 	points	dw	0
 	dotseaten	dw	0
 
@@ -207,8 +206,8 @@ TITLE PACOMANO
 
 	pm 		db	0
 	pdir	db 	3 ;1 = esquerda; 2 = cima; 3 = direita; 4 = baixo
+	newpdir	db	3
 	pmouth	db 	1 ;0 = fechada; 1 = aberta
-	newpdir db  3
 
 	;cscr	db 	0
 
@@ -219,7 +218,8 @@ TITLE PACOMANO
 	;		db 	0eH,0eH,0eH,0eH,00H,00H,00H
 	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
-cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+
+	cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
 			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
 			db	00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h
@@ -338,38 +338,6 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 	;		db 	0eH,0eH,0eH,0eH,0eH,0eH,0eH
 	;		db 	00H,0eH,0eH,0eH,0eH,0eH,00H
 	;		db 	00H,00H,0eH,0eH,0eH,00H,00H
-
-	cora	db	00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h
-			db	00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
-			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
-			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
-			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
-			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
-			db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,00h
-
-	corabl	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	pacfech	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,0eh,0eh,0eh,0eh,0eh,0eh,0eh,00h,00h,00h,00h
@@ -1099,7 +1067,13 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	maxdots	dw	0
 	mapSize	equ	624
-
+	;spastil	db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,0fh,0fh,0fh,0fh,0fh,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
 
 	spastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1148,7 +1122,13 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 	supertimer	dw	0
 	invultime	equ	15
 
-
+	;pastil	db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,0fh,00h,00h,00h
+	;		db 	00h,00h,0fh,0fh,0fh,00h,00h
+	;		db 	00h,00h,00h,0fh,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
+	;		db 	00h,00h,00h,00h,00h,00h,00h
 
 	pastil	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1167,6 +1147,13 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 
+	;cherry	db 	00h,00h,00h,0ah,0ah,0ah,00h
+	;		db 	00h,00h,0ah,0ah,00h,00h,00h
+	;		db 	00h,00h,0ah,00h,04h,04h,00h
+	;		db 	00h,0ch,0ch,04h,04h,04h,04h
+	;		db 	0ch,0ch,0ch,0ch,04h,04h,04h
+	;		db 	0ch,0ch,0ch,0ch,04h,04h,00h
+	;		db 	00h,0ch,0ch,00h,00h,00h,00h
 
 	cherry	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah
 			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,0ah,0ah,0ah,0ah,0ah,0ah
@@ -1211,6 +1198,41 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 	cherry4ys 	dw 	0
 	cherry4ex 	dw 	1
 	cherry4ind	dw	0
+
+	lvv     db  00h
+
+
+	cora	db	00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,00h
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
+			db	00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h
+			db	00h,00h,00h,00h,0ch,0ch,0ch,0ch,0ch,0ch,0ch,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,0ch,0ch,0ch,00h,00h,00h,00h,00h,00h
+
+	corabl	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+			db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
 	ulcorner	db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
 				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
@@ -1453,7 +1475,7 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
 
-	hldline		db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+	hldline		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,01h,01h,01h,01h,01h,01h,01h,01h,01h
 				db	00h,00h,00h,00h,01h,01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h
@@ -1468,9 +1490,9 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,01h,01h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,01h,01h,01h,01h,01h,01h,01h,01h,01h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-				db	00h,00h,01h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 
-	hrdline		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+	hrdline		db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	01h,01h,01h,01h,01h,01h,01h,01h,01h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h,01h,00h,00h,00h,00h
@@ -1485,7 +1507,7 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,01h,01h,00h,00h,00h,00h
 				db	01h,01h,01h,01h,01h,01h,01h,01h,01h,00h,00h,00h,00h,00h,00h,00h
 				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
-				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,01h,00h,00h
+				db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 	mapaddr	dw	00h
 	;sqrsz	dw	7
 	;ssqrsz	db 	8
@@ -1690,6 +1712,7 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 			db	0fh,0fh,00h,00h,00h,00h,00h,00h
 			db	00h,0fh,0fh,0fh,0fh,0fh,0fh,0fh
 
+
 	letm	db	0fh,00h,00h,00h,00h,00h,00h,0fh
 			db	0fh,0fh,00h,00h,00h,00h,0fh,0fh
 			db	0fh,0fh,0fh,00h,00h,0fh,0fh,0fh
@@ -1853,14 +1876,13 @@ cpac	db	00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h,00h
 	ptga    db  70h,6fh,6eh,74h,6fh,73h
 	vidga   db  76h,69h,64h,61h,73h
 	loose   db  67h,61h,6dh,65h,30h,6fh,76h,65h,72h
+	winn    db  76h,6fh,63h,65h,30h,67h,61h,6eh,68h,6fh,75h
 	;play3   db  16,1,18,1,30,13,15,30,5,18,30,15,30,16,1,3,13,1,14,30,21,,0,20,9,12,9,30,5,30,1,0,19,0,30,20,5,3,12,1,19,30,30,1,19,4,30,30,30,13,15,30,5,30,16,1,18,1,0,30,3,9,13,1,30,19,30,13,15,30,5,30,16,1,18,1,0,30,2,1,9,24,15,30,4,30,13,15,22,5,30,16,1,18,1,30,4,9,18,5,9,20,1,30,1,,0,30,13,15,30,5,30,16,1,18,1,30,1,30,5,19,17,30,5,18,4,1
 	espaco  dw  232
 	espacoc dw  160
 	;name	dw  "digite seu nome!$"
 	letnsqrsz  equ 2
 	letnssqrsz equ 2
-
-	;up1:  
 .code
 main proc
 	mov ax,@data
@@ -2020,6 +2042,7 @@ jogo:
 	int 13
 	call gdrawgame
 	call drawlives
+
 	call loadmap
 	call countmaxdots
 
@@ -2039,7 +2062,6 @@ jogo:
 	call drawghosts
 	call drawpac
 	call redrawdoor
-
 	;mov cx,70	;loops to execute (debug only)
 m:
 	;mov ttt,cx
@@ -2095,6 +2117,9 @@ notsuper:
 	
 	call movepacman
 	;call slidepacman
+	;call updatepacmanvars
+
+	;call slidepacman
 	;call doubletapghosts
 	call collidewithghosts
 	call processghosts
@@ -2121,8 +2146,8 @@ notsuper:
 	mov al,0
 	call drawsqr
 dontclearpacman:
-	;cmp cscr,2
 	call drawpac
+	;cmp cscr,2
 	;je chng1
 	;mov cscr,2
 	;jmp donechng
@@ -2152,6 +2177,9 @@ dontclearpacman:
 	call updatepacmansprite
 
 	call movepacman
+	;call slidepacman
+	;call updatepacmanvars
+
 	call collidewithghosts
 	call doubletapghosts
 
@@ -2311,6 +2339,42 @@ uu:
 	call drawlet
 	ret
 clee endp
+
+gdrawgame proc
+	mov cx, 6
+	mov bx, 0
+	mov espaco, 480
+	mov espacoc, 60
+lll:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[ptga+bx]
+	mov ll, al
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop lll
+
+	mov cx, 5
+	mov bx, 0
+	mov espaco, 480
+	mov espacoc, 360
+	onn:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[vidga+bx]
+	mov ll, al
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop onn
+	ret
+gdrawgame endp
+
 
 redrawdoor proc ;y = 11 (0-ind), x = 11,12,13,14 (0-ind)
 	mov bx, 297
@@ -2475,41 +2539,6 @@ lmp11:
 		loop lmp11
 ret
 loadmap endp
-
-gdrawgame proc
-	mov cx, 6
-	mov bx, 0
-	mov espaco, 480
-	mov espacoc, 60
-lll:
-	mov tempd, bx
-	mov tempa, cx
-	mov al,[ptga+bx]
-	mov ll, al
-	call drawll
-	mov cx, tempa
-	mov bx, tempd
-	add espaco, 20
-	add bx, 1
-	loop lll
-
-	mov cx, 5
-	mov bx, 0
-	mov espaco, 480
-	mov espacoc, 360
-	onn:
-	mov tempd, bx
-	mov tempa, cx
-	mov al,[vidga+bx]
-	mov ll, al
-	call drawll
-	mov cx, tempa
-	mov bx, tempd
-	add espaco, 20
-	add bx, 1
-	loop onn
-	ret
-gdrawgame endp
 
 printdata proc 
 	mov ah,2
@@ -4300,7 +4329,6 @@ updateg4vars proc
 ret
 updateg4vars endp
 
-
 movepacman proc
 	mov ax,pxs
 	mov prevpxs,ax
@@ -4393,6 +4421,16 @@ turnpacman proc
 	je t2
 	cmp al,65 	;A = left
 	je t1
+
+	cmp al,050h	; down
+	je t4
+	cmp al,04dh 	; right
+	je t3
+	cmp al,048h 	; up
+	je t2
+	cmp al,04bh 	; left
+	je t1
+	
 	cmp al,'K'
 	je fin
 	jmp endturn ;Unrecognized
@@ -4400,30 +4438,31 @@ t1:			;esquerda
 	;sub bx,1
 	;cmp [map + bx],1
 	;je endturn
-	mov pdir,1
+	mov newpdir,1
 	ret
 t2:			;cima
 	;sub bx,nmapWidw
 	;cmp [map + bx],1
 	;je endmove
-	mov pdir,2
+	mov newpdir,2
 	ret
 t3:			;direita
 	;add bx,1
 	;cmp [map + bx],1
 	;je endturn
-	mov pdir,3
+	mov newpdir,3
 	ret
 t4:			;baixo
 	;add bx,nmapWidw
 	;cmp [map + bx],1
 	;je endturn
-	mov pdir,4
+	mov newpdir,4
 	ret
 endturn:
 	ret
 	fin: call finalizar
 turnpacman endp
+
 applyturnpacman proc
 	mov bx,pindex
 	cmp newpdir,4
@@ -4483,6 +4522,7 @@ cantturn1:
 	;add pxs,8
 ret
 newturnpacman endp
+
 setghosts proc
 	call setghost1s
 	call setghost2s
@@ -5038,6 +5078,10 @@ moveghosts proc
 	call moveghost2
 	call moveghost3
 	call moveghost4
+	; call slideg1
+	; call slideg2
+	; call slideg3
+	; call slideg4
 ret
 moveghosts endp
 
@@ -5273,6 +5317,10 @@ waitghost1:
 	jnz stillwaitingg1
 		mov g1m,1
 		mov g1d,2
+		;mov g1x,13
+		;mov g1y,11
+		;mov g1xs,256
+		;mov g1ys,224
 	stillwaitingg1:
 ret
 
@@ -5280,6 +5328,11 @@ willturng1:
 	call newturnghost1
 
 agag1:
+	;call slideg1
+	;call updateg1vars
+	;call replaceg1
+	;ret
+
 	mov bx,g1ind
 	mov prg1ind,bx
 
@@ -5370,6 +5423,9 @@ ret
 willturng2:
 	call newturnghost2
 agag2:
+	;call slideg2
+	;call updateg2vars
+	;ret
 	;call newturnghost2
 
 	mov bx,g2ind
@@ -5464,6 +5520,9 @@ ret
 willturng3:
 	call newturnghost3
 agag3:	
+	;call slideg3
+	;call updateg3vars
+	;ret
 	;call newturnghost3
 	mov bx,g3ind
 	mov prg3ind,bx
@@ -5558,6 +5617,9 @@ ret
 willturng4:
 	call newturnghost4
 agag4:
+	;call slideg4
+	;call updateg4vars
+	;ret
 	;call newturnghost4
 
 	mov bx,g4ind
@@ -6749,10 +6811,13 @@ collidewithghosts proc
 	;mov ax,g1y
 	;cmp ax,py
 	;jne nocollisiong1
-	
+
 	;cmp pm,0
 	cmp g1m,1
 	je takedamagejump
+
+	cmp g1m,3
+	je nocollisiong1
 	;else eat and add points
 	
 	;mov g1x,gretx
@@ -6763,7 +6828,6 @@ collidewithghosts proc
 	;mov g1ind,greti
 	
 	mov g1m,3
-
 	and g1xs,1111111111110000b
 	and g1ys,1111111111110000b
 
@@ -6886,7 +6950,28 @@ pacmandied:
 
 	cmp lives, 0
 	je perdeuu
-	call finalizar
+	mov cx, 11
+	mov espaco, 250
+	mov espacoc, 163
+venceu:
+	mov tempd, bx
+	mov tempa, cx
+	mov al,[winn+bx]
+	mov ll, al
+
+	call drawll
+	mov cx, tempa
+	mov bx, tempd
+	add espaco, 20
+	add bx, 1
+	loop venceu
+
+	mov espaco, 250
+	mov espacoc, 200
+	mov cx, 8
+	mov bx,0
+	jmp nomme
+	;call finalizar
 	perdeuu:
 
 	mov tempd, bx
@@ -7576,7 +7661,6 @@ eatspastil4 proc
 	add points,100
 	mov espacoc, 100
 	mov espaco, 480	
-
 	call elisabeth
 	;mov pm,1
 	call setsupermode
@@ -7720,6 +7804,7 @@ gdrawnextcell:
 	mov al,[lp + bx]
 	call gdrawsqr
 	jmp gincr
+
 gnothb:
 	mov bx,gtempb
 	call gconvindextocoord
@@ -7806,27 +7891,6 @@ gconvindextocoord proc; bx = index => scrx e scry
 	;mov scrx,ax
 	ret
 gconvindextocoord endp
-
-;controles proc
-;mov cx, strsize
-;cmp tela, 2
-;je maioor
-;mov bx, 0
-;jmp aca
-;maioor:
-;mov cx, sslet
-;mov bx, 0
-;aca:
-;mov tempd, cx
-;mov cx, 0
-;mov [play2+bx], [play3+bx]
-;mov al,[play3+bx]
-;mov [play2+bx],al
-;add bx,1
-;mov cx, tempd
-;loop aca
-;ret
-;controles endp
 
 drawlet proc
 mov tempb,0
